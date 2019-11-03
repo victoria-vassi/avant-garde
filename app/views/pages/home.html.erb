@@ -33,7 +33,7 @@
             <a class="nav-link u-header__nav-link" href="#campaigns-section">Campaigns</a>
           </li>
           <li class="nav-item u-header__nav-item">
-            <a class="nav-link u-header__nav-link" href="#how-to">How/To</a>
+            <a class="nav-link u-header__nav-link" href="#how-to">How It Works</a>
           </li>
           <li class="nav-item u-header__nav-last-item">
             <a class="btn btn-soft-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/In</a>
@@ -71,14 +71,12 @@
     </div>
     <!-- End Content -->
 
-
-    <!-- SVG Background -->
-    <div id="SVGMainHero" class="col-lg-9 col-xl-7 svg-preloader d-none d-lg-block position-absolute top-0 right-0 pr-0" style="margin-top: 70px;">
-      <figure class="ie-main-hero">
-      	<%= image_tag("main-hero.svg", class: "js-svg-injector", alt: "Image Description", data: { parent: "#SVGMainHero" }) %>
-      </figure>
+    <div class="col-lg-9 col-xl-7 d-none d-lg-block position-absolute top-0 right-0 pr-0">
+      <!-- PNG Mockup -->
+      <img src="<%= image_path("png/main-hero.png") %>" style="width: 100%" alt="">
+      <!-- End PNG Mockup -->
     </div>
-    <!-- End SVG Background -->
+
 
   </div>
 </div>
@@ -91,7 +89,7 @@
       <div class="col-md-4 mb-9 mb-md-0">
         <div class="pr-lg-4">
           <figure id="SVGanalysis" class="svg-preloader mb-3">
-			<%= image_tag("svg/investment.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: "#SVGanalysis" }) %>
+			     <%= image_tag("svg/investment.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: "#SVGanalysis" }) %>
           </figure>
           <h4 class="h5 text-center">Diversification</h4>
           <p>Never put all your eggs in the same basket! You can now co-own an art collection and diversify your portfolio of financial assets.</p>
@@ -419,7 +417,7 @@
 <!-- Mockup Block Section -->
 <div class="gradient-half-primary-v3">
   <div class="container space-2" id="how-to">
-    <h1 class="display-5 font-size-md-down-5 my-5 text-center">How To</h1>
+    <h1 class="display-5 font-size-md-down-5 my-5 text-center">How It Works</h1>
 
     <div class="row justify-content-lg-between align-items-center pb-1 pt-4 mb-5">
       <div class="col-md-6 col-lg-6 order-md-2 mb-7 mb-md-0">
@@ -464,9 +462,9 @@
       </div>
 
       <div class="col-md-6">
-        <!-- SVG Mockup -->
+        <!-- PNG Mockup -->
         <img src="<%= image_path("png/how-to.png") %>" style="width: 90%" alt="">
-        <!-- End SVG Mockup -->
+        <!-- End PNG Mockup -->
       </div>
     </div>
   </div>
@@ -497,7 +495,7 @@
         <a class="list-group-item-action" href="#campaigns-section">Campaingns</a>
       </li>
       <li class="list-inline-item px-3">
-        <a class="list-group-item-action" href="#how-to">How/To</a>
+        <a class="list-group-item-action" href="#how-to">How It Works</a>
       </li>
     </ul>
     <!-- End List -->

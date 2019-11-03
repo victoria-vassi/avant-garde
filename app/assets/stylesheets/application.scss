@@ -5,12 +5,17 @@
 
 // External libraries
 // @import "bootstrap/scss/bootstrap";
-// @import "font-awesome-sprockets";
-// @import "font-awesome";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
-// Bootstrap theme Front
+// CSS Implementing Plugins 
+@import "../vendor/animate.css/animate.min";
+@import "../vendor/hs-megamenu/src/hs.megamenu";
+
+// CSS Front Template
 @import "theme";
+// @import "../vendor/fancybox/jquery.fancybox"
