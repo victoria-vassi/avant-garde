@@ -1,2 +1,542 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- ========== HEADER ========== -->
+<header id="header" class="u-header u-header--sticky-top" data-header-fix-moment="500" data-header-fix-effect="slide">
+<div class="u-header__section">
+  <div id="logoAndNav" class="container">
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
+      <!-- Logo -->
+      <a class="d-inline-flex align-items-center" href="#home-section" aria-label="Front">
+        <span class="brand brand-primary mr-0" style="color: black">Avant</span>
+        <span class="brand brand-primary mx-0" style="color: #377dff">/</span>
+        <span class="brand brand-primary ml-0" style="color: black">Garde</span>
+      </a>
+      <!-- End Logo -->
+
+      <!-- Responsive Toggle Button -->
+      <button type="button" class="navbar-toggler btn u-hamburger"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+              aria-controls="navBar"
+              data-toggle="collapse"
+              data-target="#navBar">
+        <span id="hamburgerTrigger" class="u-hamburger__box">
+          <span class="u-hamburger__inner"></span>
+        </span>
+      </button>
+      <!-- End Responsive Toggle Button -->
+
+
+      <!-- Navigation -->
+      <div id="navBar" class="collapse navbar-collapse u-header__navbar-collapse">
+        <ul class="js-scroll-nav navbar-nav align-items-md-center u-header__navbar-nav">
+          <li class="nav-item u-header__nav-item">
+            <a class="nav-link u-header__nav-link" href="#campaigns-section">Campaigns</a>
+          </li>
+          <li class="nav-item u-header__nav-item">
+            <a class="nav-link u-header__nav-link" href="#how-to">How/To</a>
+          </li>
+          <li class="nav-item u-header__nav-last-item">
+            <a class="btn btn-soft-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/In</a>
+          </li>              
+          <li class="nav-item u-header__nav-last-item">
+            <a class="btn btn-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/Up</a>
+          </li>
+        </ul>
+      </div>
+      <!-- End Navigation -->
+    </nav>
+    <!-- End Nav -->
+  </div>
+</div>
+</header>
+<!-- ========== END HEADER ========== -->
+
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">   
+
+<!-- Hero Section -->
+<div class="d-lg-flex position-relative">
+  <div class="container d-lg-flex align-items-lg-center space-top-2 space-top-md-5 space-lg-0 min-height-lg-100vh">
+    <!-- Content -->
+    <div class="row w-100">
+      <div class="col-lg-5">
+        <h1 class="display-5 font-size-md-down-5 my-3">Invest in museum-worthy artworks</h1>
+        <p>
+          New artwork campaigns go live on the Avant/Garde platform every month. Fractional ownership allows you to participate in the value increase of works by some of the best artists. Start with a small investment and grow your art collection over time. 
+        </p>
+        <div class="d-flex align-items-center flex-wrap">
+          <a class="btn btn-primary btn-wide transition-3d-hover" href="">Sign/Up</a>
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+
+
+    <!-- SVG Background -->
+    <div id="SVGMainHero" class="col-lg-9 col-xl-7 svg-preloader d-none d-lg-block position-absolute top-0 right-0 pr-0" style="margin-top: 70px;">
+      <figure class="ie-main-hero">
+        <img class="js-svg-injector" src="src/main-hero.svg" alt="Image Description"data-parent="#SVGMainHero">
+      </figure>
+    </div>
+    <!-- End SVG Background -->
+
+  </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Icon Blocks -->
+<div class="gradient-half-primary-v3">
+  <div class="container space-1">
+    <div class="row">
+      <div class="col-md-4 mb-9 mb-md-0">
+        <div class="pr-lg-4">
+          <figure id="SVGanalysis" class="svg-preloader mb-3">
+            <img class="js-svg-injector w-100" src="src/investment.svg" alt="Image Description" style="height: 70px"
+                 data-parent="#SVGanalysis">
+          </figure>
+          <h4 class="h5 text-center">Diversification</h4>
+          <p>Never put all your eggs in the same basket! You can now co-own an art collection and diversify your portfolio of financial assets.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-9 mb-md-0">
+        <div class="pr-lg-4">
+          <figure id="SVGinTheOffice" class="svg-preloader mb-3">
+            <img class="js-svg-injector w-100" src="src/growth.svg" alt="Image Description" style="height: 70px"
+                 data-parent="#SVGinTheOffice">
+          </figure>
+          <h4 class="h5 text-center">Affordability</h4>
+          <p>Start buying shares of artworks for only 500€. Masterpieces and their expected value increase are now accessible to any private investor.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pr-lg-4">
+          <figure id="SVGmakeItRain" class="svg-preloader mb-3">
+            <img class="js-svg-injector w-100" src="src/winner.svg" alt="Image Description" style="height: 70px";
+                 data-parent="#SVGmakeItRain">
+          </figure>
+          <h4 class="h5 text-center">Simplicity</h4>
+          <p>Avant/Gard's platform allows you to buy shares of established artists and emerging talents with a few clicks. Safe storage is guranteed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Icon Blocks -->
+
+
+<!-- Campaign List -->
+<div class="container space-2" id="campaigns-section">
+  <h1 class="display-5 font-size-md-down-5 my-5 text-center">Selected Campgaigns</h1>
+
+  <!-- Campaign Item 1 -->
+  <div class="border-bottom pb-1 pt-9 mb-5">
+    <div class="row">
+      <div class="col-md-3 d-md-flex align-items-md-start flex-md-column mb-5 mb-md-0">
+        <!-- Gallery -->
+        <a class="js-fancybox u-media-viewer mb-3" href="javascript:;"
+           data-src="src/grammy1.jpg"
+           data-fancybox="fancyboxGalleryExample1"
+           data-caption="Front in frames - image #01"
+           data-speed="700"
+           data-is-infinite="true">
+          <img class="img-fluid w-100" src="src/grammy1.jpg" alt="Image Description">
+
+          <div class="position-absolute bottom-0 right-0 pb-2 pr-2">
+            <span class="btn btn-icon btn-sm btn-white">
+              <span class="fas fa-images btn-icon__inner"></span>
+            </span>
+          </div>
+        </a>
+
+        <img class="js-fancybox d-none" alt="Image Description"
+             data-fancybox="fancyboxGalleryExample1"
+             data-src="src/grammy2.jpg"
+             data-caption="Front in frames - image #02"
+             data-speed="700"
+             data-is-infinite="true">
+        <img class="js-fancybox d-none" alt="Image Description"
+             data-fancybox="fancyboxGalleryExample1"
+             data-src="src/grammy3.jpg"
+             data-caption="Front in frames - image #02"
+             data-speed="700"
+             data-is-infinite="true">
+        <!-- End Gallery -->
+
+        <!-- Artist Info -->
+        <div class="media align-items-center mt-auto">
+          <div class="media-body">
+            <span class="d-block">Peter Max</span>
+            <p class="font-size-1">Grammy, 1991</p>
+          </div>
+        </div>
+        <!-- End Artist Info -->
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-8">
+            <h2 class="h4 mb-1">
+              $250,000
+            </h2>
+          </div>
+          <div class="col-4 text-right">
+            <span class="badge badge-success">New</span>
+          </div>
+        </div>
+
+        <!-- Seller -->
+        <div class="mb-3">
+          <p class="font-size-1 text-primary">
+            Offered by RoGallery - Long Island City, United States
+          </p>
+        </div>
+        <!-- End Seller -->
+
+        <!-- Icon Blocks -->
+        <ul class="list-inline font-size-1">
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-info text-muted mr-1"></span>
+            Painting 
+          </li>
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-history text-muted mr-1"></span>
+            Pop Art
+          </li>
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-paint-brush text-muted mr-1"></span>
+            Acrylic on Canvas
+          </li>
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-ruler-combined text-muted mr-1"></span>
+            160 x 129.5 x 2.5 cm
+          </li>
+        </ul>
+        <!-- End Icon Blocks -->
+
+        <p class="font-size-1">Peter Max was invited in 1989 by the National Academy of Recording Arts and Sciences to create the first of his Grammy paintings which was made into a collectible poster commemorating the Grammy Awards. This Grammy was painted in 1991 and the image was used for the same. Overall Max has done five Grammy images for the Academy.</p>
+
+        <!-- Financials -->
+        <div class="d-flex align-items-center font-size-1">
+          <p class="text-body">
+            <span>
+              <span class="fas fa-chart-line mr-2"></span>
+              <div>
+                <strong>3.5%</strong> value increase p.a.
+                <div>(expected*)</div>
+              </div>
+            </span>
+          </p>
+          <p class="text-body ml-6">
+            <span>
+              <span class="far fa-money-bill-alt mr-2"></span>
+              <div>
+                <strong>0.4%</strong> payout rate p.a
+                <div>(secured 2 years**)</div>
+              </div>
+            </span>
+          </p>
+          <p class="text-body ml-6">
+            <span>
+              <span class="far fa-plus-square mr-2"></span>
+              <div>
+                <strong>3.9%</strong> total return p.a
+                <div>(combined)</div>
+              </div>
+            </span>
+          </p>
+        </div>
+        <!-- End Financials -->
+
+        <!-- Funding Status -->
+        <div class="d-flex justify-content-between mt-4">
+          <div>
+            <p class="font-size-1 mb-0">Status: 53% financed ($117,500 remaining)</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 53%" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar bg-soft-primary" role="progressbar" style="width: 47%" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> 
+          </div>
+          <div class="d-flex align-items-center font-size-1">
+              <a class="btn btn-sm btn-soft-primary transition-3d-hover ml-auto" href="">
+              Details
+              <span class="fas fa-angle-right ml-1"></span>
+            </a>
+          </div>
+        </div>
+        <!-- End Funding Status -->
+
+      </div>
+    </div>
+  </div>
+  <!-- End Campaign Item 1 -->
+
+  <!-- Campaign Item 2 -->
+  <div class="border-bottom pb-1 pt-4 mb-4">
+    <div class="row">
+      <div class="col-md-3 d-md-flex align-items-md-start flex-md-column mb-5 mb-md-0">
+        <!-- Gallery -->
+        <a class="js-fancybox u-media-viewer mb-3" href="javascript:;"
+           data-src="src/levoyeur1.jpg"
+           data-fancybox="fancyboxGalleryExample2"
+           data-caption="Front in frames - image #01"
+           data-speed="700"
+           data-is-infinite="true">
+          <img class="img-fluid w-100" src="src/levoyeur1.jpg" alt="Image Description">
+
+          <div class="position-absolute bottom-0 right-0 pb-2 pr-2">
+            <span class="btn btn-icon btn-sm btn-white">
+              <span class="fas fa-images btn-icon__inner"></span>
+            </span>
+          </div>
+        </a>
+
+        <img class="js-fancybox d-none" alt="Image Description"
+             data-fancybox="fancyboxGalleryExample2"
+             data-src="src/levoyeur2.jpg"
+             data-caption="Front in frames - image #02"
+             data-speed="700"
+             data-is-infinite="true">
+        <!-- End Gallery -->
+
+        <!-- Artist Info -->
+        <div class="media align-items-center mt-auto">
+          <div class="media-body">
+            <span class="d-block">Salvador Dali</span>
+            <p class="font-size-1">Le Voyeuer, 1974</p>
+          </div>
+        </div>
+        <!-- End Artist Info -->
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-8">
+            <h2 class="h4 mb-1">
+              $124,656
+            </h2>
+          </div>
+        </div>
+
+        <!-- Seller -->
+        <div class="mb-3">
+          <p class="font-size-1 text-primary">
+            Offered by Professional art gallery - Arruda dos Vinhos, Portugal
+          </p>
+        </div>
+        <!-- End Seller -->
+
+        <!-- Icon Blocks -->
+        <ul class="list-inline font-size-1">
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-info text-muted mr-1"></span>
+            Painting 
+          </li>
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-history text-muted mr-1"></span>
+            Cubism
+          </li>
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-paint-brush text-muted mr-1"></span>
+            Oil on Canvas
+          </li>
+          <li class="list-inline-item mr-3 text-muted">
+            <span class="fas fa-ruler-combined text-muted mr-1"></span>
+            65 x 51 x 2 cm
+          </li>
+        </ul>
+        <!-- End Icon Blocks -->
+
+        <p class="font-size-1">Salvador Dalí produced over 1,500 paintings in his career. He also produced illustrations for books, lithographs, designs for theater sets and costumes, a great number of drawings, dozens of sculptures, and various other projects, including an animated short film for Disney.</p>
+
+        <p class="font-size-1">This is the painting in which he experimented with Cubism.</p>
+
+        <!-- Financials -->
+        <div class="d-flex align-items-center font-size-1">
+          <p class="text-body">
+            <span>
+              <span class="fas fa-chart-line mr-2"></span>
+              <div>
+                <strong>2.9%</strong> value increase p.a.
+                <div>(expected*)</div>
+              </div>
+            </span>
+          </p>
+          <p class="text-body ml-6">
+            <span>
+              <span class="far fa-money-bill-alt mr-2"></span>
+              <div>
+                <strong>0.5%</strong> payout rate p.a
+                <div>(secured 3 years**)</div>
+              </div>
+            </span>
+          </p>
+          <p class="text-body ml-6">
+            <span>
+              <span class="far fa-plus-square  mr-2"></span>
+              <div>
+                <strong>3.4%</strong> total return p.a
+                <div>(combined)</div>
+              </div>
+            </span>
+          </p>
+        </div>
+        <!-- End Financials -->
+
+        <!-- Funding Status -->
+        <div class="d-flex justify-content-between mt-4">
+          <div>
+            <p class="font-size-1 mb-0">Status: 87% financed ($16,205 remaining)</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar bg-soft-primary" role="progressbar" style="width: 13%" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> 
+          </div>
+          <div class="d-flex align-items-center font-size-1">
+              <a class="btn btn-sm btn-soft-primary transition-3d-hover ml-auto" href="">
+              Details
+              <span class="fas fa-angle-right ml-1"></span>
+            </a>
+          </div>
+        </div>
+        <!-- End Funding Status -->
+
+      </div>
+    </div>
+  </div>
+  <!-- End Campaign Item 2 -->
+
+</div>
+<!-- End Campaign List -->
+
+<!-- CTA Section -->
+<div class="bg-primary text-white text-center">
+  <div class="container space-1">
+    <span class="h6 d-block d-lg-inline-block font-weight-light mb-lg-0">
+      <span class="font-weight-semi-bold">Intrested?</span> – See all campaigns and detailed information in the Avant/Garde app
+    </span>
+    <a class="btn btn-sm btn-white transition-3d-hover font-weight-normal ml-3" href="">Sign/Up</a>
+  </div>
+</div>
+<!-- End CTA Section -->
+
+<!-- Mockup Block Section -->
+<div class="gradient-half-primary-v3">
+  <div class="container space-2" id="how-to">
+    <h1 class="display-5 font-size-md-down-5 my-5 text-center">How To</h1>
+
+    <div class="row justify-content-lg-between align-items-center pb-1 pt-4 mb-5">
+      <div class="col-md-6 col-lg-6 order-md-2 mb-7 mb-md-0">
+        <div class="pl-md-4">
+          <!-- Info -->
+          <div class="media mb-3">
+            <span class="btn btn-sm btn-icon btn-soft-primary rounded-circle mr-3">
+              <span class="btn-icon__inner">A.</span>
+            </span>
+            <div class="media-body">
+              <h3 class="h5 text-b">Own artwork shares after closing</h3>
+              <p>Only if the campaign is fully funded, the deal with the seller is closed and virtual shares are distributed among the investors.</p>
+            </div>
+          </div>
+          <!-- End Info -->
+
+          <!-- Info -->
+          <div class="media mb-3">
+            <span class="btn btn-sm btn-icon btn-soft-primary rounded-circle mr-3">
+              <span class="btn-icon__inner">B.</span>
+            </span>
+            <div class="media-body">
+              <h3 class="h5 text-b">Profit from yearly payouts</h3>
+              <p>Part of every campaign is a renting greement with a museum for a pre-defined time. The earnings are payed pro rata every year.</p>
+            </div>
+          </div>
+          <!-- End Info -->
+
+          <!-- Info -->
+          <div class="media mb-3">
+            <span class="btn btn-sm btn-icon btn-soft-primary rounded-circle mr-3">
+              <span class="btn-icon__inner">C.</span>
+            </span>
+            <div class="media-body">
+              <h3 class="h5 text-b">Profit from value increase</h3>
+              <p>Avant/Garde aims to negotiate a sales offer on behlaf of the virtual shareholders after 4-7 years. The majority has to agree to the deal.</p>
+            </div>
+          </div>
+          <!-- End Info -->
+
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- SVG Mockup -->
+        <img src="src/how-to.png" style="width: 90%" alt="">
+        <!-- End SVG Mockup -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Mockup Block Section -->
+
+</main>
+
+<!-- ========== END MAIN CONTENT ========== -->
+
+<!-- ========== FOOTER ========== -->
+<footer class="container space-1">
+<div class="row align-items-md-center">
+  <div class="col-md-3 mb-4 mb-md-0">
+    <div class="d-flex align-items-center">
+      <a class="d-inline-flex align-items-center" aria-label="Front">
+        <span class="brand brand-primary mr-0" style="color: black">Avant</span>
+        <span class="brand brand-primary mx-0" style="color: #377dff">/</span>
+        <span class="brand brand-primary ml-0" style="color: black">Garde</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-sm-7 col-md-6 mb-4 mb-sm-0">
+    <!-- List -->
+    <ul class="list-inline list-group-flush list-group-borderless font-size-1 text-md-center mb-0">
+      <li class="list-inline-item pr-3">
+        <a class="list-group-item-action" href="#campaigns-section">Campaingns</a>
+      </li>
+      <li class="list-inline-item px-3">
+        <a class="list-group-item-action" href="#how-to">How/To</a>
+      </li>
+    </ul>
+    <!-- End List -->
+  </div>
+
+  <div class="col-sm-5 col-md-3 text-sm-right">
+    <!-- Social Networks -->
+    <ul class="list-inline mb-0">
+      <li class="list-inline-item">
+        <a class="btn btn-sm btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="">
+          <span class="fab fa-linkedin-in btn-icon__inner"></span>
+        </a>
+      </li>          
+      <li class="list-inline-item">
+        <a class="btn btn-sm btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="">
+          <span class="fab fa-instagram btn-icon__inner"></span>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn btn-sm btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="">
+          <span class="fab fa-facebook-f btn-icon__inner"></span>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn btn-sm btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="">
+          <span class="fab fa-twitter btn-icon__inner"></span>
+        </a>
+      </li>
+      <li class="list-inline-item">
+        <a class="btn btn-sm btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="">
+          <span class="fab fa-youtube btn-icon__inner"></span>
+        </a>
+      </li>
+    </ul>
+    <!-- End Social Networks -->
+  </div>
+</div>
+</footer>
+<!-- ========== END FOOTER ========== -->
