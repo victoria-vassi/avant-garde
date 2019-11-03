@@ -75,7 +75,7 @@
     <!-- SVG Background -->
     <div id="SVGMainHero" class="col-lg-9 col-xl-7 svg-preloader d-none d-lg-block position-absolute top-0 right-0 pr-0" style="margin-top: 70px;">
       <figure class="ie-main-hero">
-        <img class="js-svg-injector" src="src/main-hero.svg" alt="Image Description"data-parent="#SVGMainHero">
+      	<%= image_tag("main-hero.svg", class: "js-svg-injector", alt: "Image Description", data: { parent: "#SVGMainHero" }) %>
       </figure>
     </div>
     <!-- End SVG Background -->
@@ -91,8 +91,7 @@
       <div class="col-md-4 mb-9 mb-md-0">
         <div class="pr-lg-4">
           <figure id="SVGanalysis" class="svg-preloader mb-3">
-            <img class="js-svg-injector w-100" src="src/investment.svg" alt="Image Description" style="height: 70px"
-                 data-parent="#SVGanalysis">
+			<%= image_tag("svg/investment.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: "#SVGanalysis" }) %>
           </figure>
           <h4 class="h5 text-center">Diversification</h4>
           <p>Never put all your eggs in the same basket! You can now co-own an art collection and diversify your portfolio of financial assets.</p>
@@ -101,8 +100,7 @@
       <div class="col-md-4 mb-9 mb-md-0">
         <div class="pr-lg-4">
           <figure id="SVGinTheOffice" class="svg-preloader mb-3">
-            <img class="js-svg-injector w-100" src="src/growth.svg" alt="Image Description" style="height: 70px"
-                 data-parent="#SVGinTheOffice">
+          	<%= image_tag("svg/growth.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: "#SVGinTheOffice" }) %>
           </figure>
           <h4 class="h5 text-center">Affordability</h4>
           <p>Start buying shares of artworks for only 500€. Masterpieces and their expected value increase are now accessible to any private investor.</p>
@@ -111,8 +109,7 @@
       <div class="col-md-4">
         <div class="pr-lg-4">
           <figure id="SVGmakeItRain" class="svg-preloader mb-3">
-            <img class="js-svg-injector w-100" src="src/winner.svg" alt="Image Description" style="height: 70px";
-                 data-parent="#SVGmakeItRain">
+          	<%= image_tag("svg/winner.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: "#SVGmakeItRain" }) %>
           </figure>
           <h4 class="h5 text-center">Simplicity</h4>
           <p>Avant/Gard's platform allows you to buy shares of established artists and emerging talents with a few clicks. Safe storage is guranteed.</p>
@@ -134,12 +131,12 @@
       <div class="col-md-3 d-md-flex align-items-md-start flex-md-column mb-5 mb-md-0">
         <!-- Gallery -->
         <a class="js-fancybox u-media-viewer mb-3" href="javascript:;"
-           data-src="src/grammy1.jpg"
+           data-src="<%= image_path("jpg/grammy1.jpg") %>"
            data-fancybox="fancyboxGalleryExample1"
            data-caption="Front in frames - image #01"
            data-speed="700"
            data-is-infinite="true">
-          <img class="img-fluid w-100" src="src/grammy1.jpg" alt="Image Description">
+          <img class="img-fluid w-100" src="<%= image_path("jpg/grammy1.jpg") %>" alt="Image Description">
 
           <div class="position-absolute bottom-0 right-0 pb-2 pr-2">
             <span class="btn btn-icon btn-sm btn-white">
@@ -150,13 +147,13 @@
 
         <img class="js-fancybox d-none" alt="Image Description"
              data-fancybox="fancyboxGalleryExample1"
-             data-src="src/grammy2.jpg"
+             data-src="<%= image_path("jpg/grammy2.jpg") %>"
              data-caption="Front in frames - image #02"
              data-speed="700"
              data-is-infinite="true">
         <img class="js-fancybox d-none" alt="Image Description"
              data-fancybox="fancyboxGalleryExample1"
-             data-src="src/grammy3.jpg"
+             data-src="<%= image_path("jpg/grammy3.jpg") %>"
              data-caption="Front in frames - image #02"
              data-speed="700"
              data-is-infinite="true">
@@ -276,12 +273,12 @@
       <div class="col-md-3 d-md-flex align-items-md-start flex-md-column mb-5 mb-md-0">
         <!-- Gallery -->
         <a class="js-fancybox u-media-viewer mb-3" href="javascript:;"
-           data-src="src/levoyeur1.jpg"
+           data-src="<%= image_path("jpg/levoyeur1.jpg") %>"
            data-fancybox="fancyboxGalleryExample2"
            data-caption="Front in frames - image #01"
            data-speed="700"
            data-is-infinite="true">
-          <img class="img-fluid w-100" src="src/levoyeur1.jpg" alt="Image Description">
+          <img class="img-fluid w-100" src="<%= image_path("jpg/levoyeur1.jpg") %>" alt="Image Description">
 
           <div class="position-absolute bottom-0 right-0 pb-2 pr-2">
             <span class="btn btn-icon btn-sm btn-white">
@@ -292,7 +289,7 @@
 
         <img class="js-fancybox d-none" alt="Image Description"
              data-fancybox="fancyboxGalleryExample2"
-             data-src="src/levoyeur2.jpg"
+             data-src="<%= image_path("jpg/levoyeur2.jpg") %>"
              data-caption="Front in frames - image #02"
              data-speed="700"
              data-is-infinite="true">
@@ -468,7 +465,7 @@
 
       <div class="col-md-6">
         <!-- SVG Mockup -->
-        <img src="src/how-to.png" style="width: 90%" alt="">
+        <img src="<%= image_path("png/how-to.png") %>" style="width: 90%" alt="">
         <!-- End SVG Mockup -->
       </div>
     </div>
