@@ -5,7 +5,7 @@
     <!-- Nav -->
     <nav class="navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
       <!-- Logo -->
-      <a class="d-inline-flex align-items-center" href="" aria-label="Front">
+      <a class="d-inline-flex align-items-center" href="<%= root_path %>" aria-label="Front">
         <span class="brand brand-primary mr-0" style="color: black">Avant</span>
         <span class="brand brand-primary mx-0" style="color: #377dff">/</span>
         <span class="brand brand-primary ml-0" style="color: black">Garde</span>
@@ -36,10 +36,10 @@
             <a class="nav-link u-header__nav-link" href="#how-to">How It Works</a>
           </li>
           <li class="nav-item u-header__nav-last-item">
-            <a class="btn btn-soft-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/In</a>
+            <%= link_to "Log/In", new_user_session_path, class: "btn btn-soft-primary btn-sm transition-3d-hover" %>
           </li>              
           <li class="nav-item u-header__nav-last-item">
-            <a class="btn btn-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/Up</a>
+            <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-sm transition-3d-hover" %>
           </li>
         </ul>
       </div>
@@ -65,7 +65,7 @@
           New artwork campaigns go live on the Avant/Garde platform every month. Fractional ownership allows you to participate in the value increase of works by some of the best artists. Start with a small investment and grow your art collection over time. 
         </p>
         <div class="d-flex align-items-center flex-wrap">
-          <a class="btn btn-primary btn-wide transition-3d-hover" href="">Sign/Up</a>
+          <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-wide transition-3d-hover" %>
         </div>
       </div>
     </div>
@@ -77,6 +77,11 @@
       <!-- End PNG Mockup -->
     </div>
 
+    <a class="js-go-to u-go-to-modern bg-soft-primary position-absolute" style="bottom: 100px; left: 47%;" href="javascript:;"
+       data-target="#icons-section"
+       data-type="static">
+      <span class="fas fa-arrow-down u-go-to-modern__inner"></span>
+    </a>
 
   </div>
 </div>
@@ -84,12 +89,12 @@
 
 <!-- Icon Blocks -->
 <div class="gradient-half-primary-v3">
-  <div class="container space-1">
+  <div class="container space-1" id="icons-section">
     <div class="row">
       <div class="col-md-4 mb-9 mb-md-0">
         <div class="pr-lg-4">
-          <figure id="SVGanalysis" class="svg-preloader mb-3">
-			     <%= image_tag("svg/investment.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description") %>
+          <figure id="SVGInvestment" class="svg-preloader mb-3">
+			     <%= image_tag("svg/investment.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: '#SVGInvestment' }) %>
           </figure>
           <h4 class="h5 text-center">Diversification</h4>
           <p>Never put all your eggs in the same basket! You can now co-own an art collection and diversify your portfolio of financial assets.</p>
@@ -97,8 +102,8 @@
       </div>
       <div class="col-md-4 mb-9 mb-md-0">
         <div class="pr-lg-4">
-          <figure id="SVGinTheOffice" class="svg-preloader mb-3">
-          	<%= image_tag("svg/growth.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description") %>
+          <figure id="SVGGrowth" class="svg-preloader mb-3">
+          	<%= image_tag("svg/growth.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: '#SVGGrowth' }) %>
           </figure>
           <h4 class="h5 text-center">Affordability</h4>
           <p>Start buying shares of artworks for only 500€. Masterpieces and their expected value increase are now accessible to any private investor.</p>
@@ -106,8 +111,8 @@
       </div>
       <div class="col-md-4">
         <div class="pr-lg-4">
-          <figure id="SVGmakeItRain" class="svg-preloader mb-3">
-          	<%= image_tag("svg/winner.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description") %>
+          <figure id="SVGWinner" class="svg-preloader mb-3">
+          	<%= image_tag("svg/winner.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: '#SVGWinner' }) %>
           </figure>
           <h4 class="h5 text-center">Simplicity</h4>
           <p>Avant/Gard's platform allows you to buy shares of established artists and emerging talents with a few clicks. Safe storage is guranteed.</p>
@@ -409,7 +414,7 @@
     <span class="h6 d-block d-lg-inline-block font-weight-light mb-lg-0">
       <span class="font-weight-semi-bold">Intrested?</span> – See all campaigns and detailed information in the Avant/Garde app
     </span>
-    <a class="btn btn-sm btn-white transition-3d-hover font-weight-normal ml-3" href="">Sign/Up</a>
+    <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-sm btn-white transition-3d-hover font-weight-normal ml-3" %>
   </div>
 </div>
 <!-- End CTA Section -->
