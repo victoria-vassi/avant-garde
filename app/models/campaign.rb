@@ -4,4 +4,20 @@ class Campaign < ApplicationRecord
   has_many :images
   has_many :investments
   has_many :users, through: :investments
+  validates :artist, presence: true
+  validates :title, presence: true
+  validates :year, presence: true
+  validates :price, presence: true
+  validates :end_date, presence: true
+  validates :minimum_investment, presence: true
+  validates :category, presence: true
+  validates :movement, presence: true
+  validates :technique, presence: true
+  validates :dimension, presence: true
+  validates :description_short, presence: true
+  validates :description_long, presence: true
+  validates :value_increase_rate, presence: true
+  validates :payout_rate, presence: true
+  validates :funding_status, presence: true
+  validates :funded, presence: true
 end
