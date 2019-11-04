@@ -4,3 +4,4 @@
 //= require vendor/jquery-migrate/dist/jquery-migrate.min
 //= require vendor/popper.js/dist/umd/popper.min
 //= require vendor/bootstrap/bootstrap.min
+

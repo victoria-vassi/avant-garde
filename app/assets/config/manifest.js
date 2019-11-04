@@ -12,3 +12,9 @@
 //= link components/hs.fancybox.js
 
 //= link vendor/jquery/dist/jquery.min.js
+
+//= link vendor/slick-carousel/slick/slick.js
+//= link components/hs.slick-carousel.js
+
+//= link components/hs.go-to.js
+

@@ -5,7 +5,7 @@
     <!-- Nav -->
     <nav class="navbar navbar-expand-md u-header__navbar u-header__navbar--no-space">
       <!-- Logo -->
-      <a class="d-inline-flex align-items-center" href="" aria-label="Front">
+      <a class="d-inline-flex align-items-center" href="<%= root_path %>" aria-label="Front">
         <span class="brand brand-primary mr-0" style="color: black">Avant</span>
         <span class="brand brand-primary mx-0" style="color: #377dff">/</span>
         <span class="brand brand-primary ml-0" style="color: black">Garde</span>
@@ -36,10 +36,10 @@
             <a class="nav-link u-header__nav-link" href="#how-to">How It Works</a>
           </li>
           <li class="nav-item u-header__nav-last-item">
-            <a class="btn btn-soft-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/In</a>
+            <%= link_to "Log/In", new_user_session_path, class: "btn btn-soft-primary btn-sm transition-3d-hover" %>
           </li>              
           <li class="nav-item u-header__nav-last-item">
-            <a class="btn btn-primary btn-sm transition-3d-hover" href="" target="_blank">Sign/Up</a>
+            <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-sm transition-3d-hover" %>
           </li>
         </ul>
       </div>
@@ -65,7 +65,7 @@
           New artwork campaigns go live on the Avant/Garde platform every month. Fractional ownership allows you to participate in the value increase of works by some of the best artists. Start with a small investment and grow your art collection over time. 
         </p>
         <div class="d-flex align-items-center flex-wrap">
-          <a class="btn btn-primary btn-wide transition-3d-hover" href="">Sign/Up</a>
+          <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-wide transition-3d-hover" %>
         </div>
       </div>
     </div>
@@ -77,6 +77,11 @@
       <!-- End PNG Mockup -->
     </div>
 
+    <a class="js-go-to u-go-to-modern bg-soft-primary position-absolute" style="bottom: 100px; left: 47%;" href="javascript:;"
+       data-target="#icons-section"
+       data-type="static">
+      <span class="fas fa-arrow-down u-go-to-modern__inner"></span>
+    </a>
 
   </div>
 </div>
@@ -84,7 +89,7 @@
 
 <!-- Icon Blocks -->
 <div class="gradient-half-primary-v3">
-  <div class="container space-1">
+  <div class="container space-1" id="icons-section">
     <div class="row">
       <div class="col-md-4 mb-9 mb-md-0">
         <div class="pr-lg-4">
@@ -409,7 +414,7 @@
     <span class="h6 d-block d-lg-inline-block font-weight-light mb-lg-0">
       <span class="font-weight-semi-bold">Intrested?</span> – See all campaigns and detailed information in the Avant/Garde app
     </span>
-    <a class="btn btn-sm btn-white transition-3d-hover font-weight-normal ml-3" href="">Sign/Up</a>
+    <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-sm btn-white transition-3d-hover font-weight-normal ml-3" %>
   </div>
 </div>
 <!-- End CTA Section -->

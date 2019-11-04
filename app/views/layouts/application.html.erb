@@ -10,9 +10,6 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/flashes' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>
@@ -26,6 +23,11 @@
 
     <%= javascript_include_tag 'components/hs.header' %>
     <%= javascript_include_tag 'components/hs.scroll-nav' %>
+
+    <%= javascript_include_tag 'vendor/slick-carousel/slick/slick' %>
+    <%= javascript_include_tag 'components/hs.slick-carousel' %>
+
+    <%= javascript_include_tag 'components/hs.go-to' %>
 
     <%= javascript_pack_tag 'application' %>
 
@@ -51,6 +53,21 @@
         $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
           duration: 700
         });
+      });
+
+      $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#header'));
+      });
+
+      $(document).on('ready', function () {
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+      });
+
+      $(document).on('ready', function () {
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
       });
     </script>
   </body>
