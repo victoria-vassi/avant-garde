@@ -27,6 +27,8 @@
     <%= javascript_include_tag 'vendor/slick-carousel/slick/slick' %>
     <%= javascript_include_tag 'components/hs.slick-carousel' %>
 
+    <%= javascript_include_tag 'components/hs.go-to' %>
+
     <%= javascript_pack_tag 'application' %>
 
     <!-- JS Plugins Init. -->
@@ -61,6 +63,11 @@
       $(document).on('ready', function () {
         // initialization of slick carousel
         $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+      });
+
+      $(document).on('ready', function () {
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
       });
     </script>
   </body>

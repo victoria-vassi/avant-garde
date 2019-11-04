@@ -15,3 +15,6 @@
 
 //= link vendor/slick-carousel/slick/slick.js
 //= link components/hs.slick-carousel.js
+
+//= link components/hs.go-to.js
+
