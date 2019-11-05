@@ -4,7 +4,7 @@
 
 .svg-preloader {
   z-index: -1;
-  background: transparent url(image_url("circle-preloader.svg")) center no-repeat !important;
+  background: transparent image_url("svg/circle-preloader.svg") center no-repeat !important;
   overflow: hidden;
   transition: all $transition-timing-md ease-in;
 }
