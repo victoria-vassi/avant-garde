@@ -3,7 +3,7 @@ class CreateCampaigns < ActiveRecord::Migration[5.2]
     create_table :campaigns do |t|
       t.string :artist
       t.string :title
-      t.date :year
+      t.string :year
       t.integer :price
       t.date :end_date
       t.integer :minimum_investment
