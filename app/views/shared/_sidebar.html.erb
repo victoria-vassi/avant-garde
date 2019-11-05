@@ -40,16 +40,24 @@
             <!-- List Links -->
             <ul class="list-unstyled u-sidebar--account__list">
               <li class="u-sidebar--account__list-item">
-                <a class="u-sidebar--account__list-link" href="dashboard.html">
+                <%= link_to(dashboard_path, class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-home u-sidebar--account__list-icon mr-2"></span>
                   Dashboard
-                </a>
+                <% end %>
+<!--            <a class="u-sidebar--account__list-link" href="dashboard.html">
+                  <span class="fas fa-home u-sidebar--account__list-icon mr-2"></span>
+                  Dashboard
+                </a> -->
               </li>
               <li class="u-sidebar--account__list-item">
-                <a class="u-sidebar--account__list-link" href="profile.html">
+                <%= link_to(campaigns_path, class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-paint-brush u-sidebar--account__list-icon mr-2"></span>
                   Campaigns
-                </a>
+                <% end %>                
+<!--             <a class="u-sidebar--account__list-link" href="profile.html">
+                  <span class="fas fa-paint-brush u-sidebar--account__list-icon mr-2"></span>
+                  Campaigns
+                </a> -->
               </li>
 
             </ul>
@@ -60,9 +68,13 @@
             <!-- List Links -->
             <ul class="list-unstyled u-sidebar--account__list">
               <li class="u-sidebar--account__list-item">
-                <a class="u-sidebar--account__list-link" href="my-tasks.html">
+                <%= link_to(user_profile_path(current_user), class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-user-circle u-sidebar--account__list-icon mr-2"></span>
                   Profile
+                <% end %>                 
+<!--            <a class="u-sidebar--account__list-link" href="my-tasks.html">
+                  <span class="fas fa-user-circle u-sidebar--account__list-icon mr-2"></span>
+                  Profile -->
                 </a>
               </li>
             </ul>
