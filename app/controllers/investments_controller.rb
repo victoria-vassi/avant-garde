@@ -8,17 +8,25 @@ class InvestmentsController < ApplicationController
   end
 
   def new
-    @investment = Investment.new
+    @investment = Investment.new(investment_params)
     @campaign = Campaign.find(params[:campaign_id])
-    authorize @campaign
-    authorize @investment
+    @investment.campaign = @campaign
+    @investment.user = current_user
+    if @investment.save
+      redirect_to dashboard_path(@user)
+    else
+      @investments = Investment.where("campaign_id = '#{params[:campaign_id]}'")
+      render 'campaigns/show'
+    end
+    # authorize @campaign
+    # authorize @investment
   end
 
   def create
     @investment = Investment.new
     @campaign = Campaign.find(params[:campaign_id])
     @user = current_user
-    authorize @campaign
+    # authorize @campaign
     @investment.campaign = @campaign
     @investment.user = @user
     if @investment.save
@@ -27,5 +35,11 @@ class InvestmentsController < ApplicationController
       @investments = Investment.where("campaign_id = '#{params[:campaign_id]}'")
       render 'campaigns/show'
     end
+  end
+
+  private
+
+  def investment_params
+    params.require(:investment).permit(:amount)
   end
 end

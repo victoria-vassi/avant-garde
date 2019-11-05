@@ -1,2 +1,70 @@
-<h1>Investments#create</h1>
-<p>Find me in app/views/investments/create.html.erb</p>
+
+<!-- ========== HEADER ========== -->
+  <header id="header" class="u-header u-header--bg-transparent u-header--abs-top">
+    <div class="u-header__section">
+      <div id="logoAndNav" class="container-fluid">
+        <!-- Nav -->
+        <nav class="navbar navbar-expand u-header__navbar">
+          <!-- White Logo -->
+          <a class="d-inline-flex align-items-center" href="<%= root_path %>" aria-label="Front">
+            <span class="brand brand-primary mr-0" style="color: white">Avant</span>
+            <span class="brand brand-primary mx-0" style="color: white">/</span>
+            <span class="brand brand-primary ml-0" style="color: white">Garde</span>
+          </a>
+          <!-- End White Logo -->
+        </nav>
+        <!-- End Nav -->
+      </div>
+    </div>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN ========== -->
+  <main id="content" role="main">
+    <!-- Form -->
+    <div class="d-flex align-items-center position-relative height-lg-100vh">
+      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center gradient-half-primary-v1 height-lg-100vh px-0">
+        <div class="w-100 p-5">
+        </div>
+      </div>
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0">
+            <!-- Form -->
+            <form class="js-validate mt-5">
+              <!-- Title -->
+              <div class="mb-7">
+                <h1 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h1>
+                <p><%=@campaign.artist%></p>
+              </div>
+              <!-- End Title -->
+
+              <!-- Form Inputs & Actions -->
+              <%= simple_form_for [@investment] do |f| %>
+                <%= f.error_notification %>
+
+                <div class="form-inputs">
+                  <%= f.input :amount,
+                              required: true,
+                              autofocus: true,
+                              input_html: { autocomplete: "Amount" }%>
+
+                </div>
+
+                <div class="form-actions">
+                  <%= f.button :submit,
+                               "Confirm amount",
+                               class: "btn btn-primary transition-3d-hover mt-5"  %>
+                </div>
+              <% end %>
+              <!-- End Form Inputs & Actions-->
+
+            </form>
+            <!-- End Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Form -->
+</main>
