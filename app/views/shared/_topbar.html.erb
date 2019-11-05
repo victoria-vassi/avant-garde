@@ -2,81 +2,68 @@
 <div class="u-header__section">
   <!-- Topbar -->
   <div class="container u-header__hide-content py-2">
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
       <!-- Language -->
-      <div class="position-relative">
-        <a id="languageDropdownInvoker" class="dropdown-nav-link dropdown-toggle d-flex align-items-center" href="javascript:;" role="button"
-           aria-controls="languageDropdown"
-           aria-haspopup="true"
-           aria-expanded="false"
-           data-unfold-event="hover"
-           data-unfold-target="#languageDropdown"
-           data-unfold-type="css-animation"
-           data-unfold-duration="300"
-           data-unfold-delay="300"
-           data-unfold-hide-on-scroll="true"
-           data-unfold-animation-in="slideInUp"
-           data-unfold-animation-out="fadeOut">
-           <img class="dropdown-item-icon" src="../../assets/vendor/flag-icon-css/flags/4x3/us.svg" alt="SVG">
-          <span class="d-inline-block d-sm-none">US</span>
-          <span class="d-none d-sm-inline-block">United States</span>
-        </a>
+      <a class="d-inline-flex align-items-center" href="<%= dashboard_path %>" aria-label="Front">
+        <span class="brand brand-primary mr-0 font-size-2" style="color: black">Avant</span>
+        <span class="brand brand-primary mx-0 font-size-2" style="color: #377dff">/</span>
+        <span class="brand brand-primary ml-0 font-size-2" style="color: black">Garde</span>
+      </a>
 
-        <div id="languageDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="languageDropdownInvoker">
-          <a class="dropdown-item active" href="#">English</a>
-          <a class="dropdown-item" href="#">German</a>
-          <a class="dropdown-item" href="#">French</a>
-        </div>
-      </div>
-      <!-- End Language -->
-
-      <div class="ml-auto">
-        <!-- Links -->
-        <div class="d-none d-sm-inline-block ml-sm-auto">
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item mr-0">
-              <a class="u-header__navbar-link" href="#">Help</a>
-            </li>
-            <li class="list-inline-item mr-0">
-              <a class="u-header__navbar-link" href="#">Contacts</a>
-            </li>
-          </ul>
-        </div>
-        <!-- End Links -->
-      </div>
-
-      <ul class="list-inline ml-2 mb-0">
-        <!-- Search -->
-        <li class="list-inline-item">
-          <a class="btn btn-xs btn-icon btn-text-secondary" href="#" role="button">
-            <span class="fas fa-search btn-icon__inner"></span>
-          </a>
-        </li>
-        <!-- End Search -->
-
-        <!-- Account Login -->
-        <li class="list-inline-item">
-          <!-- Account Sidebar Toggle Button -->
-          <a id="sidebarNavToggler" class="btn btn-xs btn-text-secondary u-sidebar--account__toggle-bg ml-1" href="javascript:;" role="button"
-             aria-controls="sidebarContent"
+      <div class="d-inline-flex align-items-center">
+        <div class="position-relative">
+          <a id="languageDropdownInvoker" class="dropdown-nav-link dropdown-toggle d-flex align-items-center" href="javascript:;" role="button"
+             aria-controls="languageDropdown"
              aria-haspopup="true"
              aria-expanded="false"
-             data-unfold-event="click"
-             data-unfold-hide-on-scroll="false"
-             data-unfold-target="#sidebarContent"
+             data-unfold-event="hover"
+             data-unfold-target="#languageDropdown"
              data-unfold-type="css-animation"
-             data-unfold-animation-in="fadeInRight"
-             data-unfold-animation-out="fadeOutRight"
-             data-unfold-duration="500">
-            <span class="position-relative">
-              <span class="u-sidebar--account__toggle-text">Natalie Curtis</span>
-              <img class="u-sidebar--account__toggle-img" src="<%= image_path("jpg/profile/100x100/img11.jpg") %>" alt="Image Description">
-            </span>
+             data-unfold-duration="300"
+             data-unfold-delay="300"
+             data-unfold-hide-on-scroll="true"
+             data-unfold-animation-in="slideInUp"
+             data-unfold-animation-out="fadeOut">
+             <img class="dropdown-item-icon" src="../../assets/vendor/flag-icon-css/flags/4x3/us.svg" alt="SVG">
+            <span class="d-inline-block d-sm-none">US</span>
+            <span class="d-none d-sm-inline-block">United States</span>
           </a>
-          <!-- End Account Sidebar Toggle Button -->
-        </li>
-        <!-- End Account Login -->
-      </ul>
+
+          <div id="languageDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="languageDropdownInvoker">
+            <a class="dropdown-item active" href="#">English</a>
+            <a class="dropdown-item" href="#">German</a>
+            <a class="dropdown-item" href="#">French</a>
+          </div>
+        </div>
+        <!-- End Language -->
+
+        <ul class="list-inline ml-2 mb-0">
+          <!-- Account Login -->
+          <li class="list-inline-item">
+            <!-- Account Sidebar Toggle Button -->
+            <a id="sidebarNavToggler" class="btn btn-xs btn-text-secondary u-sidebar--account__toggle-bg ml-1" href="javascript:;" role="button"
+               aria-controls="sidebarContent"
+               aria-haspopup="true"
+               aria-expanded="false"
+               data-unfold-event="click"
+               data-unfold-hide-on-scroll="false"
+               data-unfold-target="#sidebarContent"
+               data-unfold-type="css-animation"
+               data-unfold-animation-in="fadeInRight"
+               data-unfold-animation-out="fadeOutRight"
+               data-unfold-duration="500">
+              <span class="position-relative">
+                <span class="u-sidebar--account__toggle-text">Natalie Curtis</span>
+                <img class="u-sidebar--account__toggle-img" src="<%= image_path("jpg/profile/100x100/img11.jpg") %>" alt="Image Description">
+              </span>
+              <i class="fas fa-bars px-2 u-sidebar--account__toggle-text"></i>
+            </a>
+
+            <!-- End Account Sidebar Toggle Button -->
+          </li>
+          <!-- End Account Login -->
+        </ul>
+      </div>
     </div>
   </div>
   <!-- End Topbar -->

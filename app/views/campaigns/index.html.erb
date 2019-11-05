@@ -38,6 +38,9 @@
   <div class="tab-content">
   	<div class="tab-pane active" id="open-campaigns-tab-content">
   		<p>Show list of open campaigns here</p>
+  		<% campaign = @campaigns[0] %>
+  		<br>
+			<%= link_to "Campaign ID 0", campaign_path(campaign) %>
   	</div>
   	<div class="tab-pane" id="closed-campaigns-tab-content">
   		<p>Show list of closed campaigns here</p>
