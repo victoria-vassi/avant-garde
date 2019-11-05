@@ -29,6 +29,7 @@ user = User.create!(
     address:  Faker::Address.full_address,
     website: Faker::Internet.url,
   )
+end
 
 puts 'Creating 10 art campaigns...'
 
@@ -50,8 +51,8 @@ campaign_attributes = [
     price: 40000,
     end_date: Date.today + 45,
     minimum_investment: 2000,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
    },
 
    {
@@ -71,8 +72,8 @@ campaign_attributes = [
     price: 252000,
     end_date: Date.today + 12,
     minimum_investment: "1",
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Annie Leibovitz",
@@ -91,8 +92,8 @@ campaign_attributes = [
     price: 30000,
     end_date: Date.today - 1,
     minimum_investment: 500,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Jeff Koons",
@@ -111,8 +112,8 @@ campaign_attributes = [
     price: 100624,
     end_date: Date.today + 90,
     minimum_investment: 3000,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Yayoi Kusama",
@@ -131,8 +132,8 @@ campaign_attributes = [
     price: 11000,
     end_date: Date.today + 7,
     minimum_investment: 200,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "David Hockney",
@@ -151,8 +152,8 @@ campaign_attributes = [
     price: 350000,
     end_date:  Date.today + 4,
     minimum_investment: 5000,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Louise Fishman",
@@ -171,8 +172,8 @@ campaign_attributes = [
     price: 20000,
     end_date: Date.today + 14,
     minimum_investment: 500,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Manolo Valdés",
@@ -191,8 +192,8 @@ campaign_attributes = [
     price: 350000,
     end_date: Date.today - 30,
     minimum_investment: 10000,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Brice Marden",
@@ -211,8 +212,8 @@ campaign_attributes = [
     price: 150000,
     end_date: Date.today + 30,
     minimum_investment: 1000,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample
   },
   {
     artist: "Banksy",
@@ -231,8 +232,8 @@ campaign_attributes = [
     price: 23000,
     end_date: Date.today + 1,
     minimum_investment: 230,
-    seller: seller,
-    renter: renter
+    seller: Seller.all.sample,
+    renter: Renter.all.sample,
   }
 ]
 
@@ -243,54 +244,64 @@ end
 puts "Finish creating 10 campaigns"
 
 
+photo_attributes = [
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926497/Avant%20Garde/bagdad1_qbxmdj.jpg",
+    campaign_id: 1
+  },
+    {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926496/Avant%20Garde/bagdad2_ffgcak.jpg",
+    campaign_id: 1
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926495/Avant%20Garde/face1_kbux82.jpg",
+    campaign_id: 2
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926497/Avant%20Garde/Haring1_hatk37.jpg",
+    campaign_id: 3
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926497/Avant%20Garde/Koons1_evduwn.jpg",
+    campaign_id: 4
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926498/Avant%20Garde/koons2_eg5exn.jpg",
+    campaign_id: 4
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926497/Avant%20Garde/koons3_sfvpvu.jpg",
+    campaign_id: 4
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926496/Avant%20Garde/Kusama1_enfidc.jpg",
+    campaign_id: 5
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926495/Avant%20Garde/david1_cqxxtg.jpg",
+    campaign_id: 6
+  },
+    {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926498/Avant%20Garde/Fishman1_oa2blc.jpg",
+    campaign_id: 7
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926498/Avant%20Garde/Valde%CC%81s1_d1dtlx.jpg",
+    campaign_id: 8
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926497/Avant%20Garde/Marden1_t3pcg2.jpg",
+    campaign_id: 9
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926495/Avant%20Garde/bansky1_x5j4ty.jpg",
+    campaign_id: 10
+  }
+]
 
-# images_attributes = [
-#   {
-#     title:
-#     photo: 'bagdad1.jpg' 'bagdad2.jpg',
-#     campaign_id: 1
-#   },
-#   {
-#     title: 'face1.jpg',
-#     campaign_id: 2
-#   },
-#   {
-#     title: 'Haring1.jpg',
-#     campaign_id: 3
-#   },
-#     {
-#     title: 'Koons1.jpg' 'koons2.jpg' 'koons3.jpg',
-#     campaign_id: 4
-#   },
-#     {
-#     title: 'Kusama1.jpg',
-#     campaign_id: 5
-#   },
-#     {
-#     title: 'david1.jpg',
-#     campaign_id: 6
-#   },
-#     {
-#     title: 'Fishman1.jpg',
-#     campaign_id: 7
-#   },
-#     {
-#     title: 'Valdés1.jpg',
-#     campaign_id: 8
-#   },
-#     {
-#     title: 'Marden1.jpg',
-#     campaign_id: 9
-#   },
-#     {
-#     title: 'bansky1.jpg',
-#     campaign_id: 10
-#   },
-# ]
-
-
-end
-
+  photo_attributes.each do |photo|
+    Image.create!(photo)
+  end
 
 investments = [
   {
