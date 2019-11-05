@@ -12,7 +12,7 @@
 }
 
 .u-slick {
-  background: url(#{$root-path}svg/preloaders/circle-preloader.svg) no-repeat 50% 50%;
+  background: image_url("svg/circle-preloader.svg") no-repeat 50% 50%;
 
   .js-next,
   .js-prev {
