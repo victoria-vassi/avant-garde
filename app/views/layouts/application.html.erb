@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>TODO</title>
+    <title>Avant Garde Investments</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= yield %>
-
+    <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'hs.core' %>
+    <%= javascript_include_tag 'hs.core' %> 
 
     <%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
     <%= javascript_include_tag 'components/hs.svg-injector' %>
@@ -21,15 +20,13 @@
     <%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
     <%= javascript_include_tag 'components/hs.fancybox' %>
 
-    <%= javascript_include_tag 'components/hs.header' %>
-    <%= javascript_include_tag 'components/hs.scroll-nav' %>
-
-    <%= javascript_include_tag 'vendor/slick-carousel/slick/slick' %>
-    <%= javascript_include_tag 'components/hs.slick-carousel' %>
 
     <%= javascript_include_tag 'components/hs.go-to' %>
-
-    <%= javascript_pack_tag 'application' %>
+    
+    <%= yield %>
+    
+    <%= javascript_include_tag 'components/hs.header' %>
+    <%= javascript_include_tag 'components/hs.scroll-nav' %>
 
     <!-- JS Plugins Init. -->
     <script>
@@ -56,19 +53,10 @@
       });
 
       $(document).on('ready', function () {
-        // initialization of header
-        $.HSCore.components.HSHeader.init($('#header'));
-      });
-
-      $(document).on('ready', function () {
-        // initialization of slick carousel
-        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
-      });
-
-      $(document).on('ready', function () {
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
       });
+
     </script>
   </body>
 </html>
