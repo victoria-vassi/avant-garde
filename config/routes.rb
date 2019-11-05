@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'campaigns/show'
   get 'campaigns/new'
   get 'campaigns/create'
+
+  get 'eg001' => 'eg001_embedded_signing#get'
+  post 'eg001' => 'eg001_embedded_signing#create'
+
   devise_for :users
   root to: 'pages#home'
 
