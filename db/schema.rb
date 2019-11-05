@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_072936) do
+ActiveRecord::Schema.define(version: 2019_11_05_072937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
   create_table "campaigns", force: :cascade do |t|
     t.string "artist"
     t.string "title"
-    t.date "year"
+    t.string "year"
     t.integer "price"
     t.date "end_date"
     t.integer "minimum_investment"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["campaign_id"], name: "index_images_on_campaign_id"
   end
 
