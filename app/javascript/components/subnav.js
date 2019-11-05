@@ -1,7 +1,6 @@
 const subnav = () => {
 
   const links = document.querySelectorAll(".nav-link");
-  console.log(links);
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
       var i, tabcontent, tablinks;

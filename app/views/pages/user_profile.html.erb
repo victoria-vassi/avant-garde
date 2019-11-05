@@ -1,1 +1,75 @@
-<h1>Show user profile</h1>
+<%= render 'shared/topbar' %>
+
+<!-- ========== Sub Navigation ====== -->
+<!-- Breadcrumb Section -->
+<div class="bg-primary">
+
+  <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+      	<!-- Subnav -->
+      	<ul class="nav nav-border-white">
+			    <li class="nav-item">
+			      <a class="nav-link active" id="profile-tab" href="#profile">Natalie Curtis</a>
+			    </li>
+			  </ul>
+			  <!-- End Subnav -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+	<!-- Tab Content -->
+  <div class="tab-content">
+  	<div class="tab-pane active" id="profile-tab-content">
+  		<p>Show user profile data here</p>
+  	</div>
+  </div>
+  <!-- End Tab Content -->
+</div>
+<!-- End Breadcrumb Section -->
+<!-- ====== End Sub Navigation ====== -->
+
+
+<%= render 'shared/sidebar' %>
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
+<%= javascript_include_tag 'components/hs.svg-injector' %>
+
+<%= javascript_include_tag 'components/hs.header' %>
+<%= javascript_include_tag 'components/hs.unfold' %>
+
+<script>
+  $(window).on('load', function () {
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+
+  $(document).on('ready', function () {
+	  // initialization of header
+	  $.HSCore.components.HSHeader.init($('#header'));
+
+	  // initialization of unfold component
+	  $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+	    afterOpen: function () {
+	      $(this).find('input[type="search"]').focus();
+	    }
+	  });
+	});
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->
