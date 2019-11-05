@@ -19,5 +19,5 @@ class Campaign < ApplicationRecord
   validates :value_increase_rate, presence: true
   validates :payout_rate, presence: true
   validates :funding_status, presence: true
-  validates :funded, presence: true
+  validates :funded, inclusion: { in: [true, false] }
 end
