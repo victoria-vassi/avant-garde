@@ -71,7 +71,7 @@ campaign_attributes = [
     funded: false,
     price: 252000,
     end_date: Date.today + 12,
-    minimum_investment: "1",
+    minimum_investment: 2000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
   },
