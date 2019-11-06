@@ -18,3 +18,8 @@
 
 //= link components/hs.go-to.js
 
+//= link components/hs.go-to.js
+
+//= link vendor/ion-rangeslider/js/ion.rangeSlider.min.js
+
+//= link components/hs.range-slider.js

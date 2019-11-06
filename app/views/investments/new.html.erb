@@ -1,6 +1,6 @@
 
 <!-- ========== HEADER ========== -->
-  <header id="header" class="u-header u-header--bg-transparent u-header--abs-top">
+  <header id="header" class="u-header u-header--bg-transparent u-header--abs-top")">
     <div class="u-header__section">
       <div id="logoAndNav" class="container-fluid">
         <!-- Nav -->
@@ -18,7 +18,6 @@
     </div>
   </header>
   <!-- ========== END HEADER ========== -->
-
   <!-- ========== MAIN ========== -->
   <main id="content" role="main">
     <!-- Form -->
@@ -34,19 +33,44 @@
             <form class="js-validate mt-5">
               <!-- Title -->
               <div class="mb-7">
-                <h1 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h1>
+                <h3 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h1>
                 <p><%=@campaign.artist%></p>
-              </div>
               <!-- End Title -->
+                <!-- Range Slider -->
+                  <input class="js-range-slider" type="text"
+                         data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
+                         data-type="single"
+                         data-grid="true"
+                         data-hide-from-to="false"
+                         data-min="<%=@campaign.minimum_investment %>"
+                         data-max="<%=@campaign.price%>"
+                         data-step="<%=(@campaign.minimum_investment/2)%>"
+                         data-from=""
+                         data-to=""
+                         data-result-min="#rangeSliderExample2MinResult">
 
+                  <div class="d-flex justify-content-between align-items-center mt-4">
+                    <span class="text-muted">Select required amount</span>
+                    <div class="js-focus-state">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <span class="fas fa-dollar-sign"></span>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control max-width-11" id="rangeSliderExample2MinResult">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Range Slider -->
               <!-- Form Inputs & Actions -->
               <%= simple_form_for [@investment] do |f| %>
                 <%= f.error_notification %>
                 <div class="form-inputs">
                   <%= f.input :amount,
                               required: true,
-                              autofocus: true,
-                              input_html: { autocomplete: "Amount" }%>
+                              as: :hidden,
+                              %>
 
                 </div>
 
@@ -67,3 +91,18 @@
   </div>
   <!-- End Form -->
 </main>
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'vendor/ion-rangeslider/js/ion.rangeSlider.min' %>
+<%= javascript_include_tag 'components/hs.range-slider' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of forms
+    $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+  });
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->
+
