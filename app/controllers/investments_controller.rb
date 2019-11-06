@@ -15,7 +15,6 @@ class InvestmentsController < ApplicationController
 
   def create
     @investment = Investment.new(investment_params)
-    raise
     @campaign = Campaign.find(params[:campaign_id])
     # authorize @campaign
     @investment.campaign = @campaign

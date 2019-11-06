@@ -30,7 +30,7 @@
         <div class="row no-gutters">
           <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
             <!-- Form -->
-            <form class="js-validate mt-5">
+            <div class="js-validate mt-5">
               <!-- Title -->
               <div class="mb-7">
                 <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
@@ -66,14 +66,13 @@
                   </div>
                   <!-- End Range Slider -->
                   <!-- Form -->
-                  <form>
+                  <div>
                   <!-- Form Inputs & Actions -->
-                  <%= simple_form_for [@investment] do |f| %>
+                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, :method => :post do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
-                      <%= f.input :amount,
-                                  required: true,
-                                  as: :hidden
+                      <%= f.input :amount
+                                  # as: :hidden
                                   %>
                     </div>
 
@@ -81,10 +80,11 @@
                       <%= f.button :submit,
                                    "Confirm amount",
                                    class: "btn btn-primary transition-3d-hover"  %>
+
                     </div>
                   <% end %>
                   <!-- End Form Inputs & Actions-->
-                </form>
+                </div>
                 <!-- End Form -->
               </div>
             </div>
