@@ -37,17 +37,19 @@
                 <p><%=@campaign.artist%></p>
               <!-- End Title -->
                 <!-- Range Slider -->
+                <span id="test">
                   <input class="js-range-slider" type="text"
                          data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
                          data-type="single"
                          data-grid="true"
                          data-hide-from-to="false"
                          data-min="<%=@campaign.minimum_investment %>"
-                         data-max="<%=@campaign.price%>"
+                         data-max="<%=@campaign.price-(@campaign.price*@campaign.funding_status/100)%>"
                          data-step="<%=(@campaign.minimum_investment/2)%>"
                          data-from=""
                          data-to=""
                          data-result-min="#rangeSliderExample2MinResult">
+                </span>
 
                   <div class="d-flex justify-content-between align-items-center mt-4">
                     <span class="text-muted">Select required amount</span>
@@ -69,7 +71,7 @@
                 <div class="form-inputs">
                   <%= f.input :amount,
                               required: true,
-                              as: :hidden,
+                              as: :hidden
                               %>
 
                 </div>
