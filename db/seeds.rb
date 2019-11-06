@@ -11,7 +11,7 @@ dev = User.create(
 )
 
 10.times do
-user = User.create!(
+  user = User.create!(
     email:    Faker::Internet.email,
     password: "password",
     first_name:  Faker::Name.first_name,
@@ -36,7 +36,7 @@ puts 'Creating 10 art campaigns...'
 campaign_attributes = [
    {
     artist: "Gerhard Richter",
-    title: "Bagdad (P9), numbered 324/500",
+    title: "Bagdad",
     year: "2014",
     category: "Painting",
     movement: "Contemporary art",
@@ -49,7 +49,8 @@ campaign_attributes = [
     funding_status: 45,
     funded: false,
     price: 40000,
-    end_date: Date.today + 45,
+    end_date: n = Date.today + 45,
+    start_date: n - 60,
     minimum_investment: 2000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -70,7 +71,8 @@ campaign_attributes = [
     funding_status: 88,
     funded: false,
     price: 252000,
-    end_date: Date.today + 12,
+    end_date: n = Date.today + 12,
+    start_date: n - 60,
     minimum_investment: "1",
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -90,7 +92,8 @@ campaign_attributes = [
     funding_status: 100,
     funded: true,
     price: 30000,
-    end_date: Date.today - 1,
+    end_date: n = Date.today - 1,
+    start_date: n - 60,
     minimum_investment: 500,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -110,7 +113,8 @@ campaign_attributes = [
     funding_status: 3,
     funded: false,
     price: 100624,
-    end_date: Date.today + 90,
+    end_date: n = Date.today + 90,
+    start_date: n - 60,
     minimum_investment: 3000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -130,7 +134,8 @@ campaign_attributes = [
     funding_status: 25,
     funded: false,
     price: 11000,
-    end_date: Date.today + 7,
+    end_date: n = Date.today + 7,
+    start_date: n - 60,
     minimum_investment: 200,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -150,7 +155,8 @@ campaign_attributes = [
     funding_status: 94,
     funded: false,
     price: 350000,
-    end_date:  Date.today + 4,
+    end_date: n = Date.today + 4,
+    start_date: n - 60,
     minimum_investment: 5000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -170,7 +176,8 @@ campaign_attributes = [
     funding_status: 0.3,
     funded: false,
     price: 20000,
-    end_date: Date.today + 14,
+    end_date: n = Date.today + 14,
+    start_date: n - 60,
     minimum_investment: 500,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -190,7 +197,8 @@ campaign_attributes = [
     funding_status: 100,
     funded: true,
     price: 350000,
-    end_date: Date.today - 30,
+    end_date: n = Date.today - 30,
+    start_date: n - 60,
     minimum_investment: 10000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -210,7 +218,8 @@ campaign_attributes = [
     funding_status: 67,
     funded: false,
     price: 150000,
-    end_date: Date.today + 30,
+    end_date: n = Date.today + 30,
+    start_date: n - 60,
     minimum_investment: 1000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -230,7 +239,8 @@ campaign_attributes = [
     funding_status: 45,
     funded: false,
     price: 23000,
-    end_date: Date.today + 1,
+    end_date: n = Date.today + 1,
+    start_date: n - 60,
     minimum_investment: 230,
     seller: Seller.all.sample,
     renter: Renter.all.sample,

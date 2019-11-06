@@ -9,6 +9,7 @@ class Campaign < ApplicationRecord
   validates :year, presence: true
   validates :price, presence: true
   validates :end_date, presence: true
+  validates :start_date, presence: true
   validates :minimum_investment, presence: true
   validates :category, presence: true
   validates :movement, presence: true
