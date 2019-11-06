@@ -11,7 +11,7 @@
           <!-- Breadcrumb -->
           <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
             <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Campaigns</li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
           </ol>
           <!-- End Breadcrumb -->
         </div>
@@ -21,10 +21,7 @@
       	<!-- Subnav -->
       	<ul class="nav nav-border-white">
 			    <li class="nav-item">
-			      <a class="nav-link active" id="open-campaigns-tab" href="#open-campaigns">Open Campaigns</a>
-			    </li>
-			    <li class="nav-item">
-			      <a class="nav-link" id="closed-campaigns-tab" href="#closed-campaigns">Closed Campaigns</a>
+			      <a class="nav-link active" id="profile-tab" href="#profile">Natalie Curtis</a>
 			    </li>
 			  </ul>
 			  <!-- End Subnav -->
@@ -36,20 +33,15 @@
 <div class="container mt-5">
 	<!-- Tab Content -->
   <div class="tab-content">
-  	<div class="tab-pane active" id="open-campaigns-tab-content">
-  		<p>Show list of open campaigns here</p>
-  		<% campaign = @campaigns[0] %>
-  		<br>
-			<%= link_to "Campaign ID 0", campaign_path(campaign) %>
-  	</div>
-  	<div class="tab-pane" id="closed-campaigns-tab-content">
-  		<p>Show list of closed campaigns here</p>
+  	<div class="tab-pane active" id="profile-tab-content">
+  		<p>Show user profile data here</p>
   	</div>
   </div>
   <!-- End Tab Content -->
 </div>
 <!-- End Breadcrumb Section -->
 <!-- ====== End Sub Navigation ====== -->
+
 
 <%= render 'shared/sidebar' %>
 

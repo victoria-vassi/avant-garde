@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def user_profile
+    @user = User.find(params[:id])
+  end
 end

@@ -11,10 +11,11 @@
   </head>
   <body>
     <!-- Please do not move below yield, since view specific JS has to come afterwards -->
-    <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'hs.core' %>
 
     <%= yield %>
+    
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
