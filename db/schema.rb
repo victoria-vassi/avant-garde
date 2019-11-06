@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_072937) do
+ActiveRecord::Schema.define(version: 2019_11_06_065534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,15 @@ ActiveRecord::Schema.define(version: 2019_11_05_072937) do
     t.string "dimension"
     t.string "description_short"
     t.string "description_long"
-    t.integer "value_increase_rate"
-    t.integer "payout_rate"
+    t.float "value_increase_rate"
+    t.float "payout_rate"
     t.integer "funding_status"
     t.boolean "funded"
     t.bigint "seller_id"
     t.bigint "renter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
     t.index ["renter_id"], name: "index_campaigns_on_renter_id"
     t.index ["seller_id"], name: "index_campaigns_on_seller_id"
   end

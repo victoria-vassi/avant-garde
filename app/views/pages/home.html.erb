@@ -13,6 +13,8 @@
 <div class="container space-2" id="campaigns-section">
   <h1 class="display-5 font-size-md-down-5 my-5 text-center">Selected Campgaigns</h1>
 
+  <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[0] %>
+
   <!-- Campaign Item 1 -->
   <div class="border-bottom pb-1 pt-9 mb-5">
     <div class="row">
