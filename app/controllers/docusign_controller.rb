@@ -1,7 +1,7 @@
-class Eg001EmbeddedSigningController < EgController
+class DocusignController < EgController
   skip_before_action :verify_authenticity_token
   def eg_name
-    'eg001'
+    'docusign'
   end
   def get_file_name
     File.basename __FILE__
@@ -28,11 +28,13 @@ class Eg001EmbeddedSigningController < EgController
     account_id = 9242773
 
     redirect_url = worker access_token, base_url, account_id, signer_email, signer_name
+    raise
     redirect_to redirect_url
   end
 
   # ***DS.snippet.0.start
-  def worker (access_token, base_url, account_id, signer_email, signer_name)
+  def worker(access_token, base_url, account_id, signer_email, signer_name)
+    raise
     ds_ping_url = 'http://localhost:3000/'
     ds_return_url = "#{Rails.application.config.app_url}/ds_common-return"
     signer_client_id = 1000
@@ -54,8 +56,7 @@ class Eg001EmbeddedSigningController < EgController
     session[:envelope_id] = envelope_id
 
     # Step 3. create the recipient view, the Signing Ceremony
-    view_request = make_recipient_view_request(
-                    signer_email, signer_name, signer_client_id, ds_return_url, ds_ping_url)
+    view_request = make_recipient_view_request(signer_email, signer_name, signer_client_id, ds_return_url, ds_ping_url)
 
     # call the CreateRecipientView API
     results = envelope_api.create_recipient_view account_id, envelope_id, view_request
@@ -105,6 +106,7 @@ class Eg001EmbeddedSigningController < EgController
   end
 
   def make_envelope(signer_email, signer_name, signer_client_id, pdf_filename)
+    raise
     envelope_definition = DocuSign_eSign::EnvelopeDefinition.new
     envelope_definition.email_subject = 'Please sign this document sent from Ruby SDK'
 
