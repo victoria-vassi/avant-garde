@@ -37,13 +37,18 @@
 	<!-- Tab Content -->
   <div class="tab-content">
   	<div class="tab-pane active" id="open-campaigns-tab-content">
-  		<p>Show list of open campaigns here</p>
-  		<% campaign = @campaigns[0] %>
-  		<br>
-			<%= link_to "Campaign ID 0", campaign_path(campaign) %>
+  		<div class="container" id="campaigns-section">
+        <% @campaigns_open.each do |campaign| %>
+          <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+        <% end %>
+      </div>
   	</div>
   	<div class="tab-pane" id="closed-campaigns-tab-content">
-  		<p>Show list of closed campaigns here</p>
+      <div class="container" id="campaigns-section">
+        <% @campaigns_closed.each do |campaign| %>
+          <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+        <% end %>
+      </div>
   	</div>
   </div>
   <!-- End Tab Content -->
@@ -60,6 +65,9 @@
 
 <%= javascript_include_tag 'components/hs.header' %>
 <%= javascript_include_tag 'components/hs.unfold' %>
+
+<%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
+<%= javascript_include_tag 'components/hs.fancybox' %>
 
 <script>
   $(window).on('load', function () {
@@ -78,6 +86,11 @@
 	    }
 	  });
 	});
+
+  $(document).on('ready', function () {
+    // initialization of popups
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+  });
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->

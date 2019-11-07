@@ -1,0 +1,47 @@
+<!-- Icon Block -->
+<div class="gradient-half-primary-v3">
+  <div class="container space-1" id="icons-section">
+    <div class="row">
+      <div class="col-md-4 mb-9 mb-md-0">
+        <div class="pr-lg-4">
+          <figure id="SVGInvestment" class="svg-preloader mb-3">
+			     <%= image_tag("svg/investment.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: '#SVGInvestment' }) %>
+          </figure>
+          <h4 class="h5 text-center">Diversification</h4>
+          <p>Never put all your eggs in the same basket! You can now co-own an art collection and diversify your portfolio of financial assets.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-9 mb-md-0">
+        <div class="pr-lg-4">
+          <figure id="SVGGrowth" class="svg-preloader mb-3">
+          	<%= image_tag("svg/growth.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: '#SVGGrowth' }) %>
+          </figure>
+          <h4 class="h5 text-center">Affordability</h4>
+          <p>Start buying shares of artworks for only 500€. Masterpieces and their expected value increase are now accessible to any private investor.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pr-lg-4">
+          <figure id="SVGWinner" class="svg-preloader mb-3">
+          	<%= image_tag("svg/winner.svg", class: "js-svg-injector w-100", style: "height: 70px", alt: "Image Description", data: { parent: '#SVGWinner' }) %>
+          </figure>
+          <h4 class="h5 text-center">Simplicity</h4>
+          <p>Avant/Gard's platform allows you to buy shares of established artists and emerging talents with a few clicks. Safe storage is guranteed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Icon Block -->
+
+<!-- ========== Page Specific Javascript ========== -->
+<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
+<%= javascript_include_tag 'components/hs.svg-injector' %>
+
+<script>
+  $(window).on('load', function () {
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+</script>
+<!-- ========== End Page Specific Javascript ====== -->
