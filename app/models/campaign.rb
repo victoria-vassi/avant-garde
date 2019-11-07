@@ -20,4 +20,5 @@ class Campaign < ApplicationRecord
   validates :payout_rate, presence: true
   validates :funding_status, presence: true
   validates :funded, inclusion: { in: [true, false] }
+  monetize :price_cents
 end
