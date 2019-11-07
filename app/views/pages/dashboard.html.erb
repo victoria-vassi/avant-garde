@@ -57,32 +57,18 @@
 <!-- ====== End Sub Navigation ====== -->
 
 <%= render 'shared/sidebar' %>
-
 <!-- ========== Page Specific Javascript ========== -->
 
-<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
-<%= javascript_include_tag 'components/hs.svg-injector' %>
+<%= javascript_pack_tag 'subnav' %>
 
-<%= javascript_include_tag 'components/hs.header' %>
-<%= javascript_include_tag 'components/hs.unfold' %>
+<%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
+<%= javascript_include_tag 'components/hs.fancybox' %>
 
 <script>
-  $(window).on('load', function () {
-    // initialization of svg injector module
-    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
-  });
-
   $(document).on('ready', function () {
-	  // initialization of header
-	  $.HSCore.components.HSHeader.init($('#header'));
-
-	  // initialization of unfold component
-	  $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
-	    afterOpen: function () {
-	      $(this).find('input[type="search"]').focus();
-	    }
-	  });
-	});
+    // initialization of popups
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+  });
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
