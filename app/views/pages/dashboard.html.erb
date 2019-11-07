@@ -43,7 +43,7 @@
   		<p>Show an overview here</p>
   	</div>
   	<div class="tab-pane" id="my-investments-tab-content">
-  		<p>Show list of investements</p>
+      <%= render 'investments/components/table', investments: @investments_user %>
   	</div>
   	<div class="tab-pane" id="my-campaigns-tab-content">
 		  <% @campaigns_user.each do |campaign| %>
