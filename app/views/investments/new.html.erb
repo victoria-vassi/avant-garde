@@ -1,23 +1,4 @@
-
-<!-- ========== HEADER ========== -->
-  <header id="header" class="u-header u-header--bg-transparent u-header--abs-top")" >
-    <div class="u-header__section">
-      <div id="logoAndNav" class="container-fluid" >
-        <!-- Nav -->
-        <nav class="navbar navbar-expand u-header__navbar" >
-          <!-- White Logo -->
-          <a class="d-inline-flex align-items-center" href="<%= root_path %>" aria-label="Front">
-            <span class="brand brand-primary mr-0" style="color: white">Avant</span>
-            <span class="brand brand-primary mx-0" style="color: white">/</span>
-            <span class="brand brand-primary ml-0" style="color: white">Garde</span>
-          </a>
-          <!-- End White Logo -->
-        </nav>
-        <!-- End Nav -->
-      </div>
-    </div>
-  </header>
-  <!-- ========== END HEADER ========== -->
+<%= render 'shared/topbar' %>
   <!-- ========== MAIN ========== -->
   <main id="content" role="main">
     <!-- Form -->
@@ -71,15 +52,15 @@
                   <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, :method => :post do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
-                      <%= f.input :amount
-                                  # as: :hidden
+                      <%= f.input :amount,
+                                  as: :hidden
                                   %>
                     </div>
 
                     <div class="form-actions dl-flex">
                       <%= f.button :submit,
                                    "Confirm amount",
-                                   class: "btn btn-primary transition-3d-hover"  %>
+                                   class: "btn btn-primary transition-3d-hover"%>
 
                     </div>
                   <% end %>
@@ -92,19 +73,90 @@
         </div>
       </div>
       <!-- End Form -->
-    </main>
 
-    <!-- ========== Page Specific Javascript ========== -->
+      <!-- Modal Window Trigger -->
+<a class="btn btn-sm btn-primary transition-3d-hover" href="#shoppingCartWithItemsModal"
+   data-modal-target="#shoppingCartWithItemsModal">
+  Open Shopping Cart with Items Modal
+</a>
+<!-- End Modal Window Trigger -->
 
-    <%= javascript_include_tag 'vendor/ion-rangeslider/js/ion.rangeSlider.min' %>
-    <%= javascript_include_tag 'components/hs.range-slider' %>
+<!-- Shopping Cart Modal Window -->
+<div id="shoppingCartWithItemsModal" class="js-modal-window u-modal-window" style="width: 370px;">
+  <div class="card">
+    <!-- Header -->
+    <header class="card-header bg-light py-3 px-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="h6 mb-0">Your Avant/Garde investment</h3>
 
-    <script>
-      $(document).on('ready', function () {
-        // initialization of forms
-        $.HSCore.components.HSRangeSlider.init('.js-range-slider');
-      });
-    </script>
+        <button type="button" class="close" aria-label="Close" onclick="Custombox.modal.close();">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </header>
+    <!-- End Header -->
 
-    <!-- ========== End Page Specific Javascript ====== -->
+    <!-- Body -->
+    <div class="card-body p-5">
+      <div class="media">
+        <div class="u-avatar mr-10 mb-6">
+          <%= cl_image_tag @campaign.images.first.photo, height: 100, width: 100, crop: :crop %>
+        </div>
+        <div class="media-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="d-block font-weight-semi-bold"><%=@campaign.artist%></span>
+          </div>
+          <span class="d-block font-size-1"><%=@campaign.title%></span>
+          <span class="d-block text-primary font-weight-semi-bold">Value : <%=@campaign.price%>$</span>
+          <small class="d-block text-muted"></small>
+        </div>
+      </div>
+    </div>
+    <!-- End Body -->
+
+    <!-- Footer -->
+    <div class="card-footer text-center p-5">
+      <div class="mb-3">
+        <span class="d-block font-weight-bold">Your investment</span>
+        <span class="d-block ">You want to invest <span class="font-weight-semi-bold">2000$</span></span>
+        <span class="d-block">You will own <span class="font-weight-semi-bold">5%</span> of the art piece</span>
+        <span class="d-block"></span>
+      </div>
+      <div class="mb-2">
+        <a class="btn btn-sm btn-soft-primary transition-3d-hover" href="../shop/shop-checkout.html">Go to payment</a>
+      </div>
+      <p class="small mb-0"><a class="link-muted" href="javascript:;">Invest the Monet and Let's Gogh</a></p>
+    </div>
+    <!-- End Footer -->
+  </div>
+</div>
+<!-- End Shopping Cart Modal Window -->
+</main>
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'vendor/ion-rangeslider/js/ion.rangeSlider.min' %>
+<%= javascript_include_tag 'components/hs.range-slider' %>
+<%= javascript_include_tag 'vendor/custombox/dist/custombox.min' %>
+<%= javascript_include_tag 'vendor/custombox/dist/custombox.legacy.min' %>
+<%= javascript_include_tag 'components/hs.modal-window' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of forms
+    $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+  });
+
+  $(window).on('load', function () {
+  // initialization of autonomous popups
+  $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
+    autonomous: true
+  });
+});
+
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->
+
+
 
