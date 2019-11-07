@@ -20,18 +20,15 @@ class InvestmentsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @investment.campaign = @campaign
     @investment.user = current_user
-    if (@investment.amount < (@campaign.price * (1 - @campaign.funding_status / 100))) && (!@campaign.investments.where(user: current_user).empty?)
+    if (@investment.amount < (@campaign.price * (1 - @campaign.funding_status / 100))) && (@campaign.investments.where(user: current_user).empty?)
       @investment.save!
     respond_to do |format|
         # format.html { redirect_to restaurant_path(@restaurant) }
         format.js
       end
+    else
+      redirect_to new_investment_campaign_path
     end
-    #   redirect_to dashboard_path(@user)
-    # else
-    #   # @investments = Investment.where("campaign_id = '#{params[:campaign_id]}'")
-    #   render 'campaigns/show'
-    # end
   end
 
   private
