@@ -10,13 +10,12 @@ class EgController < ApplicationController
       @envelope_ok = !session[:envelope_id].nil?
       @documents_ok = !session[:envelope_documents].nil?
       @document_options = session[:envelope_documents].nil?? nil: session[:envelope_documents]['documents']
-      @gateway_ok = @config.gateway_account_id && @config.gateway_account_id.length > 25
+      # @gateway_ok = @config.gateway_account_id && @config.gateway_account_id.length > 25
       @template_ok = !session[:template_id].nil?
       @source_file = "#{get_file_name}"
-      @source_url = "#{@config.github_example_url}#{@source_file}"
+      @source_url = "https://github.com/docusign/eg-03-ruby-auth-code-grant/blob/master/data/World_Wide_Corp_fields.pdf"
       @documentation = "#{@config.documentation}#{eg_name}" #= Config.documentation + EgName
       @show_doc = @config.documentation
-      raise
     else
       # RequestItemsService.EgName = EgName
       redirect_to "/ds/mustAuthenticate"

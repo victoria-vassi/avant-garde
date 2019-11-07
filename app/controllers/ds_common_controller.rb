@@ -8,7 +8,6 @@ class DsCommonController < ApplicationController
   end
 
   def login
-    raise
     redirect_to('/oauth/docusign')
   end
 

@@ -3,6 +3,7 @@ class DocusignController < EgController
   def eg_name
     'docusign'
   end
+
   def get_file_name
     File.basename __FILE__
   end
@@ -23,25 +24,22 @@ class DocusignController < EgController
     # Validation: Delete any non-usual characters
     signer_email = request.params[:signerEmail].gsub(/([^\w \-\@\.\,])+/, '')
     signer_name =  request.params[:signerName].gsub(/([^\w \-\@\.\,])+/, '')
-    access_token = session['ds_access_token']
+    access_token = "MzdiNDY5YzUtNDA5MC00NGJkLWE3YTgtYjRiYzExODI5MmU1CgpmOWYzNjVhMC1iZWM3LTRjNjYtOWEwNC01OThhYTE5OGQ1Njk="
     base_url = session['ds_base_path']
     account_id = 9242773
-
     redirect_url = worker access_token, base_url, account_id, signer_email, signer_name
-    raise
     redirect_to redirect_url
   end
 
   # ***DS.snippet.0.start
   def worker(access_token, base_url, account_id, signer_email, signer_name)
-    raise
     ds_ping_url = 'http://localhost:3000/'
     ds_return_url = "#{Rails.application.config.app_url}/ds_common-return"
     signer_client_id = 1000
     pdf_filename = 'World_Wide_Corp_lorem.pdf'
 
     # Step 1. Create the envelope definition
-    envelope = make_envelope(signer_email, signer_name, signer_client_id, pdf_filename);
+    envelope = make_envelope(signer_email, signer_name, signer_client_id, pdf_filename)
 
     # Step 2. Call DocuSign to create the envelope
     configuration = DocuSign_eSign::Configuration.new
@@ -49,7 +47,6 @@ class DocusignController < EgController
     api_client = DocuSign_eSign::ApiClient.new configuration
     api_client.default_headers['Authorization'] = 'Bearer ' + access_token
     envelope_api = DocuSign_eSign::EnvelopesApi.new api_client
-
     results = envelope_api.create_envelope account_id, envelope
     envelope_id = results.envelope_id
     # Save for future use within the example launcher
@@ -106,7 +103,6 @@ class DocusignController < EgController
   end
 
   def make_envelope(signer_email, signer_name, signer_client_id, pdf_filename)
-    raise
     envelope_definition = DocuSign_eSign::EnvelopeDefinition.new
     envelope_definition.email_subject = 'Please sign this document sent from Ruby SDK'
 
