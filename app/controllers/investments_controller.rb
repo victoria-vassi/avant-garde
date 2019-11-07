@@ -19,12 +19,12 @@ class InvestmentsController < ApplicationController
     # authorize @campaign
     @investment.campaign = @campaign
     @investment.user = current_user
-    if @investment.save
-      redirect_to dashboard_path(@user)
-    else
-      # @investments = Investment.where("campaign_id = '#{params[:campaign_id]}'")
-      render 'campaigns/show'
-    end
+    @investment.save!
+    #   redirect_to dashboard_path(@user)
+    # else
+    #   # @investments = Investment.where("campaign_id = '#{params[:campaign_id]}'")
+    #   render 'campaigns/show'
+    # end
   end
 
   private
