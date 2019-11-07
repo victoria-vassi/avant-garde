@@ -69,3 +69,24 @@
   <!-- End Topbar -->
 </div>
 <!-- ========== End HEADER ========== -->
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'components/hs.header' %>
+<%= javascript_include_tag 'components/hs.unfold' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of header
+    $.HSCore.components.HSHeader.init($('#header'));
+
+    // initialization of unfold component
+    $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+      afterOpen: function () {
+        $(this).find('input[type="search"]').focus();
+      }
+    });
+  });
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->

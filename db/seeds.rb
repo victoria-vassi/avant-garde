@@ -142,7 +142,7 @@ campaign_attributes = [
   },
   {
     artist: "David Hockney",
-    title: "Pool Made with Paper and Blue Ink for Book (from Paper Pools)",
+    title: "Pool Made with Paper",
     year: "1980",
     category: "Drawing",
     movement: "Contemporary art",
@@ -317,33 +317,45 @@ investments = [
   {
     amount: 500,
     user: dev,
-    campaign: Campaign.find(1)
+    campaign: Campaign.find(1),
+    date: d = Campaign.find(1).start_date
   },
   {
     amount: 230,
     user: dev,
-    campaign: Campaign.find(2)
+    campaign: Campaign.find(2),
+    date: d = Campaign.find(2).start_date
+  },
+  {
+    amount: 410,
+    user: dev,
+    campaign: Campaign.find(2),
+    date: d = Campaign.find(2).start_date + 2
+  },
+  {
+    amount: 180,
+    user: dev,
+    campaign: Campaign.find(2),
+    date: d = Campaign.find(2).start_date + 3
   },
   {
     amount: 1000,
     user: dev,
-    campaign: Campaign.find(3)
+    campaign: Campaign.find(3),
+    date: d = Campaign.find(3).start_date
   },
   {
     amount: 2000,
     user: dev,
-    campaign: Campaign.find(4)
+    campaign: Campaign.find(4),
+    date: d = Campaign.find(4).start_date
   },
   {
     amount: 1000,
     user: dev,
-    campaign: Campaign.find(5)
+    campaign: Campaign.find(6),
+    date: d = Campaign.find(6).start_date
   },
-  {
-    amount: 1300,
-    user: dev,
-    campaign: Campaign.find(6)
-  }
 ]
 
 investments.each do |investment|
