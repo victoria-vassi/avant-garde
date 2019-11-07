@@ -123,8 +123,7 @@
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
-        <a class="btn btn-sm btn-soft-primary transition-3d-hover" href="order">Go to payment</a>
-        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post  %>
+        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
       </div>
       <p class="small mb-0"><a class="link-muted" href="javascript:;">Invest the Monet and Let's Gogh</a></p>
     </div>
