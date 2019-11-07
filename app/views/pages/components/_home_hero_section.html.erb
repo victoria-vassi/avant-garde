@@ -1,0 +1,43 @@
+<!-- Hero Section -->
+<div class="d-lg-flex position-relative">
+  <div class="container d-lg-flex align-items-lg-center space-top-2 space-top-md-5 space-lg-0 min-height-lg-100vh">
+    <!-- Content -->
+    <div class="row w-100">
+      <div class="col-lg-5">
+        <h1 class="display-5 font-size-md-down-5 my-3">Invest in museum-worthy artworks</h1>
+        <p>
+          New artwork campaigns go live on the Avant/Garde platform every month. Fractional ownership allows you to participate in the value increase of works by some of the best artists. Start with a small investment and grow your art collection over time. 
+        </p>
+        <div class="d-flex align-items-center flex-wrap">
+          <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-wide transition-3d-hover" %>
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+
+    <div class="col-lg-9 col-xl-7 d-none d-lg-block position-absolute top-0 right-0 pr-0">
+      <!-- PNG Mockup -->
+      <img src="<%= image_path("png/main-hero.png") %>" style="width: 100%" alt="">
+      <!-- End PNG Mockup -->
+    </div>
+
+    <a class="js-go-to u-go-to-modern bg-soft-primary position-absolute" style="bottom: 100px; left: 47%;" href="javascript:;"
+       data-target="#icons-section"
+       data-type="static">
+      <span class="fas fa-arrow-down u-go-to-modern__inner"></span>
+    </a>
+
+  </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- ========== Page Specific Javascript ========== -->
+<%= javascript_include_tag 'components/hs.go-to' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of go to
+    $.HSCore.components.HSGoTo.init('.js-go-to');
+  });
+</script>
+<!-- ========== End Page Specific Javascript ====== -->

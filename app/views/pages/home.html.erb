@@ -123,6 +123,14 @@
 </div>
 <!-- End Icon Blocks -->
 
+<!-- ========== HEADER ================ -->
+<%= render 'pages/components/home_header' %>
+<!-- ========== END HEADER ============ -->
+
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main">
+  <%= render 'pages/components/home_hero_section' %>
+  <%= render 'pages/components/home_icon_block_section' %>
 
 <!-- Campaign List -->
 <div class="container space-2" id="campaigns-section">
@@ -408,76 +416,9 @@
 </div>
 <!-- End Campaign List -->
 
-<!-- CTA Section -->
-<div class="bg-primary text-white text-center">
-  <div class="container space-1">
-    <span class="h6 d-block d-lg-inline-block font-weight-light mb-lg-0">
-      <span class="font-weight-semi-bold">Intrested?</span> – See all campaigns and detailed information in the Avant/Garde app
-    </span>
-    <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-sm btn-white transition-3d-hover font-weight-normal ml-3" %>
-  </div>
-</div>
-<!-- End CTA Section -->
-
-<!-- Mockup Block Section -->
-<div class="gradient-half-primary-v3">
-  <div class="container space-2" id="how-to">
-    <h1 class="display-5 font-size-md-down-5 my-5 text-center">How It Works</h1>
-
-    <div class="row justify-content-lg-between align-items-center pb-1 pt-4 mb-5">
-      <div class="col-md-6 col-lg-6 order-md-2 mb-7 mb-md-0">
-        <div class="pl-md-4">
-          <!-- Info -->
-          <div class="media mb-3">
-            <span class="btn btn-sm btn-icon btn-soft-primary rounded-circle mr-3">
-              <span class="btn-icon__inner">A.</span>
-            </span>
-            <div class="media-body">
-              <h3 class="h5 text-b">Own artwork shares after closing</h3>
-              <p>Only if the campaign is fully funded, the deal with the seller is closed and virtual shares are distributed among the investors.</p>
-            </div>
-          </div>
-          <!-- End Info -->
-
-          <!-- Info -->
-          <div class="media mb-3">
-            <span class="btn btn-sm btn-icon btn-soft-primary rounded-circle mr-3">
-              <span class="btn-icon__inner">B.</span>
-            </span>
-            <div class="media-body">
-              <h3 class="h5 text-b">Profit from yearly payouts</h3>
-              <p>Part of every campaign is a renting greement with a museum for a pre-defined time. The earnings are payed pro rata every year.</p>
-            </div>
-          </div>
-          <!-- End Info -->
-
-          <!-- Info -->
-          <div class="media mb-3">
-            <span class="btn btn-sm btn-icon btn-soft-primary rounded-circle mr-3">
-              <span class="btn-icon__inner">C.</span>
-            </span>
-            <div class="media-body">
-              <h3 class="h5 text-b">Profit from value increase</h3>
-              <p>Avant/Garde aims to negotiate a sales offer on behlaf of the virtual shareholders after 4-7 years. The majority has to agree to the deal.</p>
-            </div>
-          </div>
-          <!-- End Info -->
-
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <!-- PNG Mockup -->
-        <img src="<%= image_path("png/how-to.png") %>" style="width: 90%" alt="">
-        <!-- End PNG Mockup -->
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End Mockup Block Section -->
-
+<%= render 'pages/components/home_CTA_section' %>
+<%= render 'pages/components/home_how_section' %>
 </main>
-
 <!-- ========== END MAIN CONTENT ========== -->
 
 <!-- ========== FOOTER ========== -->
@@ -542,43 +483,13 @@
 <!-- ========== END FOOTER ========== -->
 
 <!-- ========== Page Specific Javascript ========== -->
-<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
-<%= javascript_include_tag 'components/hs.svg-injector' %>
-
 <%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
 <%= javascript_include_tag 'components/hs.fancybox' %>
 
-<%= javascript_include_tag 'components/hs.go-to' %>
-
-<%= javascript_include_tag 'components/hs.header' %>
-<%= javascript_include_tag 'components/hs.scroll-nav' %>
-
 <script>
-  $(window).on('load', function () {
-    // initialization of svg injector module
-    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
-  });
-
   $(document).on('ready', function () {
     // initialization of popups
     $.HSCore.components.HSFancyBox.init('.js-fancybox');
-  });
-
-  $(document).on('ready', function () {
-    // initialization of header
-    $.HSCore.components.HSHeader.init($('#header'));
-  });
-
-  $(window).on('load', function () {
-    // initialization of HSScrollNav component
-    $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
-      duration: 700
-    });
-  });
-
-  $(document).on('ready', function () {
-    // initialization of go to
-    $.HSCore.components.HSGoTo.init('.js-go-to');
   });
 </script>
 <!-- ========== End Page Specific Javascript ====== -->

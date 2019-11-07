@@ -18,3 +18,5 @@
 
 //= link components/hs.go-to.js
 
+//= link components/hs.unfold.js
+
