@@ -17,17 +17,15 @@
                 <span id="test">
                   <input class="js-range-slider" type="text"
                          data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
-                         data-grid="true"
+                         data-grid="false"
                          data-hide-from-to="false"
                          data-min="<%=@campaign.minimum_investment %>"
                          data-max="<%=@campaign.price-(@campaign.price*@campaign.funding_status/100)%>"
-                         data-step="<%=(@campaign.minimum_investment/2)%>"
-                         data-from=""
-                         data-to=""
+                         data-step="<%=@campaign.minimum_investment%>"
                          data-result-min="#rangeSliderExample2MinResult">
                 </span>
 
-                  <div class="d-flex justify-content-between align-items-center mt-4">
+                  <div class="d-flex justify-content-between align-items-center">
                     <span class="text-muted"></span>
                     <div class="js-focus-state">
                       <div class="input-group">
@@ -48,6 +46,7 @@
                     <%= f.error_notification %>
                     <div class="form-inputs">
                       <%= f.input :amount,
+                                  :input_html => { :value => @campaign.minimum_investment},
                                   as: :hidden
                                   %>
                     </div>
@@ -114,8 +113,8 @@
     <div class="card-footer text-center p-5">
       <div class="mb-3">
         <span class="d-block font-weight-bold">Your investment</span>
-        <span class="d-block ">You want to invest <span class="font-weight-semi-bold"><%=@investment.amount%>$</span></span>
-        <span class="d-block">You will own <span class="font-weight-semi-bold"><%= number_with_delimiter((@campaign.price * (1 - @campaign.funding_status / 100.00)).round, :delimiter => ',') %></span> of the art piece</span>
+        <span class="d-block ">You want to invest <span class="font-weight-semi-bold"><%=current_user.investments.last.amount%>$</span></span>
+        <span class="d-block">You will own <span class="font-weight-semi-bold"><%=(current_user.investments.last.amount/@campaign.price*100)%> </span> of the art piece</span>
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
