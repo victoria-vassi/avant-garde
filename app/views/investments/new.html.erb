@@ -1,16 +1,45 @@
 <%= render 'shared/topbar' %>
+
+<!-- ========== Sub Navigation ====== -->
+<!-- Breadcrumb Section -->
+<div class="bg-primary">
+
+  <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Your investment</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+        <!-- Subnav -->
+        <ul class="nav nav-border-white">
+          <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" href="#overview"> Invest yout Monet and let's Gogh</a>
+          </li>
+        </ul>
+        <!-- End Subnav -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb Section -->
+<!-- ====== End Sub Navigation ====== -->
   <!-- ========== MAIN ========== -->
-  <main id="content" role="main">
-    <!-- Form -->
-      <div class="container">
-        <div class="row no-gutters">
+        <div class="row no-gutters my-auto">
           <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
             <!-- Form -->
             <div class="js-validate mt-5">
               <!-- Title -->
-              <div class="mb-7">
+              <div class="mt-7">
                 <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
-                <p><%=@campaign.artist%></p>
+                <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
                 <h7> Please, select the amount you want to invest<h7>
               <!-- End Title -->
                 <!-- Range Slider -->
@@ -20,7 +49,7 @@
                          data-grid="false"
                          data-hide-from-to="false"
                          data-min="<%=@campaign.minimum_investment %>"
-                         data-max="<%=@campaign.price-(@campaign.price*@campaign.funding_status/100)%>"
+                         data-max="<%=(@campaign.price * (1 - @campaign.funding_status / 100))%>"
                          data-step="<%=@campaign.minimum_investment%>"
                          data-result-min="#rangeSliderExample2MinResult">
                 </span>
@@ -140,6 +169,8 @@
 
 
 <%= javascript_pack_tag 'formamount' %>
+<%= javascript_pack_tag 'clickmodal' %>
+<%= javascript_pack_tag 'subnav' %>
 
 <script>
   $(document).on('ready', function () {
