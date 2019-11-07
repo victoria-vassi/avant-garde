@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def create
-    campaign = Campaign.find(params[:teddy_id])
+    campaign = Campaign.find(params[:campaign])
     order = Order.create!(campaign: campaign, title: campaign.title, price: campaign.price, user: current_user)
 
     session = Stripe::Checkout::Session.create(
