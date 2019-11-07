@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_050825) do
+ActiveRecord::Schema.define(version: 2019_11_07_065204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_11_07_050825) do
     t.string "artist"
     t.string "title"
     t.string "year"
-    t.integer "price"
     t.date "end_date"
     t.integer "minimum_investment"
     t.string "category"
@@ -37,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_050825) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "start_date"
+    t.integer "price_cents", default: 0, null: false
     t.index ["renter_id"], name: "index_campaigns_on_renter_id"
     t.index ["seller_id"], name: "index_campaigns_on_seller_id"
   end
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(version: 2019_11_07_050825) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string "state", default: "Pending"
     t.bigint "user_id"
     t.bigint "campaign_id"
+    t.string "checkout_session_id"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "USD", null: false
     t.datetime "created_at", null: false

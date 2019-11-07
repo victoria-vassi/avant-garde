@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: 'pages#dashboard', as: :dashboard
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 resources :orders, only: [:show, :create] do
   resources :payments, only: :new
 end
@@ -36,3 +37,6 @@ end
 end
   resources :investments, only: [:index, :show]
 end
+
+#   mount StripeEvent::Engine, at: '/stripe-webhooks'
+# end

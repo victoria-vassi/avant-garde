@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
   def create
     campaign = Campaign.find(params[:campaign])
-    order = Order.create!(campaign: campaign, title: campaign.title, price: campaign.price, user: current_user)
+    order = Order.create!(campaign: campaign, amount: campaign.price, user: current_user)
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
         name: campaign.title,
-        amount: campaign.price,
+        amount: order.amount_cents / 100,
         currency: 'usd',
         quantity: 1
       }],
