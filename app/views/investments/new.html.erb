@@ -43,7 +43,7 @@
                 <h7> Please, select the amount you want to invest<h7>
               <!-- End Title -->
                 <!-- Range Slider -->
-                <span id="test">
+                <span id="test" data-price="<%= @campaign.price %>">
                   <input class="js-range-slider" type="text"
                          data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
                          data-grid="false"
@@ -71,7 +71,7 @@
                   <!-- Form -->
                   <div>
                   <!-- Form Inputs & Actions -->
-                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, :method => :post do |f| %>
+                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, :method => :post, remote: true do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
                       <%= f.input :amount,
@@ -142,8 +142,8 @@
     <div class="card-footer text-center p-5">
       <div class="mb-3">
         <span class="d-block font-weight-bold">Your investment</span>
-        <span class="d-block ">You want to invest <span class="font-weight-semi-bold"> NEED JS HERE $</span></span>
-        <span class="d-block">You will own <span class="font-weight-semi-bold">NEED JS HERE </span> of the art piece</span>
+        <span id="invested_amount_conf" class="d-block "></span>
+        <span id="invested_share_conf" class="d-block"></span>
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
@@ -171,6 +171,7 @@
 <%= javascript_pack_tag 'formamount' %>
 <%= javascript_pack_tag 'clickmodal' %>
 <%= javascript_pack_tag 'subnav' %>
+<%= javascript_pack_tag 'confinvestment' %>
 
 <script>
   $(document).on('ready', function () {

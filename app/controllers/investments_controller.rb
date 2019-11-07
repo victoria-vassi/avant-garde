@@ -15,25 +15,17 @@ class InvestmentsController < ApplicationController
     @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC")
   end
 
-
-
-  # update campaign.funding_status
-  # a=  sum all investments whose campaign_id = @campaign.id
-  # b= @campaign.price
-  # a/b*100
-
-  # A user can't invest twice in the same campaign
-
-
-
   def create
     @investment = Investment.new(investment_params)
     @campaign = Campaign.find(params[:campaign_id])
-    # authorize @campaign
     @investment.campaign = @campaign
     @investment.user = current_user
-    if @investment.amount < (@campaign.price * (1 - @campaign.funding_status / 100))
+    if (@investment.amount < (@campaign.price * (1 - @campaign.funding_status / 100))) && (!@campaign.investments.where(user: current_user).empty?)
       @investment.save!
+    respond_to do |format|
+        # format.html { redirect_to restaurant_path(@restaurant) }
+        format.js
+      end
     end
     #   redirect_to dashboard_path(@user)
     # else
