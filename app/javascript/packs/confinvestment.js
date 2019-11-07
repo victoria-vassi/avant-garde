@@ -10,9 +10,9 @@ const sliderInput = document.querySelector("#test")
     const div = parseInt(amount) / parseInt(campaignPrice) * 100
 
     const investedAmount = document.querySelector("#invested_amount_conf")
- investedAmount.innerText = `You want to invest ${amount} $`
+ investedAmount.innerText = `You want to invest $${amount}`
     const investedShare = document.querySelector("#invested_share_conf")
 
-    investedShare.innerText = `You will own ${div} of the art piece`
+    investedShare.innerText = `You will own $${div}% of the art piece`
 });
 
