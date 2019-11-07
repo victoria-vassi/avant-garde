@@ -317,22 +317,32 @@ investments = [
   {
     amount: 500,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(1)
   },
   {
     amount: 230,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(2)
   },
   {
     amount: 1000,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(3)
   },
   {
     amount: 2000,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(4)
+  },
+  {
+    amount: 1000,
+    user: dev,
+    campaign: Campaign.find(5)
+  },
+  {
+    amount: 1300,
+    user: dev,
+    campaign: Campaign.find(6)
   }
 ]
 
