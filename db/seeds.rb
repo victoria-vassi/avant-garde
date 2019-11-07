@@ -73,7 +73,7 @@ campaign_attributes = [
     price: 252000,
     end_date: n = Date.today + 12,
     start_date: n - 60,
-    minimum_investment: "1",
+    minimum_investment: 2000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
   },

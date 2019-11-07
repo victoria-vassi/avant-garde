@@ -1,37 +1,31 @@
 <!-- ========== HEADER ================ -->
 <%= render 'pages/components/home_header' %>
 <!-- ========== END HEADER ============ -->
-
 <!-- ========== MAIN CONTENT ========== -->
-<main id="content" role="main">   
-  <%= render 'pages/components/home_hero_section' %>
-  <%= render 'pages/components/home_icon_block_section' %>
-
+<main id="content" role="main">
+ <%= render 'pages/components/home_hero_section' %>
+ <%= render 'pages/components/home_icon_block_section' %>
 <!-- Campaign List -->
 <div class="container space-2" id="campaigns-section">
-  <h1 class="display-5 font-size-md-down-5 my-5 text-center">Selected Campgaigns</h1>
-  <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[0] %>
-  <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[3] %>
+ <h1 class="display-5 font-size-md-down-5 my-5 text-center">Selected Campgaigns</h1>
+ <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[0] %>
+ <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[3] %>
 </div>
 <!-- End Campaign List -->
-
 <%= render 'pages/components/home_CTA_section' %>
 <%= render 'pages/components/home_how_section' %>
 </main>
 <!-- ========== END MAIN CONTENT ==== -->
-
 <!-- ========== FOOTER ============== -->
 <%= render 'pages/components/home_footer' %>
 <!-- ========== END FOOTER ========== -->
-
 <!-- ========== Page Specific Javascript ========== -->
 <%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
 <%= javascript_include_tag 'components/hs.fancybox' %>
-
 <script>
-  $(document).on('ready', function () {
-    // initialization of popups
-    $.HSCore.components.HSFancyBox.init('.js-fancybox');
-  });
+ $(document).on('ready', function () {
+   // initialization of popups
+   $.HSCore.components.HSFancyBox.init('.js-fancybox');
+ });
 </script>
 <!-- ========== End Page Specific Javascript ====== -->
