@@ -2,11 +2,6 @@
   <!-- ========== MAIN ========== -->
   <main id="content" role="main">
     <!-- Form -->
-    <div class="d-flex align-items-center position-relative height-lg-100vh" >
-      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center gradient-half-primary-v1 height-lg-100vh px-0" >
-        <div class="w-80 h-80"/>
-        </div>
-      </div>
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
@@ -22,17 +17,15 @@
                 <span id="test">
                   <input class="js-range-slider" type="text"
                          data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
-                         data-grid="true"
+                         data-grid="false"
                          data-hide-from-to="false"
                          data-min="<%=@campaign.minimum_investment %>"
                          data-max="<%=@campaign.price-(@campaign.price*@campaign.funding_status/100)%>"
-                         data-step="<%=(@campaign.minimum_investment/2)%>"
-                         data-from=""
-                         data-to=""
+                         data-step="<%=@campaign.minimum_investment%>"
                          data-result-min="#rangeSliderExample2MinResult">
                 </span>
 
-                  <div class="d-flex justify-content-between align-items-center mt-4">
+                  <div class="d-flex justify-content-between align-items-center">
                     <span class="text-muted"></span>
                     <div class="js-focus-state">
                       <div class="input-group">
@@ -53,6 +46,7 @@
                     <%= f.error_notification %>
                     <div class="form-inputs">
                       <%= f.input :amount,
+                                  :input_html => { :value => @campaign.minimum_investment},
                                   as: :hidden
                                   %>
                     </div>
@@ -60,6 +54,7 @@
                     <div class="form-actions dl-flex">
                       <%= f.button :submit,
                                    "Confirm amount",
+                                   id: "button-form",
                                    class: "btn btn-primary transition-3d-hover"%>
 
                     </div>
@@ -75,7 +70,7 @@
       <!-- End Form -->
 
       <!-- Modal Window Trigger -->
-<a class="btn btn-sm btn-primary transition-3d-hover" href="#shoppingCartWithItemsModal"
+<a id="button-modal" class="btn btn-sm btn-primary transition-3d-hover invisible" href="#shoppingCartWithItemsModal"
    data-modal-target="#shoppingCartWithItemsModal">
   Open Shopping Cart with Items Modal
 </a>
@@ -118,8 +113,8 @@
     <div class="card-footer text-center p-5">
       <div class="mb-3">
         <span class="d-block font-weight-bold">Your investment</span>
-        <span class="d-block ">You want to invest <span class="font-weight-semi-bold">2000$</span></span>
-        <span class="d-block">You will own <span class="font-weight-semi-bold">5%</span> of the art piece</span>
+        <span class="d-block ">You want to invest <span class="font-weight-semi-bold"> NEED JS HERE $</span></span>
+        <span class="d-block">You will own <span class="font-weight-semi-bold">NEED JS HERE </span> of the art piece</span>
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
@@ -143,6 +138,7 @@
 <%= javascript_include_tag 'vendor/custombox/dist/custombox.legacy.min' %>
 <%= javascript_include_tag 'components/hs.modal-window' %>
 
+
 <%= javascript_pack_tag 'formamount' %>
 
 <script>
@@ -160,6 +156,5 @@
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
-
 
 
