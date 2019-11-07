@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_065534) do
+ActiveRecord::Schema.define(version: 2019_11_07_050825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 2019_11_06_065534) do
     t.index ["user_id"], name: "index_investments_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_orders_on_campaign_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "renters", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -95,4 +106,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_065534) do
   add_foreign_key "images", "campaigns"
   add_foreign_key "investments", "campaigns"
   add_foreign_key "investments", "users"
+  add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "users"
 end

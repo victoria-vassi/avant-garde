@@ -73,7 +73,7 @@ campaign_attributes = [
     price: 252000,
     end_date: n = Date.today + 12,
     start_date: n - 60,
-    minimum_investment: "1",
+    minimum_investment: 2000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
   },
@@ -317,22 +317,32 @@ investments = [
   {
     amount: 500,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(1)
   },
   {
     amount: 230,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(2)
   },
   {
     amount: 1000,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(3)
   },
   {
     amount: 2000,
     user: dev,
-    campaign: Campaign.all.sample
+    campaign: Campaign.find(4)
+  },
+  {
+    amount: 1000,
+    user: dev,
+    campaign: Campaign.find(5)
+  },
+  {
+    amount: 1300,
+    user: dev,
+    campaign: Campaign.find(6)
   }
 ]
 

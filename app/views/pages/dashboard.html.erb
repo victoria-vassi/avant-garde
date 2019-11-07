@@ -46,7 +46,9 @@
   		<p>Show list of investements</p>
   	</div>
   	<div class="tab-pane" id="my-campaigns-tab-content">
-  		<p>Show list of campaign</p>
+		  <% @campaigns_user.each do |campaign| %>
+        <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+      <% end %>
   	</div>
   </div>
   <!-- End Tab Content -->

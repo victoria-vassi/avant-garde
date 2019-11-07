@@ -18,5 +18,12 @@
 
 //= link components/hs.go-to.js
 
+//= link vendor/ion-rangeslider/js/ion.rangeSlider.min.js
+
+//= link components/hs.range-slider.js
+
 //= link components/hs.unfold.js
 
+// = link vendor/custombox/dist/custombox.min.js
+// = link vendor/custombox/dist/custombox.legacy.min.js
+// = link components/hs.modal-window.js
