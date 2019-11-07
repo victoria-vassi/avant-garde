@@ -11,7 +11,20 @@ class InvestmentsController < ApplicationController
   def new
     @investment = Investment.new
     @campaign = Campaign.find(params[:campaign_id])
+    @investments_user = Investment.where("user_id = ?", current_user.id).order("date DESC")
+    @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC")
   end
+
+
+
+  # update campaign.funding_status
+  # a=  sum all investments whose campaign_id = @campaign.id
+  # b= @campaign.price
+  # a/b*100
+
+  # A user can't invest twice in the same campaign
+
+
 
   def create
     @investment = Investment.new(investment_params)
@@ -19,7 +32,9 @@ class InvestmentsController < ApplicationController
     # authorize @campaign
     @investment.campaign = @campaign
     @investment.user = current_user
-    @investment.save!
+    if @investment.amount < (@campaign.price * (1 - @campaign.funding_status / 100))
+      @investment.save!
+    end
     #   redirect_to dashboard_path(@user)
     # else
     #   # @investments = Investment.where("campaign_id = '#{params[:campaign_id]}'")
