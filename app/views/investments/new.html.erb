@@ -141,6 +141,8 @@
 <%= javascript_include_tag 'vendor/custombox/dist/custombox.legacy.min' %>
 <%= javascript_include_tag 'components/hs.modal-window' %>
 
+<%= javascript_pack_tag 'formamount' %>
+
 <script>
   $(document).on('ready', function () {
     // initialization of forms
@@ -151,9 +153,8 @@
   // initialization of autonomous popups
   $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
     autonomous: true
+    });
   });
-});
-
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
