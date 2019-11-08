@@ -1,0 +1,69 @@
+<!-- Card -->
+<div class="card mb-3 mb-lg-0">
+  <div class="card-body p-5">
+    <!-- Area Chart -->
+		<div class="js-area-chart u-area-chart"
+			data-height="16rem"
+			data-mobile-height="16rem"
+			data-offset-x="30"
+			data-offset-y="0"
+			data-postfix="m"
+			data-is-show-area="true"
+			data-is-show-line="false"
+			data-is-show-point="true"
+			data-is-full-width="true"
+
+			data-is-stack-bars="true"
+			data-is-show-axis-x="false"
+			data-is-show-axis-y="true"
+			data-is-show-tooltips="true"
+			data-tooltip-description-position="center"
+			data-tooltip-custom-class="u-area-chart__tooltip"
+
+			data-align-text-axis-x="center"
+			data-fill-opacity=".8"
+			data-fill-colors='["#ffc107", "#377dff"]'
+			data-stroke-width=".0625rem"
+			data-stroke-color="#f0f4f7"
+			data-stroke-dash-array="0"
+			data-text-size-x=".75rem"
+			data-text-color-x="#77838f"
+			data-text-offset-top-x="10"
+
+			data-text-size-y=".75rem"
+			data-text-color-y="#77838f"
+			data-points-colors='["#ffc107", "#377dff"]'
+			data-series='[[
+			  {"meta": "Orders", "value": 2000},
+			  {"meta": "Orders", "value": 6000},
+			  {"meta": "Orders", "value": 5500},
+			  {"meta": "Orders", "value": 7000},
+			  {"meta": "Orders", "value": 6000},
+			  {"meta": "Orders", "value": 7500}
+			], [
+			  {"meta": "Visits", "value": 3000},
+			  {"meta": "Visits", "value": 5000},
+			  {"meta": "Visits", "value": 4000},
+			  {"meta": "Visits", "value": 7000},
+			  {"meta": "Visits", "value": 6500},
+			  {"meta": "Visits", "value": 7000}
+			]]'
+			data-labels='["Jan", "Feb", "Apr", "May", "Jun", "Jul"]'>
+		</div>
+	  <!-- Area Chart -->
+  </div>
+</div>
+<!-- End Card -->	
+
+<!-- ========== Page Specific Javascript ========== -->
+<%= javascript_include_tag 'components/hs.chartist-area-chart' %>
+<%= javascript_include_tag 'vendor/chartist/dist/chartist.min' %>
+<%= javascript_include_tag 'vendor/chartist-js-tooltip/chartist-plugin-tooltip' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of chartist area charts
+    $.HSCore.components.HSChartistAreaChart.init('.js-area-chart');
+  });
+</script>
+<!-- ========== End Page Specific Javascript ====== -->
