@@ -1,19 +1,25 @@
+
 <%= render 'shared/topbar' %>
+<!-- ========== Sub Navigation ====== -->
+<!-- Breadcrumb Section -->
+<div class="bg-primary">
+
+  <div class="container space-top-1">
+          <!-- Breadcrumb -->
+      <ul class="step-progressbar">
+        <li class="step-progressbar__item step-progressbar__item--complete">Step 1</li>
+        <li class="step-progressbar__item step-progressbar__item--active">Step 2</li>
+        <li class="step-progressbar__item">Step 3</li>
+      </ul>
+  </div>
+</div>
+
   <!-- ========== MAIN ========== -->
-  <main id="content" role="main">
-    <!-- Form -->
-    <div class="d-flex align-items-center position-relative height-lg-100vh" >
-      <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center gradient-half-primary-v1 height-lg-100vh px-0" >
-        <div class="w-80 h-80"/>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
-            <!-- Form -->
-            <div class="js-validate mt-5">
-              <!-- Title -->
-              <div class="mb-7">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card p-5 m-5" >
+            <%#= cl_image_tag @campaign.images[0].photo %>
                 <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
                 <p><%=@campaign.artist%></p>
                 <h7> Please, select the amount you want to invest<h7>
@@ -68,10 +74,11 @@
                 </div>
                 <!-- End Form -->
               </div>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+  </div>
+</div>
+
       <!-- End Form -->
 
       <!-- Modal Window Trigger -->
@@ -123,7 +130,7 @@
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
-        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
+        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post, remote: true, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
       </div>
       <p class="small mb-0"><a class="link-muted" href="javascript:;">Invest the Monet and Let's Gogh</a></p>
     </div>
@@ -153,10 +160,8 @@
     autonomous: true
   });
 });
-
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
-
 
 
