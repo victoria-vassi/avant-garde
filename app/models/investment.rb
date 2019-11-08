@@ -2,8 +2,7 @@ class Investment < ApplicationRecord
   belongs_to :user
   belongs_to :campaign
   validates :amount, presence: true
-
-  after_save :update_fstatus
+  # after_save :update_fstatus
 
   def update_fstatus
   sum = 0
