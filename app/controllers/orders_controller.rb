@@ -8,10 +8,11 @@ class OrdersController < ApplicationController
       line_items: [{
         name: campaign.title,
         amount: @order.amount_cents,
+        # photo: campaign.images.first.photo,
         currency: 'usd',
         quantity: 1
       }],
-      success_url: order_url(@order),
+      success_url: "http://127.0.0.1:3000/campaigns/1/investments/new",
       cancel_url: order_url(@order)
     )
 
