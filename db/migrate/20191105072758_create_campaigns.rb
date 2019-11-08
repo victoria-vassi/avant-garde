@@ -4,7 +4,6 @@ class CreateCampaigns < ActiveRecord::Migration[5.2]
       t.string :artist
       t.string :title
       t.string :year
-      t.integer :price
       t.date :end_date
       t.integer :minimum_investment
       t.string :category

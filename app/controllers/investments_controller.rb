@@ -21,6 +21,7 @@ class InvestmentsController < ApplicationController
     @user = current_user
     @investment.campaign = @campaign
     @investment.user = @user
+    @investment.date = Date.today
     @investment.save
       if @investment.save!
         current_funding = @campaign.price*@campaign.funding_status/100
