@@ -21,17 +21,25 @@ class InvestmentsController < ApplicationController
     @user = current_user
     @investment.campaign = @campaign
     @investment.user = @user
+    @investment.save
       if @investment.save!
+        current_funding = @campaign.price*@campaign.funding_status/100
+        current_funding += @investment.amount
+        new_funding_status = (current_funding.to_f/@campaign.price.to_f*100).to_i
+        @campaign.funding_status = new_funding_status
+        @campaign.save!
         respond_to do |format|
       # format.html { redirect_to dashboard_path(@user) }
         format.js
         end
+
       else
         respond_to do |format|
         format.html { render 'campaign_path(@campaign)'}
         format.js
       end
     end
+
   end
 
   private
