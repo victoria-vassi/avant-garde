@@ -39,7 +39,7 @@
             <% end %>
           </td>
           <td class="align-middle text-primary">
-            $<%= investment.amount %>
+            $<%= number_with_delimiter(investment.amount, :delimiter => '.') %>
           </td>
           <td class="align-middle">
             <div class="d-flex justify-content-center align-items-center">
