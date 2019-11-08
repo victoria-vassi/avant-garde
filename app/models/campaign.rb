@@ -26,9 +26,7 @@ class Campaign < ApplicationRecord
 
   monetize :price_cents
 
-
   def new_badge?
     Date.today - self.start_date <= 30
   end
-
 end

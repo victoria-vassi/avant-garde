@@ -15,13 +15,13 @@
   </div>
 </div>
 
-  <!-- ========== MAIN ========== -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="card p-5 m-5" >
-            <%#= cl_image_tag @campaign.images[0].photo %>
 
+<div class="row no-gutters my-auto">
+          <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
+            <!-- Form -->
+            <div class="js-validate mt-5">
+              <!-- Title -->
+              <div class="mt-7">
                 <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
                 <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
                 <h7> Please, select the amount you want to invest<h7>
@@ -76,10 +76,10 @@
                 </div>
                 <!-- End Form -->
               </div>
+            </div>
+          </div>
         </div>
-    </div>
-  </div>
-</div>
+      </div>
       <!-- End Form -->
 
       <!-- Modal Window Trigger -->
@@ -154,7 +154,6 @@
 
 <%= javascript_pack_tag 'formamount' %>
 <%= javascript_pack_tag 'clickmodal' %>
-<%= javascript_pack_tag 'subnav' %>
 <%= javascript_pack_tag 'confinvestment' %>
 
 <script>
@@ -162,7 +161,6 @@
     // initialization of forms
     $.HSCore.components.HSRangeSlider.init('.js-range-slider');
   });
-
   $(window).on('load', function () {
   // initialization of autonomous popups
   $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
@@ -172,5 +170,3 @@
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
-
-
