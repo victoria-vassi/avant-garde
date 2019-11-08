@@ -1,0 +1,57 @@
+<div class="space-1">
+	<div class="card-deck d-block d-lg-flex card-lg-gutters-3 mb-6">
+	  <!-- Card -->
+	  <div class="card mb-3 mb-lg-0">
+	    <div class="card-body p-5">
+	      <div class="media align-items-center">
+	        <span class="btn btn-lg btn-icon btn-soft-primary rounded-circle mr-4">
+	          <span class="fas fa-dollar-sign btn-icon__inner"></span>
+	        </span>
+	        <div class="media-body">
+	          <span class="d-block font-size-3">$<%= number_with_delimiter(@total_amount, :delimiter => '.') %></span>
+	          <h2 class="h6 text-secondary font-weight-normal mb-0">Total investment</h2>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- End Card -->
+
+	  <!-- Card -->
+	  <div class="card mb-3 mb-lg-0">
+	    <div class="card-body p-5">
+	      <div class="media align-items-center">
+	        <span class="btn btn-lg btn-icon btn-soft-success rounded-circle mr-4">
+	          <span class="fas fa-coins btn-icon__inner"></span>
+	        </span>
+	        <div class="media-body">
+	          <span class="d-block font-size-2"><%= @investments_user.length %> investments</span>
+	          <h3 class="h6 text-secondary font-weight-normal mb-0">in <%= @campaigns_user.length %> campaigns</h3>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- End Card -->
+
+	  <!-- Card -->
+	  <div class="card">
+	    <div class="card-body p-5">
+	      <div class="media align-items-center">
+	        <span class="btn btn-lg btn-icon btn-soft-warning rounded-circle mr-4">
+	          <span class="fas fa-spinner btn-icon__inner"></span>
+	        </span>
+	        <div class="media-body">
+	        	<div>
+	            <span class="font-size-2"><%= @campaigns_user_open.length %></span>
+	            <span class="h6 text-secondary font-weight-normal"> open campaigns</span>
+	        	</div>
+	        	<div>
+	            <span class="font-size-2"><%= @campaigns_user_closed.length %></span>
+	            <span class="h6 text-secondary font-weight-normal"> closed campaigns</span>
+	        	</div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- End Card -->
+	</div>
+</div>
