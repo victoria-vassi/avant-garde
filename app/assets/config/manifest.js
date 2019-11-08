@@ -27,3 +27,6 @@
 // = link vendor/custombox/dist/custombox.min.js
 // = link vendor/custombox/dist/custombox.legacy.min.js
 // = link components/hs.modal-window.js
+
+// = link components/hs.header.js
+
