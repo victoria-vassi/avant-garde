@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @investments_user = Investment.where("user_id = ?", current_user.id).order("date DESC")
+    raise
 
     @total_amount = 0
     @investments_user.each do |investment|
