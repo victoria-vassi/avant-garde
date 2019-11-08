@@ -1,3 +1,4 @@
+
 <%= render 'shared/topbar' %>
 
 <!-- ========== Sub Navigation ====== -->
@@ -5,34 +6,17 @@
 <div class="bg-primary">
 
   <div class="container space-top-1">
-    <div class="row">
-      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
-        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
           <!-- Breadcrumb -->
-          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
-            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Your investment</li>
-          </ol>
-          <!-- End Breadcrumb -->
-        </div>
-      </div>
-
-      <div class="col-lg-7 order-lg-1">
-        <!-- Subnav -->
-        <ul class="nav nav-border-white">
-          <li class="nav-item">
-            <a class="nav-link active" id="overview-tab" href="#overview"> Invest yout Monet and let's Gogh</a>
-          </li>
-        </ul>
-        <!-- End Subnav -->
-      </div>
-    </div>
+      <ul class="step-progressbar">
+        <li class="step-progressbar__item step-progressbar__item--complete">Step 1</li>
+        <li class="step-progressbar__item step-progressbar__item--active">Step 2</li>
+        <li class="step-progressbar__item">Step 3</li>
+      </ul>
   </div>
 </div>
-<!-- End Breadcrumb Section -->
-<!-- ====== End Sub Navigation ====== -->
-  <!-- ========== MAIN ========== -->
-        <div class="row no-gutters my-auto">
+
+
+<div class="row no-gutters my-auto">
           <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
             <!-- Form -->
             <div class="js-validate mt-5">
@@ -147,7 +131,7 @@
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
-        <a class="btn btn-sm btn-soft-primary transition-3d-hover" href="../shop/shop-checkout.html">Go to payment</a>
+        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post, remote: true, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
       </div>
       <p class="small mb-0"><a class="link-muted" href="javascript:;">Invest the Monet and Let's Gogh</a></p>
     </div>
@@ -170,7 +154,6 @@
 
 <%= javascript_pack_tag 'formamount' %>
 <%= javascript_pack_tag 'clickmodal' %>
-<%= javascript_pack_tag 'subnav' %>
 <%= javascript_pack_tag 'confinvestment' %>
 
 <script>
@@ -178,7 +161,6 @@
     // initialization of forms
     $.HSCore.components.HSRangeSlider.init('.js-range-slider');
   });
-
   $(window).on('load', function () {
   // initialization of autonomous popups
   $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
@@ -188,5 +170,3 @@
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
-
-

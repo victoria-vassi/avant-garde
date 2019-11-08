@@ -1,0 +1,59 @@
+.step-progressbar {
+  list-style:none;
+  counter-reset: step;
+  display: flex;
+  padding-bottom: 10px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+    color: white;
+    position: relative;
+
+    &:before {
+      width: 3em;
+      height: 3em;
+      content: counter(step);
+      counter-increment: step;
+      border:1px solid white;
+      align-self: center;
+      background: transparent;
+      color: white;
+      border-radius: 100%;
+      line-height: 3em;
+      margin-bottom: .5em;
+    }
+
+    &:after {
+      height: 2px;
+      width: calc(100% - 4em);
+      content: '';
+      background: white;
+      position: absolute;
+      top: 1.5em;
+      left: calc(50% + 2em);
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+
+    &--active {
+      &:before {
+      border: 1px solid #000000;
+      color: #000000;
+      }
+    }
+
+    &--complete {
+      &:before {
+        content: '✔';
+      }
+    }
+  }
+}
+

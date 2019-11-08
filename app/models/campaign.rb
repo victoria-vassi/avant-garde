@@ -7,7 +7,9 @@ class Campaign < ApplicationRecord
   validates :artist, presence: true
   validates :title, presence: true
   validates :year, presence: true
+
   validates :price, presence: true
+
   validates :end_date, presence: true
   validates :start_date, presence: true
   validates :minimum_investment, presence: true
@@ -22,9 +24,9 @@ class Campaign < ApplicationRecord
   validates :funding_status, presence: true
   validates :funded, inclusion: { in: [true, false] }
 
+  monetize :price_cents
 
   def new_badge?
     Date.today - self.start_date <= 30
   end
-
 end
