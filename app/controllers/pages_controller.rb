@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @investments_user = Investment.where("user_id = ?", current_user.id).order("date DESC")
-    @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC")
+    @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC").uniq
   end
 
   def user_profile
