@@ -1,3 +1,14 @@
+ <div class="d-flex justify-content-center">
+      <a class="d-inline-flex align-items-center" aria-label="Front">
+        <span class="brand brand-primary mr-0" style="color: black">Avant</span>
+        <span class="brand brand-primary mx-0" style="color: #377dff">/</span>
+        <span class="brand brand-primary ml-0" style="color: black">Garde</span>
+      </a>
+ </div>
+
+<form class="simple_form edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="put"><input type="hidden" name="authenticity_token" value="RsXDAnpSpE3n7UzkLUUEF66Vy3R7mvCBhKzlfyD4qUO98vCE3euGscTQxTclpBE6N2gvrEDIEoi3EcOrK2o2Ig==">
+
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -5,6 +16,9 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :first_name, required:true %>
+
+    <%= f.input :last_name, required: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -14,6 +28,7 @@
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
@@ -31,5 +46,3 @@
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
