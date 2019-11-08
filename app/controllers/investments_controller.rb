@@ -18,17 +18,28 @@ class InvestmentsController < ApplicationController
   def create
     @investment = Investment.new(investment_params)
     @campaign = Campaign.find(params[:campaign_id])
+    @user = current_user
     @investment.campaign = @campaign
-    @investment.user = current_user
-    if (@investment.amount < (@campaign.price * (1 - @campaign.funding_status / 100))) && (@campaign.investments.where(user: current_user).empty?)
-      @investment.save!
-    respond_to do |format|
-        # format.html { redirect_to restaurant_path(@restaurant) }
+    @investment.user = @user
+    @investment.save
+      if @investment.save!
+        current_funding = @campaign.price*@campaign.funding_status/100
+        current_funding += @investment.amount
+        new_funding_status = (current_funding.to_f/@campaign.price.to_f*100).to_i
+        @campaign.funding_status = new_funding_status
+        @campaign.save!
+        respond_to do |format|
+      # format.html { redirect_to dashboard_path(@user) }
+        format.js
+        end
+
+      else
+        respond_to do |format|
+        format.html { render 'campaign_path(@campaign)'}
         format.js
       end
-    else
-      redirect_to new_investment_campaign_path
     end
+
   end
 
   private
