@@ -42,7 +42,7 @@
       <div class="row">
         <div class="col-8">
           <h2 class="h4 mb-1">
-            $<%= number_with_delimiter(campaign.price, :delimiter => ',') %>
+            $<%= number_with_delimiter(campaign.price, :delimiter => '.') %>
           </h2>
         </div>
         <% if campaign.new_badge? %>
@@ -119,7 +119,7 @@
       <!-- Funding Status -->
       <div class="d-flex justify-content-between mt-4">
         <div>
-          <p class="font-size-1 mb-0">Status: <%= campaign.funding_status %>% financed ($<%= number_with_delimiter((campaign.price * (1 - campaign.funding_status / 100.00)).round, :delimiter => ',') %> remaining)</p>
+          <p class="font-size-1 mb-0">Status: <%= campaign.funding_status %>% financed ($<%= number_with_delimiter((campaign.price * (1 - campaign.funding_status / 100.00)).round, :delimiter => '.') %> remaining)</p>
           <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: <%= campaign.funding_status %>%" aria-valuenow="<%= campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
             <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - campaign.funding_status %>%" aria-valuenow="<%= 100 - campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>

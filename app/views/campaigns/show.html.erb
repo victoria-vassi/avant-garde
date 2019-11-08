@@ -35,7 +35,7 @@
 	<!-- Tab Content -->
   <div class="tab-content">
   	<div class="tab-pane active" id="atist-tab-content">
-  		<p>Show campaign page here</p>
+  		<p><%= render 'shared/campaign_show' %></p>
   	</div>
   </div>
   <!-- End Tab Content -->
@@ -47,29 +47,6 @@
 
 <!-- ========== Page Specific Javascript ========== -->
 
-<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
-<%= javascript_include_tag 'components/hs.svg-injector' %>
-
-<%= javascript_include_tag 'components/hs.header' %>
-<%= javascript_include_tag 'components/hs.unfold' %>
-
-<script>
-  $(window).on('load', function () {
-    // initialization of svg injector module
-    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
-  });
-
-  $(document).on('ready', function () {
-	  // initialization of header
-	  $.HSCore.components.HSHeader.init($('#header'));
-
-	  // initialization of unfold component
-	  $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
-	    afterOpen: function () {
-	      $(this).find('input[type="search"]').focus();
-	    }
-	  });
-	});
-</script>
+<%= javascript_pack_tag 'subnav' %>
 
 <!-- ========== End Page Specific Javascript ====== -->

@@ -6,8 +6,21 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @investments_user = Investment.where("user_id = ?", current_user.id)
-    @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC")
+    @investments_user = Investment.where("user_id = ?", current_user.id).order("date DESC")
+
+    @total_amount = 0
+    @investments_user.each do |investment|
+      @total_amount += investment.amount
+    end
+
+    @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC").uniq
+   
+    @campaigns_user_closed = @campaigns_user.select do |campaign|
+      campaign.funded == true
+    end
+    @campaigns_user_open = @campaigns_user.select do |campaign|
+      campaign.funded == false
+    end
   end
 
   def user_profile
