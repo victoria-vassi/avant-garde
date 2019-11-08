@@ -49,7 +49,7 @@
                          data-grid="false"
                          data-hide-from-to="false"
                          data-min="<%=@campaign.minimum_investment %>"
-                         data-max="<%=@campaign.price - (@campaign.price * @campaign.funding_status / 100)%>"
+                         data-max="<%=(@campaign.price * (1 - @campaign.funding_status / 100))%>"
                          data-step="<%=@campaign.minimum_investment%>"
                          data-result-min="#rangeSliderExample2MinResult">
                 </span>
@@ -71,7 +71,7 @@
                   <!-- Form -->
                   <div>
                   <!-- Form Inputs & Actions -->
-                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, remote:true, :method => :post do |f| %>
+                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, :method => :post, remote:true do |f| %>
                     <%= f.error_notification %>
                     <div class="form-inputs">
                       <%= f.input :amount,

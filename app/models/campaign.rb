@@ -22,7 +22,9 @@ class Campaign < ApplicationRecord
   validates :funding_status, presence: true
   validates :funded, inclusion: { in: [true, false] }
 
+
   def new_badge?
     Date.today - self.start_date <= 30
   end
+
 end
