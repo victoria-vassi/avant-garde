@@ -8,17 +8,6 @@ Rails.application.routes.draw do
   get 'campaigns/new'
   get 'campaigns/create'
 
-  get 'docusign' => 'docusign#get'
-  post 'docusign' => 'docusign#create'
-
-  # get '/docusign', to: 'docusign#get', as: :docusign
-  # post '/docusign', to:'docusign#create', as: :docusign_sign
-
-  get '/ds/mustAuthenticate' => 'ds_common#ds_must_authenticate'
-  get '/ds/login' => redirect('/auth/docusign')
-  get '/auth/:provider/callback', to: 'session#create'
-
-  get '/ds/logout', to: 'session#destroy'
 
   devise_for :users
   root to: 'pages#home'
