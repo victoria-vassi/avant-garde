@@ -15,6 +15,7 @@ class CreateCampaigns < ActiveRecord::Migration[5.2]
       t.integer :value_increase_rate
       t.integer :payout_rate
       t.integer :funding_status
+      t.integer :price
       t.boolean :funded
       t.references :seller, foreign_key: true
       t.references :renter, foreign_key: true
