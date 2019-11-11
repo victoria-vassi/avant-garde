@@ -2,7 +2,7 @@
 	<div class="card-deck d-block d-lg-flex card-lg-gutters-3">
 	  <!-- Card -->
 	  <div class="card mb-3 mb-lg-0">
-	    <div class="card-body p-5">
+	    <div class="card-body p-4">
             <div class="mb-3">
               <div class="text-secondary font-size-1">Value increase p.a. (expected):</div>
               <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) %></span>
@@ -34,38 +34,37 @@
 
 	  <!-- Card -->
 	  <div class="card mb-3 mb-lg-0">
-	    <div class="card-body p-5">
-	      <div class="media align-items-center">
-	        <span class="btn btn-lg btn-icon btn-soft-success rounded-circle mr-4">
-	          <span class="fas fa-coins btn-icon__inner"></span>
-	        </span>
-	        <div class="media-body">
-	          <span class="d-block font-size-2"><%= @investments_user.length %> investments</span>
-	          <h3 class="h6 text-secondary font-weight-normal mb-0">in <%= @campaigns_user.length %> campaigns</h3>
-	        </div>
-	      </div>
+	    <div class="card-body p-4">
+	    	<div class="text-secondary font-size-1 mb-1">Category:</div>
+				<% @data_categories.each do |category| %>
+			    <div class="progress mb-1" style="height: 25px;">
+					  <div class="progress-bar bg-primary" role="progressbar" style="width: <%= category[1] %>%" aria-valuenow="<%= category[1] %>" aria-valuemin="0" aria-valuemax="100">
+					  	<%= category[1] %>%
+					  </div>
+					  <span class="text-body font-size-1 ml-2 align-self-center">
+					  	<%= category[0] %>
+					  </span>
+					</div>
+				<% end %>
+				<div class="text-secondary font-size-1 mb-1 mt-3">Movement:</div>
+				<% @data_movements.each do |movement| %>
+			    <div class="progress mb-1" style="height: 25px;">
+					  <div class="progress-bar bg-success" role="progressbar" style="width: <%= movement[1] %>%" aria-valuenow="<%= movement[1] %>" aria-valuemin="0" aria-valuemax="100">
+					  	<%= movement[1] %>%
+					  </div>
+					  <span class="text-body font-size-1 ml-2 align-self-center">
+					  	<%= movement[0] %>
+					  </span>
+					</div>
+				<% end %>
 	    </div>
 	  </div>
 	  <!-- End Card -->
 
 	  <!-- Card -->
 	  <div class="card">
-	    <div class="card-body p-5">
-	      <div class="media align-items-center">
-	        <span class="btn btn-lg btn-icon btn-soft-warning rounded-circle mr-4">
-	          <span class="fas fa-spinner btn-icon__inner"></span>
-	        </span>
-	        <div class="media-body">
-	        	<div>
-		            <span class="font-size-2"><%= @campaigns_user_open.length %></span>
-		            <span class="h6 text-secondary font-weight-normal"> open campaigns</span>
-	        	</div>
-	        	<div>
-		            <span class="font-size-2"><%= @campaigns_user_closed.length %></span>
-		            <span class="h6 text-secondary font-weight-normal"> closed campaigns</span>
-	        	</div>
-	        </div>
-	      </div>
+	    <div class="card-body p-4">
+	    	
 	    </div>
 	  </div>
 	  <!-- End Card -->

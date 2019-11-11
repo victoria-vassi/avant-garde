@@ -24,6 +24,10 @@ class PagesController < ApplicationController
 
     @data_labels = create_data_labels(@investments_user)
     @data_series = create_data_series(@investments_user)
+    data_categories = create_data_categories(@investments_user, @total_amount)
+    @data_categories = data_categories.sort_by { |k, v| -v }
+    data_movements = create_data_movements(@investments_user, @total_amount)
+    @data_movements = data_movements.sort_by { |k, v| -v }
   end
 
   def user_profile
@@ -90,5 +94,39 @@ class PagesController < ApplicationController
       data_series << sum
     end
     return data_series
+  end
+
+  def create_data_categories(investments_user, total_amount)
+    data_categories = {}
+    categories = []
+    investments_user.each do |investment|
+      categories << investment.campaign.category
+    end
+    categories.uniq!
+    categories.each do |category|
+      sum = 0
+      investments_user.each do |investment|
+        sum += investment.amount if investment.campaign.category == category
+      end
+      data_categories[category] = (sum.to_f / total_amount * 100).round
+    end
+    return data_categories
+  end
+
+  def create_data_movements(investments_user, total_amount)
+    data_movements = {}
+    movements = []
+    investments_user.each do |investment|
+      movements << investment.campaign.movement
+    end
+    movements.uniq!
+    movements.each do |movement|
+      sum = 0
+      investments_user.each do |investment|
+        sum += investment.amount if investment.campaign.movement == movement
+      end
+      data_movements[movement] = (sum.to_f / total_amount * 100).round
+    end
+    return data_movements
   end
 end
