@@ -31,7 +31,7 @@
           <h7> Please, select the amount you want to invest<h7>
               <!-- End Title -->
                 <!-- Range Slider -->
-                <span id="test" data-price="<%= @campaign.price %>">
+                <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
                   <input class="js-range-slider" type="text"
                          data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
                          data-grid="false"
