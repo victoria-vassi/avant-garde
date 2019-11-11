@@ -124,7 +124,7 @@
               offset: optOffsetY,
               showGrid: optIsShowAxisY,
               labelInterpolationFnc: function (value) {
-                return (value / 1000000) + optPostfix;
+                return optPostfix + (value);
               }
             },
             plugins: optIsShowTooltips ? [

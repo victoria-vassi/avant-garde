@@ -6,8 +6,8 @@
 			data-height="16rem"
 			data-mobile-height="16rem"
 			data-offset-x="30"
-			data-offset-y="0"
-			data-postfix="m"
+			data-offset-y="60"
+			data-postfix="$"
 			data-is-show-area="true"
 			data-is-show-line="false"
 			data-is-show-point="true"
@@ -21,7 +21,7 @@
 			data-tooltip-custom-class="u-area-chart__tooltip"
 
 			data-align-text-axis-x="center"
-			data-fill-opacity=".8"
+			data-fill-opacity="1"
 			data-fill-colors='["#EBF2FF"]'
 			data-stroke-width=".0625rem"
 			data-stroke-color="#f0f4f7"
@@ -34,13 +34,14 @@
 			data-text-color-y="#77838f"
 			data-points-colors='["#377dff"]'
 			data-series='[[
-			  {"meta": "Orders", "value": 2000},
-			  {"meta": "Orders", "value": 6000},
-			  {"meta": "Orders", "value": 5500},
-			  {"meta": "Orders", "value": 7000},
-			  {"meta": "Orders", "value": 6000},
-			  {"meta": "Orders", "value": 7500}
-			]]'
+			  <% @data_series.each_with_index do |amount, index| %>
+			    <% if index + 1 == @data_series.length %>
+			      {"meta": "Investments", "value": <%= amount %>}
+			    <% else %>
+                  {"meta": "Investments", "value": <%= amount %>},
+                <% end %>
+			  <% end %>
+            ]]'
 			data-labels='<%= @data_labels %>'>
 		</div>
 	  <!-- Area Chart -->
