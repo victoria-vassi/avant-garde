@@ -84,7 +84,7 @@
 	      <!-- End Title -->
 
 	      <div class="overflow-hidden">
-	        <div class="js-scrollbar pr-3 mCustomScrollbar _mCS_1 mCS-autoHide" style="max-height: 300px; position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: 300px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -29px; left: 0px;" dir="ltr">
+	        <div class="js-scrollbar pr-3 mCustomScrollbar _mCS_1 mCS-autoHide" style="max-height: 240px; position: relative; overflow: visible;">
 	          <!-- Activity Feed -->
 	          <ul class="list-unstyled u-indicator-vertical-dashed">
 	            <li class="media u-indicator-vertical-dashed-item">
@@ -143,10 +143,25 @@
 	            </li>
 	          </ul>
 	          <!-- End Activity Feed -->
-	        </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 171px; max-height: 266.007px; top: 17px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+	        </div>
 	      </div>
 	    </div>
 	  </div>
 	  <!-- End Card -->
 	</div>
 </div>
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min' %>
+<%= javascript_include_tag 'components/hs.malihu-scrollbar' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of malihu scrollbar
+    $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+  });
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->
+
