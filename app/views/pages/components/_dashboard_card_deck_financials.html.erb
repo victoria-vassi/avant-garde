@@ -1,0 +1,73 @@
+<div class="mb-5">
+	<div class="card-deck d-block d-lg-flex card-lg-gutters-3">
+	  <!-- Card -->
+	  <div class="card mb-3 mb-lg-0">
+	    <div class="card-body p-5">
+            <div class="mb-3">
+              <div class="text-secondary font-size-1">Value increase p.a. (expected):</div>
+              <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) %></span>
+	            <span class="text-primary font-weight-medium text-lh-sm">
+	              <span class="fas fa-arrow-up text-success small"></span>
+	              +<%= @total_value_increase_rate.round(1) %>%
+	            </span>
+            </div>
+            <div class="mb-3">
+              <div class="text-secondary font-size-1">Payout p.a. (secured 2 years):</div>
+              <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_payout_rate / 100 * @total_amount).round(0) %></span>
+	            <span class="text-primary font-weight-medium text-lh-sm">
+	              <span class="fas fa-arrow-up text-success small"></span>
+	              +<%= @total_payout_rate.round(1) %>%
+	            </span>
+            </div>
+            <hr class="mt-3 mb-4">
+            <div>
+              <div class="text-secondary font-size-1">Total return p.a.:</div>
+              <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) + (@total_payout_rate / 100 * @total_amount).round(0) %></span>
+	            <span class="text-primary font-weight-medium text-lh-sm">
+	              <span class="fas fa-arrow-up text-success small"></span>
+	              +<%= @total_value_increase_rate.round(1) + @total_payout_rate.round(1) %>%
+	            </span>
+            </div>
+	    </div>
+	  </div>
+	  <!-- End Card -->
+
+	  <!-- Card -->
+	  <div class="card mb-3 mb-lg-0">
+	    <div class="card-body p-5">
+	      <div class="media align-items-center">
+	        <span class="btn btn-lg btn-icon btn-soft-success rounded-circle mr-4">
+	          <span class="fas fa-coins btn-icon__inner"></span>
+	        </span>
+	        <div class="media-body">
+	          <span class="d-block font-size-2"><%= @investments_user.length %> investments</span>
+	          <h3 class="h6 text-secondary font-weight-normal mb-0">in <%= @campaigns_user.length %> campaigns</h3>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- End Card -->
+
+	  <!-- Card -->
+	  <div class="card">
+	    <div class="card-body p-5">
+	      <div class="media align-items-center">
+	        <span class="btn btn-lg btn-icon btn-soft-warning rounded-circle mr-4">
+	          <span class="fas fa-spinner btn-icon__inner"></span>
+	        </span>
+	        <div class="media-body">
+	        	<div>
+		            <span class="font-size-2"><%= @campaigns_user_open.length %></span>
+		            <span class="h6 text-secondary font-weight-normal"> open campaigns</span>
+	        	</div>
+	        	<div>
+		            <span class="font-size-2"><%= @campaigns_user_closed.length %></span>
+		            <span class="h6 text-secondary font-weight-normal"> closed campaigns</span>
+	        	</div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- End Card -->
+	</div>
+</div>

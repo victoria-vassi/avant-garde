@@ -10,6 +10,9 @@ class PagesController < ApplicationController
 
     @total_amount = calculate_total_amount(@investments_user)
 
+    @total_value_increase_rate = calculate_total_value_increase_rate(@investments_user, @total_amount)
+    @total_payout_rate = calculate_total_payout_rate(@investments_user, @total_amount)
+
     @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC").uniq
 
     @campaigns_user_closed = @campaigns_user.select do |campaign|
@@ -35,6 +38,22 @@ class PagesController < ApplicationController
       total_amount += investment.amount
     end
     return total_amount
+  end
+
+  def calculate_total_value_increase_rate(investments_user, total_amount)
+    total_value_increase_rate = 0
+    investments_user.each do |investment|
+      total_value_increase_rate += investment.amount.to_f / total_amount.to_f * investment.campaign.value_increase_rate.to_f
+    end
+    return total_value_increase_rate
+  end
+
+  def calculate_total_payout_rate(investments_user, total_amount)
+    total_payout_rate = 0
+    investments_user.each do |investment|
+      total_payout_rate += investment.amount.to_f / total_amount.to_f * investment.campaign.payout_rate.to_f
+    end
+    return total_payout_rate
   end
 
   def create_data_labels(investments_user)
