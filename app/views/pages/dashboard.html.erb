@@ -36,24 +36,26 @@
   </div>
 </div>
 
-<div class="container mt-5 mb-5">
-	<!-- Tab Content -->
-  <div class="tab-content">
-  	<div class="tab-pane active" id="overview-tab-content">
-  		<%= render 'pages/components/dashboard_card_deck_basics' %>
-      <%= render 'pages/components/dashboard_card_deck_financials' %>
-      <%= render 'pages/components/dashboard_area_chart' %>
-  	</div>
-  	<div class="tab-pane" id="my-investments-tab-content">
-      <%= render 'investments/components/table', investments: @investments_user %>
-  	</div>
-  	<div class="tab-pane" id="my-campaigns-tab-content">
-		  <% @campaigns_user.each do |campaign| %>
-        <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
-      <% end %>
-  	</div>
+<div class="bg-light pt-5 pb-5">
+  <div class="container">
+  	<!-- Tab Content -->
+    <div class="tab-content">
+    	<div class="tab-pane active" id="overview-tab-content">
+    		<%= render 'pages/components/dashboard_card_deck_basics' %>
+        <%= render 'pages/components/dashboard_card_deck_financials' %>
+        <%= render 'pages/components/dashboard_area_chart' %>
+    	</div>
+    	<div class="tab-pane" id="my-investments-tab-content">
+        <%= render 'investments/components/table', investments: @investments_user %>
+    	</div>
+    	<div class="tab-pane" id="my-campaigns-tab-content">
+  		  <% @campaigns_user.each do |campaign| %>
+          <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+        <% end %>
+    	</div>
+    </div>
+    <!-- End Tab Content -->
   </div>
-  <!-- End Tab Content -->
 </div>
 <!-- End Breadcrumb Section -->
 <!-- ====== End Sub Navigation ====== -->
