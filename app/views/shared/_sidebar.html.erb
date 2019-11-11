@@ -28,7 +28,7 @@
           <!-- Holder Info -->
           <header class="d-flex align-items-center u-sidebar--account__holder mt-3">
             <div class="position-relative">
-              <img class="u-sidebar--account__holder-img" src="<%= image_path("jpg/profile/100x100/img11.jpg") %>" alt="Image Description">
+              <img class="u-sidebar--account__holder-img" src="<%= current_user.user_image %>" alt="Image Description">
             </div>
             <div class="ml-3">
               <span class="font-weight-semi-bold"><%= current_user.first_name %> <%= current_user.last_name %></h1></span>
@@ -66,14 +66,14 @@
             <!-- List Links -->
             <ul class="list-unstyled u-sidebar--account__list">
               <li class="u-sidebar--account__list-item">
-                <%= link_to("#", class: "u-sidebar--account__list-link") do %>
+                <%= link_to(help_page_path, class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-question-circle u-sidebar--account__list-icon mr-2"></span>
                   Help
                 <% end %>
                 </a>
               </li>
               <li class="u-sidebar--account__list-item">
-                <%= link_to("#", class: "u-sidebar--account__list-link") do %>
+                <%= link_to(contact_page_path, class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-address-card u-sidebar--account__list-icon mr-2"></span>
                   Contact
                 <% end %>

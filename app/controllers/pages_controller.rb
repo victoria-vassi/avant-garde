@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     end
 
     @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC").uniq
-   
+
     @campaigns_user_closed = @campaigns_user.select do |campaign|
       campaign.funded == true
     end
@@ -25,5 +25,8 @@ class PagesController < ApplicationController
 
   def user_profile
     @user = User.find(params[:id])
+  end
+
+  def contact
   end
 end

@@ -6,6 +6,11 @@ ourLanguages =["English", "French", "German", "Italian", "Spanish", "Chinese", "
 puts "Seeding 1 dev user, 10 buyers (user), 10 sellers (user) and 10 sellers (user)..."
 puts "------------------"
 
+gender = ["Male","Female"].sample
+  url = "https://randomuser.me/api/?gender=#{gender}"
+  user_serialized = open(url).read
+  randomuser = JSON.parse(user_serialized)
+
 dev = User.create(
   email: "dev@email.com",
   password: "password",
@@ -13,11 +18,20 @@ dev = User.create(
   last_name: Faker::Name.last_name,
   birthday: Faker::Date.birthday(min_age: 18),
   languages: "English  #{ourLanguages.sample}",
-  location: Faker::Address.country
+  phone_number: "+"+randomuser["results"][0]["phone"],
+  location: randomuser["results"][0]["location"]["city"] + ", " +randomuser["results"][0]["location"]["country"],
+  sex: gender,
+  user_image: "#{randomuser["results"][0]["picture"]["medium"]}"
+
 )
 
 
 10.times do
+
+  gender = ["Male","Female"].sample
+  url = "https://randomuser.me/api/?gender=#{gender}"
+  user_serialized = open(url).read
+  randomuser = JSON.parse(user_serialized)
 
 
   user = User.create!(
@@ -27,7 +41,10 @@ dev = User.create(
     last_name: Faker::Name.last_name,
     birthday: Faker::Date.birthday(min_age: 18),
     languages: "English  #{ourLanguages.sample}",
-    location: Faker::Address.country
+    phone_number: "+"+randomuser["results"][0]["phone"],
+    location: randomuser["results"][0]["location"]["city"] + ", " +randomuser["results"][0]["location"]["country"],
+    sex: gender,
+    user_image: "#{randomuser["results"][0]["picture"]["medium"]}"
 
   )
 

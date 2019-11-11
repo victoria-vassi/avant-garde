@@ -3,41 +3,41 @@
       <div class="row">
         <div class="col-lg-3 mb-7 mb-lg-0">
 
-          <!-- Profile Card -->
+          <!-- file Card -->
           <div class="card p-1 mb-4">
             <div class="card-body text-center">
               <div class="mb-3">
-                <img class="u-lg-avatar rounded-circle" src="../../assets/img/160x160/img2.jpg" alt="Image Description">
+                <img class="u-lg-avatar rounded-circle" src="<%= current_user.user_image %>" alt="Image Description">
               </div>
 
               <div class="mb-3">
                 <h1 class="h6 font-weight-medium mb-0"><%= current_user.first_name %> <%= current_user.last_name %></h1>
               </div>
-
+             <!-- Possible add for message button
               <div class="mb-2">
                 <a class="btn btn-sm btn-soft-primary transition-3d-hover" href="#">
                   <span class="far fa-envelope mr-2"></span>
                   Send a Message
                 </a>
-              </div>
+              </div> -->
 
             </div>
           </div>
-          <!-- End Profile Card -->
+          <!-- End file Card -->
 
-          <!-- Placehodler for structure  -->
+          <!-- Edit Button  -->
           <div>
              <%= link_to '<button type="button" class="btn btn-primary btn-block">Edit Profile</button>'.html_safe, edit_user_registration_path(current_user) %>
           </div>
-          <!-- Placehodler for structure  -->
+          <!-- Edit Button  -->
 
       </div>
 
         <div class="col-lg-9">
           <!-- User Details -->
           <div class="mb-4">
-            <h2 class="h4"><%= current_user.first_name %> <%= current_user.last_name %> <span class="badge badge-success ml-1">Pro</span></h2>
-            <h4 class="h6 text-secondary mb-0">London, UK <small>-  <%= (current_user.created_at).strftime("Joined on %m/%d/%Y")   %></small></h4>
+            <h2 class="h4"><%= current_user.first_name %> <%= current_user.last_name %> <span class="badge badge-success ml-1">Premium</span></h2>
+            <h4 class="h6 text-secondary mb-0"><%= current_user.location %> <small>-  <%= (current_user.created_at).strftime("Joined on %m/%d/%Y")%></small></h4>
           </div>
           <!-- End User Details -->
 
@@ -62,7 +62,7 @@
                     <span class="fas fa-map-marker-alt list-group-icon mr-3"></span>
                     <div class="media-body text-lh-sm">
                       <span class="d-block mb-1">Location:</span>
-                      London, England
+                      <%= current_user.location %>
                     </div>
                   </div>
                 </li>
@@ -82,16 +82,16 @@
                     </div>
                   </div>
                 </li>
-                <li class="list-group-item pt-0 pb-4">
+
+                 <li class="list-group-item pt-0 pb-4">
                   <div class="media">
-                    <span class="fas fa-building list-group-icon mr-3"></span>
+                    <span class="fas fa-mobile-alt list-group-icon mr-3"></span>
                     <div class="media-body text-lh-sm">
-                      <span class="d-block mb-1">Organization:</span>
-                      Pixeel Ltd.</a>\
+                      <span class="d-block mb-1">Phone number:</span>
+                      <%= current_user.phone_number %>
                     </div>
                   </div>
                 </li>
-
               </ul>
               <!-- End List Group -->
             </div>
@@ -110,15 +110,16 @@
                   </div>
                 </li>
 
-                <li class="list-group-item pt-0 pb-4">
+                <!-- <li class="list-group-item pt-0 pb-4">
                   <div class="media">
-                    <span class="fas fa-mobile-alt list-group-icon mr-3"></span>
+                    <span class="fas fa-building list-group-icon mr-3"></span>
                     <div class="media-body text-lh-sm">
-                      <span class="d-block mb-1">Phone number:</span>
-                      <a href="#">+44 (0161) 347 8854</a>
+                      <span class="d-block mb-1">Organization:</span>
+                      Pixeel Ltd.</a>\
                     </div>
                   </div>
-                </li>
+                </li> -->
+
               </ul>
               <!-- End List Group -->
             </div>

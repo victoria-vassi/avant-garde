@@ -8,41 +8,61 @@
 
 <form class="simple_form edit_user" id="edit_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="put"><input type="hidden" name="authenticity_token" value="RsXDAnpSpE3n7UzkLUUEF66Vy3R7mvCBhKzlfyD4qUO98vCE3euGscTQxTclpBE6N2gvrEDIEoi3EcOrK2o2Ig==">
 
+<div class = 'd-flex justify-content-center'>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, label_html: { class: 'js-validate' }) do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :first_name, required:true %>
 
-    <%= f.input :last_name, required: true %>
+      <div class="form-inputs" style = "width: 60%">
+        <%= f.input :email, required: true, autofocus: true %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+        <%= f.input :first_name, required:true %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
+        <%= f.input :last_name, required: true %>
 
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
+        <%= f.input :location, required: false %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+        <%= f.input :user_image, required: false %>
 
-<h3>Cancel my account</h3>
+        <%= f.input :phone_number, required: false %>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= f.input :birthday, required: false %>
+
+
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+                    <div class="form-actions">
+        <%= f.button :submit, "Update", class:"btn btn-primary transition-3d-hover mt-5"   %>
+
+        <div><h3>Cancel my account</h3></div>
+
+        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      </div>
+
+        <% end %>
+
+      </div>
+
+
+ </div>
+
+
+
+
