@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_132705) do
     t.bigint "user_id"
     t.bigint "campaign_id"
     t.string "checkout_session_id"
+    t.string "photo"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "USD", null: false
     t.datetime "created_at", null: false
