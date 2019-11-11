@@ -44,7 +44,6 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
       <% if action_name.to_sym == :show %>
-        <%= link_to 'Back', dashboard_path, class: "btn btn-outline-secondary mx-2" %>
         <%= link_to 'DOWNLOAD PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
     </div>
@@ -56,60 +55,72 @@
 <!-- Start of the PDF layout -->
 <div class= "container">
 <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-          <tr class="top">
-            <td colspan="4">
-              <table>
-                <tr>
-                  <td class="title">
-                    <%= image_tag wicked_pdf_asset_base64('company_logo.png'), width: '30%' %>
-                  </td>
+  <table cellpadding="0" cellspacing="0">
 
-                  <td>
-                    Invoice #: <b><%= @certificate.id %></b>
-                    <br>
-                    Created: <b><%= @certificate.created_at.strftime('%d/%m/%Y') %></b>
-                    <br>
-                    Status: <span class="<%= @certificate.status_class %>"><%= @certificate.status %></span>
-                  </td>
-                </tr>
-              </table>
+    <tr class="top">
+      <td colspan="4">
+        <table>
+          <tr>
+            <td class="title" style="width: 680px";>
+              <%= image_tag wicked_pdf_asset_base64('company_logo.png'), width: '50%' %>
             </td>
-          </tr>
 
-          <tr class="information">
-            <td colspan="4">
-              <table>
-                <tr>
-                  <td>
-                    <b><%= @certificate.full_name %></b><br>
-                    <b> Chemin des fins </b> <br>
-                    <i class="far fa-envelope"></i> lola@gmail.com<br>
-                    <i class="fas fa-phone"></i> 098 876 0976 90
-                  </td>
+            <td>
+              Certificate #: <b><%= @certificate.id %></b>
+               <br>
+              Created: <b><%= @certificate.created_at.strftime('%d/%m/%Y') %></b>
+                <br>
+                Status: <span class="<%= @certificate.status_class %>"><%= @certificate.status %></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
 
-                  <td>
-                    <b>AVANT / GARDE</b><br>
-                    <B> 16, Vine Hill, LONDON </b><br>
-                    <i class="far fa-envelope"></i> avant-garde@gmail.com<br>
-                    <i class="fas fa-phone"></i> 022 789 671 098
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+      <tr class="information">
+        <td colspan="4">
+          <table>
+            <tr>
+              <td>
+                <b><%= @certificate.full_name %></b><br>
+                <b> 17, Rue de Passy, PARIS </b> <br>
+                <i class="far fa-envelope"></i> user@gmail.com<br>
+                <i class="fas fa-phone"></i> 098 876 0976 90
+              </td>
 
-          <tr class="heading">
-            <td>Investment Certificate</td>
-            <td colspan="2"></td>
-            <td class="right">Amount</td>
-          </tr>
+              <td>
+                <b>AVANT / GARDE</b><br>
+                <b> 16, Vine Hill, LONDON </b><br>
+                <i class="far fa-envelope"></i> avant-garde@gmail.com<br>
+                <i class="fas fa-phone"></i> 022 789 671 098
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
 
-          <tr class="details">
-            <td> <b> <%= @certificate.campaign_name %> </b> - <i> <%= @certificate.campaign_title %> </i> </td>
-            <td colspan="2"></td>
-            <td class="right"> <%= @certificate.investment_amount %></td>
-          </tr>
+      <tr class="container">
+        <td class="row">
+          <div class="col-md-6 col-lg-4">
+            <%= cl_image_tag @certificate.campaign_image, width: '100%' %>
+          </div>
+
+          <div class="col-md-6 col-lg-8">
+            <tr class="heading">
+              <td>Investment Certificate</td>
+              <td colspan="2"></td>
+              <td class="right">Amount</td>
+            </tr>
+
+            <tr class="details">
+              <td> <b> <%= @certificate.campaign_name %> </b> - <i> <%= @certificate.campaign_title %> </i> </td>
+                <td colspan="2"></td>
+                <td class="right"> $ <%= @certificate.investment_amount %></td>
+              </tr>
+          </div>
+        </td>
+      </tr>
+
     </div>
 </div>
 
