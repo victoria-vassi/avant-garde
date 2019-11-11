@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_132705) do
+ActiveRecord::Schema.define(version: 2019_11_11_051246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,30 @@ ActiveRecord::Schema.define(version: 2019_11_07_132705) do
     t.integer "price_cents", default: 0, null: false
     t.index ["renter_id"], name: "index_campaigns_on_renter_id"
     t.index ["seller_id"], name: "index_campaigns_on_seller_id"
+  end
+
+  create_table "certificate_items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.decimal "price"
+    t.bigint "certificate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["certificate_id"], name: "index_certificate_items_on_certificate_id"
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.string "full_name"
+    t.string "status"
+    t.string "investor_address"
+    t.string "investment_amount"
+    t.string "campaign_name"
+    t.string "campaign_image"
+    t.string "campaign_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "investment_id"
+    t.index ["investment_id"], name: "index_certificates_on_investment_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -72,7 +96,9 @@ ActiveRecord::Schema.define(version: 2019_11_07_132705) do
     t.string "amount_currency", default: "USD", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "investment_id"
     t.index ["campaign_id"], name: "index_orders_on_campaign_id"
+    t.index ["investment_id"], name: "index_orders_on_investment_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -108,9 +134,12 @@ ActiveRecord::Schema.define(version: 2019_11_07_132705) do
 
   add_foreign_key "campaigns", "renters"
   add_foreign_key "campaigns", "sellers"
+  add_foreign_key "certificate_items", "certificates"
+  add_foreign_key "certificates", "investments"
   add_foreign_key "images", "campaigns"
   add_foreign_key "investments", "campaigns"
   add_foreign_key "investments", "users"
   add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "investments"
   add_foreign_key "orders", "users"
 end

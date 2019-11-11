@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  get 'investments/index'
-  get 'investments/show'
-  get 'investments/new'
-  get 'investments/create'
-  get 'campaigns/index'
-  get 'campaigns/show'
-  get 'campaigns/new'
-  get 'campaigns/create'
+
 
 
   devise_for :users
@@ -18,6 +11,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
+resources :certificates, only: [:index, :show]
+
 resources :orders, only: [:show, :create] do
   resources :payments, only: :new
 end
@@ -27,3 +22,4 @@ end
 end
   resources :investments, only: [:index, :show]
 end
+

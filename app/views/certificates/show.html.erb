@@ -1,0 +1,115 @@
+<%= render 'shared/topbar' %>
+<div class="bg-primary">
+
+  <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+        <!-- Subnav -->
+        <ul class="nav nav-border-white">
+          <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" href="#overview">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="my-investments-tab" href="#my-investments">My Investments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="my-campaigns-tab" href="#my-campaigns">My Campaigns</a>
+          </li>
+        </ul>
+        <!-- End Subnav -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <%= link_to root_path, class: "navbar-brand" do %>
+      <% end %>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      </ul>
+      <% if action_name.to_sym == :show %>
+        <%= link_to 'Back', dashboard_path, class: "btn btn-outline-secondary mx-2" %>
+        <%= link_to 'DOWNLOAD PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Start of the PDF layout -->
+<div class= "container">
+<div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+          <tr class="top">
+            <td colspan="4">
+              <table>
+                <tr>
+                  <td class="title">
+                    <%= image_tag wicked_pdf_asset_base64('company_logo.png'), width: '30%' %>
+                  </td>
+
+                  <td>
+                    Invoice #: <b><%= @certificate.id %></b>
+                    <br>
+                    Created: <b><%= @certificate.created_at.strftime('%d/%m/%Y') %></b>
+                    <br>
+                    Status: <span class="<%= @certificate.status_class %>"><%= @certificate.status %></span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="information">
+            <td colspan="4">
+              <table>
+                <tr>
+                  <td>
+                    <b><%= @certificate.full_name %></b><br>
+                    <b> Chemin des fins </b> <br>
+                    <i class="far fa-envelope"></i> lola@gmail.com<br>
+                    <i class="fas fa-phone"></i> 098 876 0976 90
+                  </td>
+
+                  <td>
+                    <b>AVANT / GARDE</b><br>
+                    <B> 16, Vine Hill, LONDON </b><br>
+                    <i class="far fa-envelope"></i> avant-garde@gmail.com<br>
+                    <i class="fas fa-phone"></i> 022 789 671 098
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="heading">
+            <td>Investment Certificate</td>
+            <td colspan="2"></td>
+            <td class="right">Amount</td>
+          </tr>
+
+          <tr class="details">
+            <td> <b> <%= @certificate.campaign_name %> </b> - <i> <%= @certificate.campaign_title %> </i> </td>
+            <td colspan="2"></td>
+            <td class="right"> <%= @certificate.investment_amount %></td>
+          </tr>
+    </div>
+</div>
+

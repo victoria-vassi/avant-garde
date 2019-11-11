@@ -8,7 +8,6 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
-gem 'docusign_rest'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -22,6 +21,8 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -44,5 +45,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'omniauth-oauth2'
-gem 'docusign_esign', '>=3.0'
