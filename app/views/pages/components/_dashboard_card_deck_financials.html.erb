@@ -3,31 +3,37 @@
 	  <!-- Card -->
 	  <div class="card mb-3 mb-lg-0">
 	    <div class="card-body p-4">
-            <div class="mb-3">
-              <div class="text-secondary font-size-1">Value increase p.a. (expected):</div>
-              <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) %></span>
-	            <span class="text-primary font-weight-medium text-lh-sm">
-	              <span class="fas fa-arrow-up text-success small"></span>
-	              +<%= @total_value_increase_rate.round(1) %>%
-	            </span>
-            </div>
-            <div class="mb-3">
-              <div class="text-secondary font-size-1">Payout p.a. (secured 2 years):</div>
-              <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_payout_rate / 100 * @total_amount).round(0) %></span>
-	            <span class="text-primary font-weight-medium text-lh-sm">
-	              <span class="fas fa-arrow-up text-success small"></span>
-	              +<%= @total_payout_rate.round(1) %>%
-	            </span>
-            </div>
-            <hr class="mt-3 mb-4">
-            <div>
-              <div class="text-secondary font-size-1">Total return p.a.:</div>
-              <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) + (@total_payout_rate / 100 * @total_amount).round(0) %></span>
-	            <span class="text-primary font-weight-medium text-lh-sm">
-	              <span class="fas fa-arrow-up text-success small"></span>
-	              +<%= @total_value_increase_rate.round(1) + @total_payout_rate.round(1) %>%
-	            </span>
-            </div>
+	    	<!-- Title -->
+	      <div class="d-flex justify-content-between align-items-center">
+	        <h4 class="h6 mb-0">Financials</h4>
+	      </div>
+	      <hr class="mt-3 mb-4">
+	      <!-- End Title -->
+        <div class="mb-3">
+          <div class="text-secondary font-size-1">Value increase p.a. (expected):</div>
+          <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) %></span>
+          <span class="text-primary font-weight-medium text-lh-sm">
+            <span class="fas fa-arrow-up text-success small"></span>
+            +<%= @total_value_increase_rate.round(1) %>%
+          </span>
+        </div>
+        <div class="mb-3">
+          <div class="text-secondary font-size-1">Payout p.a. (secured 2 years):</div>
+          <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_payout_rate / 100 * @total_amount).round(0) %></span>
+          <span class="text-primary font-weight-medium text-lh-sm">
+            <span class="fas fa-arrow-up text-success small"></span>
+            +<%= @total_payout_rate.round(1) %>%
+          </span>
+        </div>
+        <hr class="mt-3 mb-4">
+        <div>
+          <div class="text-secondary font-size-1">Total return p.a.:</div>
+          <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) + (@total_payout_rate / 100 * @total_amount).round(0) %></span>
+          <span class="text-primary font-weight-medium text-lh-sm">
+            <span class="fas fa-arrow-up text-success small"></span>
+            +<%= @total_value_increase_rate.round(1) + @total_payout_rate.round(1) %>%
+          </span>
+        </div>
 	    </div>
 	  </div>
 	  <!-- End Card -->
@@ -35,6 +41,12 @@
 	  <!-- Card -->
 	  <div class="card mb-3 mb-lg-0">
 	    <div class="card-body p-4">
+	    	<!-- Title -->
+	      <div class="d-flex justify-content-between align-items-center">
+	        <h4 class="h6 mb-0">Diversification</h4>
+	      </div>
+	      <hr class="mt-3 mb-4">
+	      <!-- End Title -->
 	    	<div class="text-secondary font-size-1 mb-1">Category:</div>
 				<% @data_categories.each do |category| %>
 			    <div class="progress mb-1" style="height: 25px;">
@@ -63,8 +75,76 @@
 
 	  <!-- Card -->
 	  <div class="card">
-	    <div class="card-body p-4">
-	    	
+      <div class="card-body pt-4 pb-5 px-5 mb-3 mb-md-0">
+	      <!-- Title -->
+	      <div class="d-flex justify-content-between align-items-center">
+	        <h4 class="h6 mb-0">Activity</h4>
+	      </div>
+	      <hr class="mt-3 mb-4">
+	      <!-- End Title -->
+
+	      <div class="overflow-hidden">
+	        <div class="js-scrollbar pr-3 mCustomScrollbar _mCS_1 mCS-autoHide" style="max-height: 300px; position: relative; overflow: visible;"><div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: 300px;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: -29px; left: 0px;" dir="ltr">
+	          <!-- Activity Feed -->
+	          <ul class="list-unstyled u-indicator-vertical-dashed">
+	            <li class="media u-indicator-vertical-dashed-item">
+	              <span class="btn btn-xs btn-icon btn-primary rounded-circle mr-3">
+	                <span class="btn-icon__inner">A</span>
+	              </span>
+	              <div class="media-body">
+	                <h5 class="font-size-1 mb-1">Amanta Owens</h5>
+	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Slack home page redesign</span></p>
+	                <small class="d-block text-muted">30 min ago</small>
+	              </div>
+	            </li>
+
+	            <li class="media u-indicator-vertical-dashed-item">
+	              <span class="btn btn-xs btn-icon btn-success rounded-circle mr-3">
+	                <span class="btn-icon__inner">S</span>
+	              </span>
+	              <div class="media-body">
+	                <h5 class="font-size-1 mb-1">Sebastian Diaz</h5>
+	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Mapbox logo redesign</span></p>
+	                <small class="d-block text-muted">44 min ago</small>
+	              </div>
+	            </li>
+
+	            <li class="media u-indicator-vertical-dashed-item">
+	              <span class="btn btn-xs btn-icon btn-warning rounded-circle mr-3">
+	                <span class="btn-icon__inner text-white">F</span>
+	              </span>
+	              <div class="media-body">
+	                <h5 class="font-size-1 mb-1">Eliza Donovan</h5>
+	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Spotify branding</span></p>
+	                <small class="d-block text-muted">1 hour ago</small>
+	              </div>
+	            </li>
+
+	            <li class="media u-indicator-vertical-dashed-item">
+	              <span class="btn btn-xs btn-icon btn-primary rounded-circle mr-3">
+	                <span class="btn-icon__inner">C</span>
+	              </span>
+	              <div class="media-body">
+	                <h5 class="font-size-1 mb-1">Cler Lockhart</h5>
+	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Dropbox home page redesign</span></p>
+	                <small class="d-block text-muted">15 hours ago</small>
+	              </div>
+	            </li>
+
+	            <li class="media u-indicator-vertical-dashed-item">
+	              <span class="btn btn-xs btn-icon btn-danger rounded-circle mr-3">
+	                <span class="btn-icon__inner">J</span>
+	              </span>
+	              <div class="media-body">
+	                <h5 class="font-size-1 mb-1">James Collins</h5>
+	                <p class="small mb-1">Added new task: <span class="font-weight-medium">InVison branding</span></p>
+	                <small class="d-block text-muted">1 day ago</small>
+	              </div>
+	            </li>
+	          </ul>
+	          <!-- End Activity Feed -->
+	        </div></div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 171px; max-height: 266.007px; top: 17px;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div>
+	      </div>
 	    </div>
 	  </div>
 	  <!-- End Card -->
