@@ -161,9 +161,7 @@
         </div>
 
         <hr class="my-5">
-
-        <%= link_to '<button type="button" id="button-invest" class="btn btn-primary btn-block">Invest Now!</button>'.html_safe, new_campaign_investment_path(@campaign) %>
-
+        <%= button_to "Invest Now!", new_campaign_investment_path(@campaign), :id => "button-invest", data: {funded: @campaign.funded}, :class => "btn btn-primary btn-block", :method => :get %>
         <hr class="my-5">
               <!-- List -->
 
