@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 2019_11_07_132705) do
     t.float "value_increase_rate"
     t.float "payout_rate"
     t.integer "funding_status"
+    t.integer "price"
     t.boolean "funded"
     t.bigint "seller_id"
     t.bigint "renter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "start_date"
-    t.integer "price_cents", default: 0, null: false
     t.index ["renter_id"], name: "index_campaigns_on_renter_id"
     t.index ["seller_id"], name: "index_campaigns_on_seller_id"
   end

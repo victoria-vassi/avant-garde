@@ -8,6 +8,10 @@
 ;(function ($) {
   'use strict';
 
+  function numberWithPoints(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   $.HSCore.components.HSChartistAreaChart = {
     /**
      *
@@ -31,6 +35,7 @@
      *
      * @return jQuery pageCollection - collection of initialized items.
      */
+
 
     init: function (selector, config) {
       this.collection = selector && $(selector).length ? $(selector) : $();
@@ -124,7 +129,7 @@
               offset: optOffsetY,
               showGrid: optIsShowAxisY,
               labelInterpolationFnc: function (value) {
-                return (value / 1000000) + optPostfix;
+                return optPostfix + (numberWithPoints(value));
               }
             },
             plugins: optIsShowTooltips ? [

@@ -339,7 +339,7 @@ investments = [
     date: d = Campaign.find(2).start_date + 3
   },
   {
-    amount: 1000,
+    amount: 1500,
     user: dev,
     campaign: Campaign.find(3),
     date: d = Campaign.find(3).start_date
@@ -351,7 +351,7 @@ investments = [
     date: d = Campaign.find(4).start_date
   },
   {
-    amount: 1000,
+    amount: 500,
     user: dev,
     campaign: Campaign.find(6),
     date: d = Campaign.find(6).start_date
