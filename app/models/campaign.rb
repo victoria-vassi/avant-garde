@@ -24,7 +24,6 @@ class Campaign < ApplicationRecord
   validates :funding_status, presence: true
   validates :funded, inclusion: { in: [true, false] }
 
-  monetize :price_cents
 
   def new_badge?
     Date.today - self.start_date <= 30
