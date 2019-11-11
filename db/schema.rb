@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
     t.string "artist"
     t.string "title"
     t.string "year"
-    t.integer "price"
     t.date "end_date"
     t.integer "minimum_investment"
     t.string "category"
@@ -31,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
     t.float "value_increase_rate"
     t.float "payout_rate"
     t.integer "funding_status"
+    t.integer "price"
     t.boolean "funded"
     t.bigint "seller_id"
     t.bigint "renter_id"
@@ -60,6 +60,20 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
     t.boolean "status"
     t.index ["campaign_id"], name: "index_investments_on_campaign_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state", default: "Pending"
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.string "checkout_session_id"
+    t.string "photo"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_orders_on_campaign_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "renters", force: :cascade do |t|
@@ -103,4 +117,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
   add_foreign_key "images", "campaigns"
   add_foreign_key "investments", "campaigns"
   add_foreign_key "investments", "users"
+  add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "users"
 end

@@ -27,3 +27,7 @@
 // = link vendor/custombox/dist/custombox.min.js
 // = link vendor/custombox/dist/custombox.legacy.min.js
 // = link components/hs.modal-window.js
+
+// = link vendor/chartist/dist/chartist.min.js
+// = link vendor/chartist-js-tooltip/chartist-plugin-tooltip.js
+// = link components/hs.chartist-area-chart.js

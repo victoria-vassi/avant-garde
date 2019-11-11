@@ -123,7 +123,7 @@ campaign_attributes = [
     funded: true,
     price: 30000,
     end_date: n = Date.today - 1,
-    start_date: n - 60,
+    start_date: n - 90,
     minimum_investment: 500,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -143,8 +143,8 @@ campaign_attributes = [
     funding_status: 13,
     funded: false,
     price: 100624,
-    end_date: n = Date.today + 90,
-    start_date: n - 60,
+    end_date: n = Date.today + 60,
+    start_date: n - 61,
     minimum_investment: 3000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -186,7 +186,7 @@ campaign_attributes = [
     funded: true,
     price: 350000,
     end_date: n = Date.today - 1,
-    start_date: n - 60,
+    start_date: n - 120,
     minimum_investment: 5000,
     seller: Seller.all.sample,
     renter: Renter.all.sample
@@ -369,7 +369,7 @@ investments = [
     date: d = Campaign.find(2).start_date + 3
   },
   {
-    amount: 1000,
+    amount: 1500,
     user: dev,
     campaign: Campaign.find(3),
     date: d = Campaign.find(3).start_date
@@ -381,7 +381,7 @@ investments = [
     date: d = Campaign.find(4).start_date
   },
   {
-    amount: 1000,
+    amount: 500,
     user: dev,
     campaign: Campaign.find(6),
     date: d = Campaign.find(6).start_date
