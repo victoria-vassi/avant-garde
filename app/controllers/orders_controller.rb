@@ -1,17 +1,17 @@
 class OrdersController < ApplicationController
   def create
     campaign = Campaign.find(params[:campaign])
-    @order = Order.create!(campaign: campaign, amount: campaign.investments.last.amount, user: current_user)
-
+    @order = Order.create!(campaign: campaign, amount: campaign.investments.last.amount, user: current_user, photo: campaign.images.first.photo)
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
         name: campaign.title,
         amount: @order.amount_cents,
+        images: [@order.photo],
         currency: 'usd',
         quantity: 1
       }],
-      success_url: order_url(@order),
+      success_url: "http://127.0.0.1:3000/campaigns/#{@order.campaign_id}/investments/new",
       cancel_url: order_url(@order)
     )
 
