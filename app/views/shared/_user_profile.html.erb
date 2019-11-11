@@ -12,7 +12,6 @@
 
               <div class="mb-3">
                 <h1 class="h6 font-weight-medium mb-0"><%= current_user.first_name %> <%= current_user.last_name %></h1>
-                <small class="d-block text-muted">UI/UX Designer</small>
               </div>
 
               <div class="mb-2">
@@ -41,12 +40,6 @@
             <h4 class="h6 text-secondary mb-0">London, UK <small>-  <%= (current_user.created_at).strftime("Joined on %m/%d/%Y")   %></small></h4>
           </div>
           <!-- End User Details -->
-
-          <!-- Info -->
-          <div class="mb-4">
-            <p>I am a project manager from England. This is where I sit down, grab a cup of coffee and dial in the details. Understanding the task at hand and ironing out the wrinkles is key. The time has come to bring those ideas and plans to life. This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.</p>
-          </div>
-          <!-- End Info -->
 
           <!-- Icon Blocks -->
           <div class="row">
@@ -111,7 +104,8 @@
                     <span class="fas fa-globe list-group-icon mr-3"></span>
                     <div class="media-body text-lh-sm">
                       <span class="d-block mb-1">Language:</span>
-                      <span class="d-block text-muted">English, French</span>
+                      <span class="d-block text-muted"><%= current_user.languages %>
+                      </span>
                     </div>
                   </div>
                 </li>

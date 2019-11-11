@@ -1,5 +1,8 @@
 require 'faker'
 
+ourLanguages =["English", "French", "German", "Italian", "Spanish", "Chinese", "Russian", "Japanese"]
+
+
 puts "Seeding 1 dev user, 10 buyers (user), 10 sellers (user) and 10 sellers (user)..."
 puts "------------------"
 
@@ -8,14 +11,24 @@ dev = User.create(
   password: "password",
   first_name:  Faker::Name.first_name,
   last_name: Faker::Name.last_name,
+  birthday: Faker::Date.birthday(min_age: 18),
+  languages: "English  #{ourLanguages.sample}",
+  location: Faker::Address.country
 )
 
+
 10.times do
+
+
   user = User.create!(
     email:    Faker::Internet.email,
     password: "password",
     first_name:  Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    birthday: Faker::Date.birthday(min_age: 18),
+    languages: "English  #{ourLanguages.sample}",
+    location: Faker::Address.country
+
   )
 
   seller = Seller.create!(
