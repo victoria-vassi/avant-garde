@@ -162,7 +162,7 @@
 
         <hr class="my-5">
 
-        <%= link_to '<button type="button" class="btn btn-primary btn-block">Invest Now!</button>'.html_safe, new_campaign_investment_path(@campaign) %>
+        <%= link_to '<button type="button" id="button-invest" class="btn btn-primary btn-block">Invest Now!</button>'.html_safe, new_campaign_investment_path(@campaign) %>
 
         <hr class="my-5">
               <!-- List -->
@@ -215,6 +215,7 @@
 <%= javascript_include_tag 'components/hs.fancybox' %>
 
 <%= javascript_pack_tag 'subnav' %>
+<%= javascript_pack_tag 'invisiblebuttoninvest' %>
 
 <script>
   $(document).on('ready', function () {
