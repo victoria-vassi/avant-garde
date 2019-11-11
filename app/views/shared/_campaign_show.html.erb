@@ -154,13 +154,16 @@
           <div>
             <p class="font-size-1 mb-0">Status: <%= @campaign.funding_status %>% financed ($<%= number_with_delimiter((@campaign.price * (1 - @campaign.funding_status / 100.00)).round, :delimiter => ',') %> remaining) </p>
             <div class="progress">
-             <div class="progress-bar" role="progressbar" style="width: <%= @campaign.funding_status %>%" aria-valuenow="<%= @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: <%= @campaign.funding_status %>%" aria-valuenow="<%= @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
             <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - @campaign.funding_status %>%" aria-valuenow="<%= 100 - @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
           </div>
         </div>
 
         <hr class="my-5">
+
         <%= button_to "Invest Now!", new_campaign_investment_path(@campaign), :id => "button-invest", data: {funded: @campaign.funded}, :class => "btn btn-primary btn-block", :method => :get %>
+
         <hr class="my-5">
               <!-- List -->
 
