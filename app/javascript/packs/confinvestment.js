@@ -2,7 +2,6 @@ const sliderInput = document.querySelector("#test")
 
 const addValues = () => {
   const listenedAmount = document.querySelector(".irs-single")
-  console.log(listenedAmount)
   const array = listenedAmount.innerText.split("")
   const newArray = array.filter(function(str) {
     return /\S/.test(str);
@@ -40,6 +39,7 @@ setTimeout(addValues, 500)
 
     investedAmount.innerText = `You want to invest $${amount}`
     investedShare.innerText = `You will own ${div}% of the art piece`
+
   });
 
 
