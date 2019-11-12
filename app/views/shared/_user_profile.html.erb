@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 mb-7 mb-lg-0">
+
+      <!-- file Card -->
+      <div class="card p-1 mb-4">
+        <div class="card-body text-center">
+          <div class="mb-3">
+            <img class="u-lg-avatar rounded-circle" src="<%= image_path("jpg/profile/100x100/img3.jpg") %>" alt="Image Description">
+          </div>
+
+          <div class="mb-3">
+            <h1 class="h6 font-weight-medium mb-0"><%= current_user.first_name %> <%= current_user.last_name %></h1>
+          </div>
+         <!-- Possible add for message button
+          <div class="mb-2">
+            <a class="btn btn-sm btn-soft-primary transition-3d-hover" href="#">
+              <span class="far fa-envelope mr-2"></span>
+              Send a Message
+            </a>
+          </div> -->
+
+        </div>
+      </div>
+      <!-- End file Card -->
+
+      <!-- Edit Button  -->
+      <div>
+         <%= link_to '<button type="button" class="btn btn-primary btn-block">Edit Profile</button>'.html_safe, edit_user_registration_path(current_user) %>
+      </div>
+      <!-- Edit Button  -->
+
+  </div>
+
+    <div class="col-lg-9">
+      <!-- User Details -->
+      <div class="mb-4">
+        <h2 class="h4"><%= current_user.first_name %> <%= current_user.last_name %></h2>
+        <h4 class="h6 text-secondary mb-0"><%= current_user.location %> <small>-  <%= (current_user.created_at).strftime("Joined on %m/%d/%Y")%></small></h4>
+      </div>
+      <!-- End User Details -->
+
+      <!-- Icon Blocks -->
+      <div class="row">
+
+        <div class="col-md-6 col-lg-4">
+          <!-- List Group -->
+          <ul class="list-group list-group-transparent list-group-flush list-group-borderless mb-0">
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-envelope list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1">Email:</span>
+                  <%= current_user.email %>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-map-marker-alt list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1">Location:</span>
+                  <%= current_user.location %>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- End List Group -->
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <!-- List Group -->
+          <ul class="list-group list-group-transparent list-group-flush list-group-borderless mb-0">
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-birthday-cake list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1">Birthday:</span>
+                  <span class="d-block text-muted">May 3, 1986</span>
+                </div>
+              </div>
+            </li>
+
+             <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-mobile-alt list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1">Phone number:</span>
+                  <%= current_user.phone_number %>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- End List Group -->
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <!-- List Group -->
+          <ul class="list-group list-group-transparent list-group-flush list-group-borderless mb-0">
+            <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-globe list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1">Language:</span>
+                  <span class="d-block text-muted"><%= current_user.languages %>
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- <li class="list-group-item pt-0 pb-4">
+              <div class="media">
+                <span class="fas fa-building list-group-icon mr-3"></span>
+                <div class="media-body text-lh-sm">
+                  <span class="d-block mb-1">Organization:</span>
+                  Pixeel Ltd.</a>\
+                </div>
+              </div>
+            </li> -->
+
+          </ul>
+          <!-- End List Group -->
+        </div>
+
+      </div>
+      <!-- End Icon Blocks -->
+    </div>
+  </div>
+</div>
+
+
+

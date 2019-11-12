@@ -30,6 +30,9 @@ class InvestmentsController < ApplicationController
         current_funding += @investment.amount
         new_funding_status = (current_funding.to_f/@campaign.price.to_f*100).to_i
         @campaign.funding_status = new_funding_status
+        if new_funding_status >= 100
+          @campaign.funded = true
+        end
         @campaign.save!
         respond_to do |format|
       # format.html { redirect_to dashboard_path(@user) }

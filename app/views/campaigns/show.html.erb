@@ -12,7 +12,7 @@
           <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
             <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
             <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= campaigns_path %>">Campaigns</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Artist Name</li>
+            <li class="breadcrumb-item active" aria-current="page"><%= @campaign.artist %></li>
           </ol>
           <!-- End Breadcrumb -->
         </div>
@@ -22,7 +22,7 @@
       	<!-- Subnav -->
       	<ul class="nav nav-border-white">
 			    <li class="nav-item">
-			      <a class="nav-link active" id="artist-tab" href="#atist">Artist Name</a>
+			      <a class="nav-link active" id="artist-tab" href="#atist"><%= @campaign.artist %></a>
 			    </li>
 			  </ul>
 			  <!-- End Subnav -->
@@ -30,18 +30,20 @@
     </div>
   </div>
 </div>
-
-<div class="container mt-5">
-	<!-- Tab Content -->
-  <div class="tab-content">
-  	<div class="tab-pane active" id="atist-tab-content">
-  		<p><%= render 'shared/campaign_show' %></p>
-  	</div>
-  </div>
-  <!-- End Tab Content -->
-</div>
 <!-- End Breadcrumb Section -->
 <!-- ====== End Sub Navigation ====== -->
+
+<div class="bg-light pt-5 pb-5">
+  <div class="container space-1">
+  	<!-- Tab Content -->
+    <div class="tab-content">
+    	<div class="tab-pane active" id="atist-tab-content">
+    		<p><%= render 'shared/campaign_show' %></p>
+    	</div>
+    </div>
+    <!-- End Tab Content -->
+  </div> 
+</div>
 
 <%= render 'shared/sidebar' %>
 

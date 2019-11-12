@@ -21,7 +21,7 @@
       	<!-- Subnav -->
       	<ul class="nav nav-border-white">
 			    <li class="nav-item">
-			      <a class="nav-link active" id="profile-tab" href="#profile">Natalie Curtis</a>
+			      <a class="nav-link active" id="profile-tab" href="#profile"><%= current_user.first_name %> <%= current_user.last_name %></a>
 			    </li>
 			  </ul>
 			  <!-- End Subnav -->
@@ -29,17 +29,19 @@
     </div>
   </div>
 </div>
-
-<div class="container mt-5">
-	<!-- Tab Content -->
-  <div class="tab-content">
-  	<div class="tab-pane active" id="profile-tab-content">
-  		<p>Show user profile data here</p>
-  	</div>
-  </div>
-  <!-- End Tab Content -->
-</div>
 <!-- End Breadcrumb Section -->
 <!-- ====== End Sub Navigation ====== -->
+
+<div class="bg-light pt-5 pb-5">
+  <div class="container space-1" style="min-height: 70vH;">
+  	<!-- Tab Content -->
+    <div class="tab-content">
+    	<div class="tab-pane active" id="profile-tab-content">
+    		<%= render "shared/user_profile" %>
+    	</div>
+    </div>
+    <!-- End Tab Content -->
+  </div>
+</div>
 
 <%= render 'shared/sidebar' %>
