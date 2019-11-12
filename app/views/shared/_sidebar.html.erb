@@ -28,10 +28,10 @@
           <!-- Holder Info -->
           <header class="d-flex align-items-center u-sidebar--account__holder mt-3">
             <div class="position-relative">
-              <img class="u-sidebar--account__holder-img" src="<%= image_path("jpg/profile/100x100/img11.jpg") %>" alt="Image Description">
+              <img class="u-sidebar--account__holder-img" src="<%= image_path("jpg/profile/100x100/img3.jpg") %>" alt="Image Description">
             </div>
             <div class="ml-3">
-              <span class="font-weight-semi-bold">Natalie Curtis</span>
+              <span class="font-weight-semi-bold"><%= current_user.first_name %> <%= current_user.last_name %></h1></span>
             </div>
           </header>
           <!-- End Holder Info -->
@@ -49,13 +49,13 @@
                 <%= link_to(campaigns_path, class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-paint-brush u-sidebar--account__list-icon mr-2"></span>
                   Campaigns
-                <% end %>                
+                <% end %>
               </li>
               <li class="u-sidebar--account__list-item">
                 <%= link_to(user_profile_path(current_user), class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-user-circle u-sidebar--account__list-icon mr-2"></span>
                   Profile
-                <% end %>                 
+                <% end %>
                 </a>
               </li>
             </ul>
@@ -66,25 +66,25 @@
             <!-- List Links -->
             <ul class="list-unstyled u-sidebar--account__list">
               <li class="u-sidebar--account__list-item">
-                <%= link_to("#", class: "u-sidebar--account__list-link") do %>
-                  <span class="fas fa-question-circle u-sidebar--account__list-icon mr-2"></span>
+                <%= link_to(dashboard_path, class: "u-sidebar--account__list-link") do %>
+                  <span class="fas fa-home u-sidebar--account__list-icon mr-2"></span>
                   Help
-                <% end %>                 
+                <% end %>
                 </a>
               </li>
               <li class="u-sidebar--account__list-item">
-                <%= link_to("#", class: "u-sidebar--account__list-link") do %>
-                  <span class="fas fa-address-card u-sidebar--account__list-icon mr-2"></span>
+                <%= link_to(dashboard_path, class: "u-sidebar--account__list-link") do %>
+                  <span class="fas fa-home u-sidebar--account__list-icon mr-2"></span>
                   Contact
-                <% end %>                 
+                <% end %>
                 </a>
               </li>
-              <li class="u-sidebar--account__list-item"> 
-                <%= link_to(destroy_user_session_path, :method => :delete, 
+              <li class="u-sidebar--account__list-item">
+                <%= link_to(destroy_user_session_path, :method => :delete,
                 class: "u-sidebar--account__list-link") do %>
                   <span class="fas fa-sign-out-alt u-sidebar--account__list-icon mr-2"></span>
                   Sign out
-                <% end %>                 
+                <% end %>
                 </a>
               </li>
             </ul>

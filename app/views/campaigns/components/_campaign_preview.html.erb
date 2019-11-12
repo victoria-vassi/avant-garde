@@ -90,7 +90,7 @@
           <span>
             <span class="fas fa-chart-line mr-2"></span>
             <div>
-              <strong><%= campaign.value_increase_rate %>%</strong> value increase p.a.
+              <strong><%= campaign.value_increase_rate %>%</strong> value increase rate p.a.
               <div>(expected*)</div>
             </div>
           </span>
@@ -108,7 +108,7 @@
           <span>
             <span class="far fa-plus-square mr-2"></span>
             <div>
-              <strong><%= (campaign.value_increase_rate + campaign.payout_rate).round(1) %>%</strong> total return p.a
+              <strong><%= (campaign.value_increase_rate + campaign.payout_rate).round(1) %>%</strong> total return rate p.a
               <div>(combined)</div>
             </div>
           </span>
@@ -121,8 +121,7 @@
         <div>
           <p class="font-size-1 mb-0">Status: <%= campaign.funding_status %>% financed ($<%= number_with_delimiter(money_without_cents (campaign.price * (1 - campaign.funding_status / 100.00)), :delimiter => '.') %> remaining)</p>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: <%= campaign.funding_status %>%" aria-valuenow="<%= campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
-            <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - campaign.funding_status %>%" aria-valuenow="<%= 100 - campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: <%=campaign.funding_status %>%" aria-valuenow="<%= campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"><%=campaign.funding_status %>%</div>
           </div>
         </div>
         <div class="d-flex align-items-center font-size-1">

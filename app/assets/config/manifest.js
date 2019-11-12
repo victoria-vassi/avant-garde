@@ -31,3 +31,6 @@
 // = link vendor/chartist/dist/chartist.min.js
 // = link vendor/chartist-js-tooltip/chartist-plugin-tooltip.js
 // = link components/hs.chartist-area-chart.js
+
+// = link vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js
+// = link components/hs.malihu-scrollbar.js
