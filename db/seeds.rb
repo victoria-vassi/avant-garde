@@ -385,6 +385,7 @@ investments = [
 
 investments.each do |investment|
   Investment.create!(investment)
+  Order.create!(campaign: investment[:campaign], investment: investment[:campaign].investments.last, amount: investment[:campaign].investments.last.amount, user: investment[:user], photo: investment[:campaign].images.first.photo)
 end
 
 users = User.all.drop(1)
