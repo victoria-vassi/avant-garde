@@ -21,7 +21,7 @@
       	<!-- Subnav -->
       	<ul class="nav nav-border-white">
 			    <li class="nav-item">
-			      <a class="nav-link active" id="profile-tab" href="#profile">Natalie Curtis</a>
+			      <a class="nav-link active" id="profile-tab" href="#profile"><%= current_user.first_name %> <%= current_user.last_name %></a>
 			    </li>
 			  </ul>
 			  <!-- End Subnav -->
@@ -34,7 +34,7 @@
 	<!-- Tab Content -->
   <div class="tab-content">
   	<div class="tab-pane active" id="profile-tab-content">
-  		<p>Show user profile data here</p>
+  		<p><%= render "shared/user_profile" %></p>
   	</div>
   </div>
   <!-- End Tab Content -->

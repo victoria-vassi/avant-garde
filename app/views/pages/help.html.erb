@@ -1,0 +1,32 @@
+<!-- Terms Title Section -->
+<div class="position-relative">
+  <div class="container space-2">
+    <div class="w-md-80 w-lg-60">
+      <h1 class="text-primary"><span class="font-weight-semi-bold">Avant/Garde</span> Terms & conditions</h1>
+      <p>Hello, and welcome to Avant/Garde. Please read our Terms and Conditions of Use ("Terms") and Privacy Policy carefully because they affect your legal rights, including an agreement to resolve any disputes that may arise between us by arbitration on an individual basis instead of by class actions or jury trials. We hope you're sitting comfortably and listening to some great music.</p>
+      <p>Here we go…</p>
+    </div>
+  </div>
+
+  <!-- SVG Background Shapes -->
+  <div id="SVGbgElements2" class="svg-preloader d-none d-lg-block w-lg-40 content-centered-y right-0 z-index-n1 ml-9">
+    <figure class="ie-bg-elements-2">
+      <img class="js-svg-injector" src="https://www.vangoghmuseumshop.com/l/en/library/download/urn:uuid:0aa97244-2a52-4073-ad06-118e2ab62e38/112603-1.jpg?color=ffffff&scaleType=2&width=485&height=485&ext=.jpg" alt="Image Description"
+           data-parent="#SVGbgElements2">
+    </figure>
+  </div>
+  <!-- End SVG Background Shapes -->
+</div>
+<!-- End Terms Title Section -->
+
+<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min' %>
+<%= javascript_include_tag 'components/hs.svg-injector' %>
+
+
+<!-- JS Plugins Init. -->
+<script>
+  $(window).on('load', function () {
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+</script>
