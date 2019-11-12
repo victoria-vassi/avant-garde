@@ -1,4 +1,5 @@
 <%= render 'shared/topbar' %>
+<%= render 'shared/sidebar' %>
 
 <!-- ========== Sub Navigation ====== -->
 <!-- Breadcrumb Section -->
@@ -6,90 +7,92 @@
 
   <div class="container space-top-1">
           <!-- Breadcrumb -->
-      <ul class="step-progressbar">
-        <li class="step-progressbar__item step-progressbar __item--complete">Step 1</li>
-        <li class="step-progressbar__item step-progressbar__item--active">Step 2</li>
+      <ul class="step-progressbar mb-0">
+        <li class="step-progressbar__item step-progressbar__item--active">Step 1</li>
+        <li class="step-progressbar__item ">Step 2</li>
         <li class="step-progressbar__item">Step 3</li>
       </ul>
   </div>
 </div>
+<!-- ========== End Sub Navigation ====== -->
+<!-- End Breadcrumb Section -->
 
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-lg-4">
-      <div class="card" style="border: none">
-        <%= cl_image_tag @campaign.images.first.photo, width: '100%' %>
+<div class="bg-light pt-5 pb-5">
+  <div class="container space-1" style="min-height: 70vH;">
+    <div class="row">
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-light" style="border: none">
+          <%= cl_image_tag @campaign.images.first.photo, width: '100%' %>
+        </div>
       </div>
-    </div>
+      <div class="col-md-6 col-lg-8">
+        <div class="card bg-light" style="border: none">
+          <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
+             <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
+            <h7> Please, select the amount you want to invest<h7>
+                <!-- End Title -->
+                  <!-- Range Slider -->
+                  <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
+                    <input class="js-range-slider" type="text"
+                           data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
+                           data-grid="false"
+                           data-hide-from-to="false"
+                           data-min="<%=@campaign.minimum_investment %>"
+                           data-max="<%=@campaign.price - (@campaign.price * @campaign.funding_status / 100)%>"
+                           data-step="500"
+                           data-result-min="#rangeSliderExample2MinResult">
+                  </span>
 
-    <div class="col-md-6 col-lg-8">
-      <div class="card" style="border: none">
-        <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
-           <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
-          <h7> Please, select the amount you want to invest<h7>
-              <!-- End Title -->
-                <!-- Range Slider -->
-                <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
-                  <input class="js-range-slider" type="text"
-                         data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
-                         data-grid="false"
-                         data-hide-from-to="false"
-                         data-min="<%=@campaign.minimum_investment %>"
-                         data-max="<%=@campaign.price - (@campaign.price * @campaign.funding_status / 100)%>"
-                         data-step="100"
-                         data-result-min="#rangeSliderExample2MinResult">
-                </span>
-
-                  <div class="d-flex justify-content-between align-items-center">
-                    <span class="text-muted"></span>
-                    <div class="js-focus-state">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <span class="fas fa-dollar-sign"></span>
-                          </span>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="text-muted"></span>
+                      <div class="js-focus-state">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <span class="fas fa-dollar-sign"></span>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control max-width-11" id="rangeSliderExample2MinResult">
                         </div>
-                        <input type="text" class="form-control max-width-11" id="rangeSliderExample2MinResult">
                       </div>
                     </div>
+                    <!-- End Range Slider -->
+                    <!-- Form -->
+                    <div>
+                    <!-- Form Inputs & Actions -->
+                    <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, remote:true, :method => :post do |f| %>
+                      <%= f.error_notification %>
+                      <div class="form-inputs">
+                        <%= f.input :amount,
+                                    :input_html => { :value => @campaign.minimum_investment},
+                                    as: :hidden
+                                    %>
+                      </div>
+
+                      <div class="form-actions dl-flex">
+                        <%= f.button :submit,
+                                     "Confirm amount",
+                                     id: "button-form",
+                                     class: "btn btn-primary transition-3d-hover"%>
+
+                      </div>
+                    <% end %>
+                    <!-- End Form Inputs & Actions-->
                   </div>
-                  <!-- End Range Slider -->
-                  <!-- Form -->
-                  <div>
-                  <!-- Form Inputs & Actions -->
-                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, remote:true, :method => :post do |f| %>
-                    <%= f.error_notification %>
-                    <div class="form-inputs">
-                      <%= f.input :amount,
-                                  :input_html => { :value => @campaign.minimum_investment},
-                                  as: :hidden
-                                  %>
-                    </div>
-
-                    <div class="form-actions dl-flex">
-                      <%= f.button :submit,
-                                   "Confirm amount",
-                                   id: "button-form",
-                                   class: "btn btn-primary transition-3d-hover"%>
-
-                    </div>
-                  <% end %>
-                  <!-- End Form Inputs & Actions-->
+                  <!-- End Form -->
                 </div>
-                <!-- End Form -->
-              </div>
+        </div>
       </div>
     </div>
+    <!-- Modal Window Trigger -->
+    <a id="button-modal" class="btn btn-sm btn-primary transition-3d-hover invisible" href="#shoppingCartWithItemsModal"
+       data-modal-target="#shoppingCartWithItemsModal">
+      Open Shopping Cart with Items Modal
+    </a>
+    <!-- End Modal Window Trigger -->
   </div>
 </div>
 
-      <!-- Modal Window Trigger -->
-<a id="button-modal" class="btn btn-sm btn-primary transition-3d-hover invisible" href="#shoppingCartWithItemsModal"
-   data-modal-target="#shoppingCartWithItemsModal">
-  Open Shopping Cart with Items Modal
-</a>
-<!-- End Modal Window Trigger -->
 
 <!-- Shopping Cart Modal Window -->
 <div id="shoppingCartWithItemsModal" class="js-modal-window u-modal-window" style="width: 370px;">
@@ -143,7 +146,7 @@
 <!-- End Shopping Cart Modal Window -->
 </main>
 
-<%= render 'shared/sidebar' %>
+
 
 <!-- ========== Page Specific Javascript ========== -->
 
@@ -158,6 +161,9 @@
 <%= javascript_pack_tag 'clickmodal' %>
 <%= javascript_pack_tag 'confinvestment' %>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script>window.Stripe = Stripe</script>
+
 <script>
   $(document).on('ready', function () {
     // initialization of forms
@@ -169,6 +175,9 @@
     autonomous: true
     });
   });
+    console.log("hello")
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
+
+

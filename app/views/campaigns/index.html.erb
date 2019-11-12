@@ -32,29 +32,31 @@
     </div>
   </div>
 </div>
-
-<div class="container mt-5">
-	<!-- Tab Content -->
-  <div class="tab-content">
-  	<div class="tab-pane active" id="open-campaigns-tab-content">
-  		<div class="container" id="campaigns-section">
-        <% @campaigns_open.each do |campaign| %>
-          <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
-        <% end %>
-      </div>
-  	</div>
-  	<div class="tab-pane" id="closed-campaigns-tab-content">
-      <div class="container" id="campaigns-section">
-        <% @campaigns_closed.each do |campaign| %>
-          <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
-        <% end %>
-      </div>
-  	</div>
-  </div>
-  <!-- End Tab Content -->
-</div>
 <!-- End Breadcrumb Section -->
 <!-- ====== End Sub Navigation ====== -->
+
+<div class="bg-light pt-5 pb-5">
+  <div class="container space-1">
+  	<!-- Tab Content -->
+    <div class="tab-content">
+    	<div class="tab-pane active" id="open-campaigns-tab-content">
+    		<div class="container" id="campaigns-section">
+          <% @campaigns_open.each do |campaign| %>
+            <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+          <% end %>
+        </div>
+    	</div>
+    	<div class="tab-pane" id="closed-campaigns-tab-content">
+        <div class="container" id="campaigns-section">
+          <% @campaigns_closed.each do |campaign| %>
+            <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+          <% end %>
+        </div>
+    	</div>
+    </div>
+    <!-- End Tab Content -->
+  </div>
+</div> 
 
 <%= render 'shared/sidebar' %>
 

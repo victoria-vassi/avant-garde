@@ -1,0 +1,70 @@
+<%= render 'shared/topbar' %>
+<%= render 'shared/sidebar' %>
+
+<div class="bg-primary">
+  <div class="container space-top-1">
+          <!-- Breadcrumb -->
+      <ul class="step-progressbar">
+        <li class="step-progressbar__item">Select Investment</li>
+        <li class="step-progressbar__item">Payment</li>
+        <li class="step-progressbar__item step-progressbar__item--active">Finish!</li>
+      </ul>
+  </div>
+</div>
+
+
+<!-- Start of the PDF layout -->
+<div class= "container">
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top">
+      <td colspan="4">
+        <table>
+          <tr>
+            <td class="title" style="width: 680px";>
+              <%= image_tag wicked_pdf_asset_base64('png/company_logo.png'), width: '35%' %>
+            </td>
+
+            <td>
+              Certificate #: <b><%= @certificate.id %></b>
+               <br>
+              Created: <b><%= @certificate.created_at.strftime('%d/%m/%Y') %></b>
+                <br>
+                Status: <% if @certificate.investment.campaign.funded == false %>
+                  <span class="badge badge-success">Open</span>
+                <% else %>
+                  <span class="badge badge-secondary">Closed</span>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <h1 class = "align-text-center" style=" display: flex; justify-content: center; padding-bottom: 15px;"> CERTIFICATE OF INVESTMENT </h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <%= cl_image_tag @certificate.photo, class:'img-invoice' , width: '100%' %>
+          </div>
+
+          <div class="col-md-6 col-lg-8">
+            <td> Congratulation! You are now the proud owner of <b> <%= @certificate.campaign.artist %> </b> - <i> <%= @certificate.campaign.title %> </i> with a total amount invested of $ <%= @certificate.investment.amount %>.</td>
+            <div class="heading d-flex align-items-center justify-content-between" style= "background: #eee; font-weight: bold; padding-left: 10px;padding-right: 10px; margin-top: 20px;">
+              <p>Investment Certificate</p>
+              <div colspan="2"></div>
+              <p class="right">Amount</p>
+            </div>
+
+            <div class="details d-flex align-items-center justify-content-between"style= "padding-left: 10px;padding-right: 10px; padding-top: 10px;">
+              <p> <b> <%= @certificate.campaign.artist %> </b> - <i> <%= @certificate.campaign.title %> </i> </p>
+                <div colspan="2"></div>
+                <p class="right"> $ <%= @certificate.investment.amount %></p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

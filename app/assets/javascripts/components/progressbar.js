@@ -1,24 +1,19 @@
-const openCity = () => {
+const progressBar = () => {
 
-  const links = document.querySelectorAll(".tablinks")
-  links.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      var i, tabcontent, tablinks;
+  const steps = document.querySelectorAll(".step-progressbar")
+  steps.forEach((step) => {
+    step.addEventListener("click", (e) => {
+      var i, confirmpayment, payment;
 
-      tabcontent = document.getElementsByClassName("tabcontent");
+      confirmpayment = document.getElementsByClassName("btn btn-sm btn-soft-primary transition-3d-hover");
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
       }
 
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      payment = document.getElementsByClassName("step-progressbar");
+      for (i = 0; i < nextpages.length; i++) {
+        nextpages[i].className = nextpages[i].className.replace(" active", "");
       }
-
-      document.getElementById(`${e.currentTarget.innerText}`).style.display = "block";
-      e.currentTarget.className += " active";
     })
   })
 }
-
-export { openCity }
