@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def create
     campaign = Campaign.find(params[:campaign])
-    @order = Order.create!(campaign: campaign, amount: campaign.investments.last.amount, user: current_user, photo: campaign.images.first.photo)
+    @order = Order.create!(campaign: campaign, investment: campaign.investments.last, amount: campaign.investments.last.amount, user: current_user, photo: campaign.images.first.photo)
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
