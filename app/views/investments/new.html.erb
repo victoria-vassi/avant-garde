@@ -3,12 +3,11 @@
 <!-- ========== Sub Navigation ====== -->
 <!-- Breadcrumb Section -->
 <div class="bg-primary">
-
   <div class="container space-top-1">
           <!-- Breadcrumb -->
       <ul class="step-progressbar">
-        <li class="step-progressbar__item step-progressbar __item--complete">Select Investment</li>
-        <li class="step-progressbar__item step-progressbar__item--active">Payment</li>
+        <li class="step-progressbar__item step-progressbar__item--active">Select Investment</li>
+        <li class="step-progressbar__item">Payment</li>
         <li class="step-progressbar__item">Finish!</li>
       </ul>
   </div>
@@ -19,66 +18,65 @@
   <div class="row">
     <div class="col-md-6 col-lg-4">
       <div class="card" style="border: none">
-        <%= cl_image_tag @campaign.images.first.photo, width: '100%' %>
+        <%= cl_image_tag @campaign.images.first.photo, crop: :scale, width: '100%' %>
       </div>
     </div>
 
     <div class="col-md-6 col-lg-8">
       <div class="card" style="border: none">
         <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
-           <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
-          <h7> Please, select the amount you want to invest<h7>
-              <!-- End Title -->
-                <!-- Range Slider -->
-                <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
-                  <input class="js-range-slider" type="text"
-                         data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
-                         data-grid="false"
-                         data-hide-from-to="false"
-                         data-min="<%=@campaign.minimum_investment %>"
-                         data-max="<%=@campaign.price - (@campaign.price * @campaign.funding_status / 100)%>"
-                         data-step="<%=@campaign.minimum_investment%>"
-                         data-result-min="#rangeSliderExample2MinResult">
+        <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
+        <h7> Please, select the amount you want to invest</h7>
+        <!-- End Title -->
+        <!-- Range Slider -->
+        <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
+          <input class="js-range-slider" type="text"
+                 data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
+                 data-grid="false"
+                 data-hide-from-to="false"
+                 data-min="<%=@campaign.minimum_investment %>"
+                 data-max="<%=@campaign.price - (@campaign.price * @campaign.funding_status / 100)%>"
+                 data-step="<%=@campaign.minimum_investment%>"
+                 data-result-min="#rangeSliderExample2MinResult">
+        </span>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-muted"></span>
+          <div class="js-focus-state">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <span class="fas fa-dollar-sign"></span>
                 </span>
-
-                  <div class="d-flex justify-content-between align-items-center">
-                    <span class="text-muted"></span>
-                    <div class="js-focus-state">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <span class="fas fa-dollar-sign"></span>
-                          </span>
-                        </div>
-                        <input type="text" class="form-control max-width-11" id="rangeSliderExample2MinResult">
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Range Slider -->
-                  <!-- Form -->
-                  <div>
-                  <!-- Form Inputs & Actions -->
-                  <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, remote:true, :method => :post do |f| %>
-                    <%= f.error_notification %>
-                    <div class="form-inputs">
-                      <%= f.input :amount,
-                                  :input_html => { :value => @campaign.minimum_investment},
-                                  as: :hidden
-                                  %>
-                    </div>
-
-                    <div class="form-actions dl-flex">
-                      <%= f.button :submit,
-                                   "Confirm amount",
-                                   id: "button-form",
-                                   class: "btn btn-primary transition-3d-hover"%>
-
-                    </div>
-                  <% end %>
-                  <!-- End Form Inputs & Actions-->
-                </div>
-                <!-- End Form -->
               </div>
+              <input type="text" class="form-control max-width-11" id="rangeSliderExample2MinResult">
+            </div>
+          </div>
+        </div>
+        <!-- End Range Slider -->
+        <!-- Form -->
+        <div>
+          <!-- Form Inputs & Actions -->
+          <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, remote:true, :method => :post do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :amount,
+                          :input_html => { :value => @campaign.minimum_investment},
+                          as: :hidden
+                          %>
+            </div>
+
+            <div class="form-actions dl-flex">
+              <%= f.button :submit,
+                           "Confirm amount",
+                           id: "button-form",
+                           class: "btn btn-primary transition-3d-hover"%>
+
+            </div>
+          <% end %>
+          <!-- End Form Inputs & Actions-->
+        </div>
+        <!-- End Form -->
       </div>
     </div>
   </div>
