@@ -1,6 +1,6 @@
-const openCity = () => {
+const progressBar = () => {
 
-  const links = document.querySelectorAll(".tablinks")
+  const links = document.querySelectorAll(".steps")
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
       var i, tabcontent, tablinks;
@@ -21,4 +21,4 @@ const openCity = () => {
   })
 }
 
-export { openCity }
+export { progressBar }
