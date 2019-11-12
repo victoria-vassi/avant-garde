@@ -34,6 +34,12 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def contact
+  end
+
+  def help
+  end
+
   private
 
   def calculate_total_amount(investments_user)
