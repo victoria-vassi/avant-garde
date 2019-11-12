@@ -8,7 +8,7 @@
 }
 
 .gradient-half-primary-v1 {
-	@include gradient-x($hs-start-color: $gradient-half-indigo, $hs-end-color: $gradient-half-primary-lighter, $deg: 150deg);
+	@include gradient-x($hs-start-color: $warning, $hs-end-color: $success, $deg: 150deg);
 }
 
 .gradient-half-primary-v2 {
