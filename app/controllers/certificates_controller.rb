@@ -6,7 +6,7 @@ class CertificatesController < ApplicationController
   def show
     @certificate = scope.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html { render 'see_certificate'}
       format.pdf do
         render pdf: "Certificate No. #{@certificate.id}",
         page_size: 'A4',
