@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
         currency: 'usd',
         quantity: 1
       }],
-      success_url: "http://127.0.0.1:3000/campaigns/#{@order.campaign_id}/investments/new",
+      success_url: "http://127.0.0.1:3000/orders/#{@order.id}/payments/new",
       cancel_url: order_url(@order)
     )
 
