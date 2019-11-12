@@ -40,7 +40,7 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
       <% if action_name.to_sym == :show %>
-        <%= link_to 'DOWNLOAD PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary"%>
+        <%= link_to 'Download PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>
