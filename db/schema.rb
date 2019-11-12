@@ -57,15 +57,16 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.index ["campaign_id"], name: "index_investments_on_campaign_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "state", default: "Pending"
-    t.bigint "user_id"
+    t.bigint "investment_id"
     t.bigint "campaign_id"
+    t.bigint "user_id"
     t.string "checkout_session_id"
     t.string "photo"
     t.integer "amount_cents", default: 0, null: false
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_orders_on_campaign_id"
+    t.index ["investment_id"], name: "index_orders_on_investment_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -118,5 +120,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_090925) do
   add_foreign_key "investments", "campaigns"
   add_foreign_key "investments", "users"
   add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "investments"
   add_foreign_key "orders", "users"
 end
