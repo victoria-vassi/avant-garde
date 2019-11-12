@@ -14,8 +14,8 @@ gender = ["Male","Female"].sample
 dev = User.create(
   email: "dev@email.com",
   password: "password",
-  first_name:  Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
+  first_name:  "Harry",
+  last_name: "Bennett",
   birthday: Faker::Date.birthday(min_age: 18),
   languages: "English  #{ourLanguages.sample}",
   phone_number: "+"+randomuser["results"][0]["phone"],
