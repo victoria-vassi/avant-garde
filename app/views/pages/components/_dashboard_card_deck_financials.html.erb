@@ -87,60 +87,9 @@
 	        <div class="js-scrollbar pr-3 mCustomScrollbar _mCS_1 mCS-autoHide" style="max-height: 240px; position: relative; overflow: visible;">
 	          <!-- Activity Feed -->
 	          <ul class="list-unstyled u-indicator-vertical-dashed">
-	            <li class="media u-indicator-vertical-dashed-item">
-	              <span class="btn btn-xs btn-icon btn-primary rounded-circle mr-3">
-	                <span class="btn-icon__inner">A</span>
-	              </span>
-	              <div class="media-body">
-	                <h5 class="font-size-1 mb-1">Amanta Owens</h5>
-	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Slack home page redesign</span></p>
-	                <small class="d-block text-muted">30 min ago</small>
-	              </div>
-	            </li>
-
-	            <li class="media u-indicator-vertical-dashed-item">
-	              <span class="btn btn-xs btn-icon btn-success rounded-circle mr-3">
-	                <span class="btn-icon__inner">S</span>
-	              </span>
-	              <div class="media-body">
-	                <h5 class="font-size-1 mb-1">Sebastian Diaz</h5>
-	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Mapbox logo redesign</span></p>
-	                <small class="d-block text-muted">44 min ago</small>
-	              </div>
-	            </li>
-
-	            <li class="media u-indicator-vertical-dashed-item">
-	              <span class="btn btn-xs btn-icon btn-warning rounded-circle mr-3">
-	                <span class="btn-icon__inner text-white">F</span>
-	              </span>
-	              <div class="media-body">
-	                <h5 class="font-size-1 mb-1">Eliza Donovan</h5>
-	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Spotify branding</span></p>
-	                <small class="d-block text-muted">1 hour ago</small>
-	              </div>
-	            </li>
-
-	            <li class="media u-indicator-vertical-dashed-item">
-	              <span class="btn btn-xs btn-icon btn-primary rounded-circle mr-3">
-	                <span class="btn-icon__inner">C</span>
-	              </span>
-	              <div class="media-body">
-	                <h5 class="font-size-1 mb-1">Cler Lockhart</h5>
-	                <p class="small mb-1">Added new task: <span class="font-weight-medium">Dropbox home page redesign</span></p>
-	                <small class="d-block text-muted">15 hours ago</small>
-	              </div>
-	            </li>
-
-	            <li class="media u-indicator-vertical-dashed-item">
-	              <span class="btn btn-xs btn-icon btn-danger rounded-circle mr-3">
-	                <span class="btn-icon__inner">J</span>
-	              </span>
-	              <div class="media-body">
-	                <h5 class="font-size-1 mb-1">James Collins</h5>
-	                <p class="small mb-1">Added new task: <span class="font-weight-medium">InVison branding</span></p>
-	                <small class="d-block text-muted">1 day ago</small>
-	              </div>
-	            </li>
+				<% investments.each do |investment| %>
+                  <%= render 'pages/components/dashboard_activity', investment: investment %>
+				<% end %>
 	          </ul>
 	          <!-- End Activity Feed -->
 	        </div>

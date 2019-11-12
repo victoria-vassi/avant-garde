@@ -6,6 +6,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @investments = Investment.all.order("date DESC")
+
     @investments_user = Investment.where("user_id = ?", current_user.id).order("date DESC")
 
     @total_amount = calculate_total_amount(@investments_user)

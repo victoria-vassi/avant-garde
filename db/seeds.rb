@@ -22,17 +22,13 @@ dev = User.create(
   location: randomuser["results"][0]["location"]["city"] + ", " +randomuser["results"][0]["location"]["country"],
   sex: gender,
   user_image: "#{randomuser["results"][0]["picture"]["medium"]}"
-
 )
 
-
 10.times do
-
   gender = ["Male","Female"].sample
   url = "https://randomuser.me/api/?gender=#{gender}"
   user_serialized = open(url).read
   randomuser = JSON.parse(user_serialized)
-
 
   user = User.create!(
     email:    Faker::Internet.email,
@@ -45,7 +41,6 @@ dev = User.create(
     location: randomuser["results"][0]["location"]["city"] + ", " +randomuser["results"][0]["location"]["country"],
     sex: gender,
     user_image: "#{randomuser["results"][0]["picture"]["medium"]}"
-
   )
 
   seller = Seller.create!(
@@ -130,7 +125,7 @@ campaign_attributes = [
   },
   {
     artist: "Jeff Koons",
-    title: "Balloon Venus - Dom Perignon",
+    title: "Balloon Venus",
     year: "2013",
     category: "Sculture",
     movement: "Pop",
@@ -214,7 +209,7 @@ campaign_attributes = [
   },
   {
     artist: "Manolo Valdés",
-    title: "Las señoritas de Avignon (Les Demoiselles d'Avignon)",
+    title: "Las señoritas de Avignon",
     year: "1989",
     category: "Painting",
     movement: "Abstract",
@@ -339,9 +334,9 @@ photo_attributes = [
   }
 ]
 
-  photo_attributes.each do |photo|
-    Image.create!(photo)
-  end
+photo_attributes.each do |photo|
+  Image.create!(photo)
+end
 
 investments = [
   {
@@ -391,6 +386,20 @@ investments = [
 investments.each do |investment|
   Investment.create!(investment)
 end
+
+users = User.all.drop(1)
+campaigns = Campaign.all
+users.each do |user|
+  2.times do
+    amount = rand(250...2000)
+    campaign = campaigns.sample
+    date = Date.today - rand(1..60)
+    Investment.create!(amount: amount, campaign: campaign, user: user, date: date)
+  end
+end
+
+Investment.create!(amount: rand(250...2000), campaign: campaigns.sample, user: users.sample, date: Date.today)
+
 
 
 

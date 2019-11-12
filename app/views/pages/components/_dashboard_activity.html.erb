@@ -1,0 +1,10 @@
+<li class="media u-indicator-vertical-dashed-item">
+  <span class="btn btn-xs btn-icon btn-primary rounded-circle mr-3">
+    <span class="btn-icon__inner">I</span>
+  </span>
+  <div class="media-body">
+    <h5 class="font-size-1 mb-1"><%= investment.user.first_name %> <%= investment.user.last_name %></h5>
+    <p class="small mb-1">New investment of <span class="font-weight-medium">$<%= investment.amount %></span> in <%= investment.campaign.title %></p>
+    <small class="d-block text-muted"><%= time_ago_in_words(investment.date) %> ago</small>
+  </div>
+</li>
