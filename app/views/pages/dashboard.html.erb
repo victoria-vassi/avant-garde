@@ -49,9 +49,11 @@
         <%= render 'investments/components/table', investments: @investments_user %>
     	</div>
     	<div class="tab-pane" id="my-campaigns-tab-content">
-  		  <% @campaigns_user.each do |campaign| %>
-          <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
-        <% end %>
+        <div class="space-1">
+    		  <% @campaigns_user.each do |campaign| %>
+            <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+          <% end %>
+        </div>
     	</div>
     </div>
     <!-- End Tab Content -->
