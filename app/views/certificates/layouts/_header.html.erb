@@ -1,6 +1,7 @@
 <%= render 'shared/topbar' %>
-<div class="bg-dark">
+<%= render 'shared/sidebar' %>
 
+<div class="bg-dark">
   <div class="container space-top-1">
     <div class="row">
       <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
@@ -8,7 +9,8 @@
           <!-- Breadcrumb -->
           <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
             <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= dashboard_path %>">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Certificate</li>
           </ol>
           <!-- End Breadcrumb -->
         </div>
@@ -18,13 +20,7 @@
         <!-- Subnav -->
         <ul class="nav nav-border-white">
           <li class="nav-item">
-            <a class="nav-link active" id="overview-tab" href="#{ }#overview">Overview</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="my-investments-tab" href="#my-investments">My Investments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="my-campaigns-tab" href="#my-campaigns">My Campaigns</a>
+            <a class="nav-link active" id="overview-tab" href="#{ }#overview">Certificate</a>
           </li>
         </ul>
         <!-- End Subnav -->
@@ -44,7 +40,7 @@
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
       <% if action_name.to_sym == :show %>
-        <%= link_to 'DOWNLOAD PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary"%>
+        <%= link_to 'Download PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>

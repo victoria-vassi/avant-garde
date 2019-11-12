@@ -1,4 +1,5 @@
 <%= render 'shared/topbar' %>
+<%= render 'shared/sidebar' %>
 
 <!-- ========== Sub Navigation ====== -->
 <!-- Breadcrumb Section -->
@@ -7,8 +8,8 @@
   <div class="container space-top-1">
           <!-- Breadcrumb -->
       <ul class="step-progressbar mb-0">
-        <li class="step-progressbar__item step-progressbar __item--complete">Step 1</li>
-        <li class="step-progressbar__item step-progressbar__item--active">Step 2</li>
+        <li class="step-progressbar__item step-progressbar__item--active">Step 1</li>
+        <li class="step-progressbar__item ">Step 2</li>
         <li class="step-progressbar__item">Step 3</li>
       </ul>
   </div>
@@ -146,7 +147,7 @@
 <!-- End Shopping Cart Modal Window -->
 </main>
 
-<%= render 'shared/sidebar' %>
+
 
 <!-- ========== Page Specific Javascript ========== -->
 
@@ -175,7 +176,9 @@
     autonomous: true
     });
   });
+    console.log("hello")
 </script>
 
 <!-- ========== End Page Specific Javascript ====== -->
+
 

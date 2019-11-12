@@ -13,6 +13,8 @@ class InvestmentsController < ApplicationController
     @campaign = Campaign.find(params[:campaign_id])
     @investments_user = Investment.where("user_id = ?", current_user.id).order("date DESC")
     @campaigns_user = Campaign.joins(:investments).where("user_id = ?", current_user.id).order("end_date DESC")
+    # scale_image = @campaign.images.first.photo == "https://res.cloudinary.com/ddjh71lig/image/upload/v1572926497/Avant%20Garde/Koons1_evduwn.jpg"
+    # @img_class = scale_image ? 'scale-image' : nil
   end
 
   def create
