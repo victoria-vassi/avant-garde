@@ -14,25 +14,21 @@ gender = ["Male","Female"].sample
 dev = User.create(
   email: "dev@email.com",
   password: "password",
-  first_name:  Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
+  first_name:  "Harry",
+  last_name: "Bennett",
   birthday: Faker::Date.birthday(min_age: 18),
   languages: "English  #{ourLanguages.sample}",
   phone_number: "+"+randomuser["results"][0]["phone"],
   location: randomuser["results"][0]["location"]["city"] + ", " +randomuser["results"][0]["location"]["country"],
   sex: gender,
   user_image: "#{randomuser["results"][0]["picture"]["medium"]}"
-
 )
 
-
 10.times do
-
   gender = ["Male","Female"].sample
   url = "https://randomuser.me/api/?gender=#{gender}"
   user_serialized = open(url).read
   randomuser = JSON.parse(user_serialized)
-
 
   user = User.create!(
     email:    Faker::Internet.email,
@@ -45,7 +41,6 @@ dev = User.create(
     location: randomuser["results"][0]["location"]["city"] + ", " +randomuser["results"][0]["location"]["country"],
     sex: gender,
     user_image: "#{randomuser["results"][0]["picture"]["medium"]}"
-
   )
 
   seller = Seller.create!(
@@ -69,7 +64,7 @@ campaign_attributes = [
     title: "Bagdad",
     year: "2014",
     category: "Painting",
-    movement: "Contemporary art",
+    movement: "Contemporary",
     technique: "Prints and multiples",
     dimension: "50.0 x 40.0 cm",
     description_short: "Gerhard Richter (German, b.1932) is a preeminent postwar painter. Born in Dresden, his youth was marked by the Nazi and Communist regimes in Germany, and his uneasy relationship to German history would persist as a central theme in his work. In the early 1950s, he attended the Kunstakademie in Dresden, where he was trained in Socialist Realist painting, before moving to West Germany and studying avant-garde art at the Kunstakademie in Düsseldorf.",
@@ -90,9 +85,9 @@ campaign_attributes = [
     artist: "George Condo",
     title: "Face",
     year: "1985",
-    category: "Oil on canvas",
-    movement: "Contemporary art",
-    technique: "Painting",
+    category: "Painting",
+    movement: "Contemporary",
+    technique: "Oil on canvas",
     dimension: "81.9 x 65.0 cm",
     description_short: "Face(1985) is an important early oil painting by George Condo featuring his signature distorted character against an abstract background of earthy mid-tones. Recalling genres as diverse as European portraiture, Cubism, Expressionism, and Surrealism – sometimes all at once – Condo’s works can be incredibly humorous, and, at the same time, eerily dark. Condo explains, 'The landscape I live in is the landscape of ripped drawings, of paint all over the place, of pencil sketches and drawings that have been compiled, images that have been thought about and turned and twisted.'",
     description_long: "George Condo (American, b. 1957) is one of the most celebrated figurative painters of the last 30 years. He has exhibited throughout the United States and in Europe, at institutions including at the Whitney Museum of American Art, New York; the Museum of Modern Art, New York; the Contemporary Arts Museum, Houston; the Solomon R. Guggenheim Museum, New York; the Albright-Knox Art Gallery, Buffalo; Fonds National d'Art Contemporain, Salzburg; Ministere de la Culture, Paris; Museu d'Art Contemporani, Barcelona; the Museum of Fine Arts, Houston; the Kunsthalle Bielefeld in Germany; and the Wrong Gallery in the Tate Modern, London. A retrospective of his work was held at the New Museum, New York in 2011 and the Phillips Collection, Washington, D.C. will host a drawings retrospective in 2017. Condo is represented by Skarstedt Gallery, New York and Sprüth Magers, Berlin.",
@@ -111,8 +106,8 @@ campaign_attributes = [
     artist: "Annie Leibovitz",
     title: "Keith Haring, New York",
     year: "1986",
-    category: "Photograph",
-    movement: "Contemporary art",
+    category: "Photography",
+    movement: "Contemporary",
     technique: "Cibachrome",
     dimension: "31.8 x 40.0 cm",
     description_short: "'Keith Haring was as much an artist as he was an activist by taking his cartoonish figures to shed light on themes of sexuality, apartheid, death, and many others. Diagnosed with AIDS in 1988, Haring was open with his diagnosis, which was incredibly taboo. He was an instrumental figure in spreading the awareness of AIDS and bringing it into public discourse with his Pop images. It is a legacy that lives on today.' —Susanna Wenniger, Senior Specialist, Photographs",
@@ -130,11 +125,11 @@ campaign_attributes = [
   },
   {
     artist: "Jeff Koons",
-    title: "Balloon Venus - Dom Perignon",
+    title: "Balloon Venus",
     year: "2013",
     category: "Sculture",
-    movement: "Pop Art",
-    technique: "Mirror-polished stainless steel",
+    movement: "Pop",
+    technique: "Stainless steel",
     dimension: "61.5 x 35.5 x 32.5 cm",
     description_short: "Jeff Koons created the Balloon Venus for Dom Pérignon in 2013. Inspired by a tiny Palaeolithic figurine discovered in Austria, the Balloon Venus is an adaptation of Jeff Koons’ monumental sculpture and proposes a new kind of idol: a modern day goddess of love who embraces in her reflective curves.",
     description_long: "Jeff Koons plays with ideas of taste, pleasure, celebrity, and commerce. “I believe in advertisement and media completely,” he says. “My art and my personal life are based in it.” Working with seductive commercial materials (such as the high chromium stainless steel of his “Balloon Dog” sculptures or his vinyl “Inflatables”), shifts of scale, and an elaborate studio system involving many technicians, Koons turns banal objects into high art icons. His paintings and sculptures borrow widely from art-historical techniques and styles; although often seen as ironic or tongue-in-cheek, Koons insists his practice is earnest and optimistic. “I’ve always loved Surrealism and Dada and Pop, so I just follow my interests and focus on them,” he says. “When you do that, things become very metaphysical.” The “Banality” series that brought him fame in the 1980s included pseudo-Baroque sculptures of subjects like Michael Jackson with his pet ape, while his monumental topiaries, like the floral Puppy (1992), reference 17th-century French garden design.",
@@ -154,7 +149,7 @@ campaign_attributes = [
     title: "Fireflies",
     year: "1999",
     category: "Print",
-    movement: "Contemporary art",
+    movement: "Contemporary",
     technique: "Color screenprint on paper",
     dimension: "59.7 x 47.8 cm",
     description_short: "'Fireflies' (1999) is one of Japanese female artist Yayoi Kusama's most sought after and desirable silkscreen prints, and this is only the fourth time any edition of this print has ever come to international auction. Yayoi Kusama is best known for her works featuring repeating motifs and psychedelic imagery that evoke themes of psychology, feminism, obsession, sex, creation, destruction, and intense self-reflection. Here dark green and black infinity nets swim through space, with bright red polka dots representing fireflies glow against the lush background. Although her œuvre is incredibly varied, Kusama's best works possess, as Kusama herself states, patterns 'without beginning, end, or center... This endless repetition caused a kind of dizzy, empty, hypnotic feeling.' This print is edition 59/100, measures 23.5 x 18.8 in. (59.7 x 47.7 cm), is custom framed with UV glass to larger dimensions, and is in pristine condition.",
@@ -175,7 +170,7 @@ campaign_attributes = [
     title: "Pool Made with Paper",
     year: "1980",
     category: "Drawing",
-    movement: "Contemporary art",
+    movement: "Contemporary",
     technique: "Lithograph in colors",
     dimension: "26.7 x 22.9 cm",
     description_short: "Published in 1980, this color lithograph explores the interplay of color, light and spatial dimensions in a pool, one of David Hockney's signature motifs. Moving to Los Angeles inspired the English-born artist to work in the bright California palette for which he is now well-known. The aquamarine California swimming pools set against the L.A. skyline provided Hockney with the perfect subject matter to explore the glossy surface of American popular culture. This print comes with a copy of Hockney's Paper Pools book in its original case.",
@@ -196,7 +191,7 @@ campaign_attributes = [
     title: "Ida's Special",
     year: "1986",
     category: "Painting",
-    movement: "Abstract art",
+    movement: "Abstract",
     technique: "Oil on canvas",
     dimension: "155.0 x 91.6 cm",
     description_short: "Louise Fishman is a contemporary American artist known for her expressive abstract paintings. Rooted in her experiences as a feminist and advocate for LGBT rights, Fishman’s works are channels for the cathartic expression of memories and anger as well as the process of painting itself.",
@@ -214,10 +209,10 @@ campaign_attributes = [
   },
   {
     artist: "Manolo Valdés",
-    title: "Las señoritas de Avignon (Les Demoiselles d'Avignon)",
+    title: "Las señoritas de Avignon",
     year: "1989",
     category: "Painting",
-    movement: "Abstract art",
+    movement: "Abstract",
     technique: "Collage on burlap",
     dimension: "229.5 x 204.0 x 7.0 cm",
     description_short: "Manolo Valdés is a Spanish artist residing in New York, working in paint, sculpture, and mixed media. He introduced to Spain a form of expression that combined political and social obligations with humor and irony.",
@@ -238,7 +233,7 @@ campaign_attributes = [
     title: "Rock 4",
     year: "2000",
     category: "Painting",
-    movement: "Contemporary Art",
+    movement: "Contemporary",
     technique: "Ink on Lanaquarelle paper",
     dimension: "29.2 x 15.9 cm",
     description_short: "Brice Marden is a contemporary American painter known for his subtle explorations of color and gestural lines. Like Robert Ryman, Robert Mangold, and Agnes Martin, Marden’s canvases are the product of an ongoing investigation into the nature of abstraction and the medium of painting itself. “A painting, you know, it's all dirty material. But it's about transformation,” the artist mused.",
@@ -259,7 +254,7 @@ campaign_attributes = [
     title: "Christ with Shopping Bags",
     year: "2004",
     category: "Print",
-    movement: "Contemporary Art",
+    movement: "Contemporary",
     technique: "Screenprint in colors",
     dimension: "69.0 x 49.0 cm",
     description_short: "Banksy is undoubtably the world’s most sought-after and talked about street artist, his work represents his political and social commentary on the world, and has appeared on city walls throughout it – from London to New York, from Jamaica to the Gaza Strip.",
@@ -339,9 +334,9 @@ photo_attributes = [
   }
 ]
 
-  photo_attributes.each do |photo|
-    Image.create!(photo)
-  end
+photo_attributes.each do |photo|
+  Image.create!(photo)
+end
 
 investments = [
   {
@@ -398,6 +393,20 @@ investments = [
 investments.each do |investment|
   Investment.create!(investment)
 end
+
+users = User.all.drop(1)
+campaigns = Campaign.all
+users.each do |user|
+  2.times do
+    amount = rand(250...2000)
+    campaign = campaigns.sample
+    date = Date.today - rand(1..60)
+    Investment.create!(amount: amount, campaign: campaign, user: user, date: date)
+  end
+end
+
+Investment.create!(amount: rand(250...2000), campaign: campaigns.sample, user: users.sample, date: Date.today)
+
 
 
 

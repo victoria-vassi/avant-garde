@@ -10,8 +10,8 @@
         <th scope="col" style="width: 12%";>Date</th>
         <th scope="col">Campaign</th>
         <th scope="col">Funding</th>
-        <th scope="col">Amount</th> 
-        <th scope="col">Certificate</th> 
+        <th scope="col">Amount</th>
+        <th scope="col">Certificate</th>
       </tr>
     </thead>
     <tbody>
@@ -43,7 +43,9 @@
           </td>
           <td class="align-middle">
             <div class="d-flex justify-content-center align-items-center">
-              <i class="fas fa-certificate m-0 p-0 text-secondary"></i>
+              <% if investment.certificate %>
+                <%= link_to "", certificate_path(investment.certificate), class: "fas fa-certificate m-0 p-0 text-secondary" %>
+              <% end %>
             </div>
           </td>
         </tr>

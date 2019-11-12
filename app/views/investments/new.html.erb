@@ -7,7 +7,7 @@
   <div class="container space-top-1">
           <!-- Breadcrumb -->
       <ul class="step-progressbar">
-        <li class="step-progressbar__item step-progressbar__item--complete">Step 1</li>
+        <li class="step-progressbar__item step-progressbar __item--complete">Step 1</li>
         <li class="step-progressbar__item step-progressbar__item--active">Step 2</li>
         <li class="step-progressbar__item">Step 3</li>
       </ul>
@@ -15,15 +15,19 @@
 </div>
 
 
-<div class="row no-gutters my-auto">
-          <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0" >
-            <!-- Form -->
-            <div class="js-validate mt-5">
-              <!-- Title -->
-              <div class="mt-7">
-                <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
-                <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
-                <h7> Please, select the amount you want to invest<h7>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4">
+      <div class="card" style="border: none">
+        <%= cl_image_tag @campaign.images.first.photo, width: '100%' %>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-8">
+      <div class="card" style="border: none">
+        <h6 class="h3 text-primary font-weight-normal mb-0">You are one step away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></h6>
+           <p><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
+          <h7> Please, select the amount you want to invest<h7>
               <!-- End Title -->
                 <!-- Range Slider -->
                 <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
@@ -75,11 +79,10 @@
                 </div>
                 <!-- End Form -->
               </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <!-- End Form -->
+    </div>
+  </div>
+</div>
 
       <!-- Modal Window Trigger -->
 <a id="button-modal" class="btn btn-sm btn-primary transition-3d-hover invisible" href="#shoppingCartWithItemsModal"

@@ -1,0 +1,53 @@
+<!-- Start of the PDF layout -->
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tbody>
+
+    <tr class="top">
+      <td colspan="4">
+        <table>
+          <tr>
+            <td class="title" style="width: 650px";>
+              <%= image_tag wicked_pdf_asset_base64('company_logo.png'), width: '50%' %>
+            </td>
+
+            <td>
+              Certificate #: <b><%= @certificate.id %></b>
+               <br>
+              Created: <b><%= @certificate.created_at.strftime('%d/%m/%Y') %></b>
+                <br>
+                Status: <% if @certificate.investment.campaign.funded == false %>
+                  <span class="badge badge-success">Open</span>
+                <% else %>
+                  <span class="badge badge-secondary">Closed</span>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+
+    <table>
+      <td style="text-align: center; padding-left: 130px; padding-bottom: 50px;"> <b> CERTIFICATE OF INVESTMENT </b> </td>
+    </table>
+
+
+
+
+    <table>
+      <tr>
+        <tr style="width: 100vw">
+          <td><%= cl_image_tag @certificate.campaign_image, class:'img-invoice' %></td>
+          <td valign="top", style="text-align: left;">
+            <ul style="list-style: none; margin-top: -200px;">
+              <li>Congratulation! You are now the proud owner of <b> <%= @certificate.campaign_name %> </b> - <i> <%= @certificate.campaign_title %> </i> with a total amount invested of $ <%= @certificate.investment_amount %>.</li>
+              <li style="padding-top: 30px;"> <b> Art Invested: </b> <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </i></li>
+              <li><b> Invested amount: </b> $ <%= @certificate.investment_amount %> </li>
+            </ul>
+          </td>
+          </tr>
+        </tr>
+
+</div>
