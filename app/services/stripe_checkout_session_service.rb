@@ -8,6 +8,7 @@ class StripeCheckoutSessionService
     current_funding += investment.amount
     new_funding_status = (current_funding.to_f/campaign.price.to_f*100).to_i
     campaign.funding_status = new_funding_status
+    investment.status = true
     if new_funding_status >= 100
       campaign.funded = true
       campaign.funding_status = 100
