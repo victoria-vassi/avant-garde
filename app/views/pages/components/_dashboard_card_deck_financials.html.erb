@@ -11,7 +11,7 @@
 	      <!-- End Title -->
         <div class="mb-3">
           <div class="text-secondary font-size-1">Value increase p.a. (expected):</div>
-          <span class="font-size-3 font-weight-medium text-lh-sm">$<%= number_with_delimiter((@total_value_increase_rate / 100 * @total_amount).round(0), :delimiter => ',') %></span>
+          <span class="font-size-3 text-lh-sm">$<%= number_with_delimiter((@total_value_increase_rate / 100 * @total_amount).round(0), :delimiter => ',') %></span>
           <span class="text-primary font-weight-medium text-lh-sm">
             <span class="fas fa-arrow-up text-success small"></span>
             +<%= @total_value_increase_rate.round(1) %>%
@@ -19,7 +19,7 @@
         </div>
         <div class="mb-3">
           <div class="text-secondary font-size-1">Payout p.a. (secured 2 years):</div>
-          <span class="font-size-3 font-weight-medium text-lh-sm">$<%= number_with_delimiter((@total_payout_rate / 100 * @total_amount).round(0), :delimiter => ',') %></span>
+          <span class="font-size-3 text-lh-sm">$<%= number_with_delimiter((@total_payout_rate / 100 * @total_amount).round(0), :delimiter => ',') %></span>
           <span class="text-primary font-weight-medium text-lh-sm">
             <span class="fas fa-arrow-up text-success small"></span>
             +<%= @total_payout_rate.round(1) %>%
@@ -28,7 +28,7 @@
         <hr class="mt-3 mb-4">
         <div>
           <div class="text-secondary font-size-1">Total return p.a.:</div>
-          <span class="font-size-3 font-weight-medium text-lh-sm">$<%= number_with_delimiter((@total_value_increase_rate / 100 * @total_amount).round(0) + (@total_payout_rate / 100 * @total_amount).round(0), :delimiter => ',') %></span>
+          <span class="font-size-3 text-lh-sm">$<%= number_with_delimiter((@total_value_increase_rate / 100 * @total_amount).round(0) + (@total_payout_rate / 100 * @total_amount).round(0), :delimiter => ',') %></span>
           <span class="text-primary font-weight-medium text-lh-sm">
             <span class="fas fa-arrow-up text-success small"></span>
             +<%= (@total_value_increase_rate + @total_payout_rate).round(1) %>%
