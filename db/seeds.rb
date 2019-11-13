@@ -450,6 +450,13 @@ end
 
 Investment.create!(amount: rand(250...2000), campaign: campaigns.sample, user: users.sample, date: Date.today)
 
+orders = Order.all
+
+orders.each do |order|
+  order.state = "paid"
+  order.save
+end
+
 
 
 
