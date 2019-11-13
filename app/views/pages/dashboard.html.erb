@@ -1,1 +1,84 @@
-<%= Hello world %>
+<%= render 'shared/topbar' %>
+
+<!-- ========== Sub Navigation ====== -->
+<!-- Breadcrumb Section -->
+<div class="bg-dark">
+
+  <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+      	<!-- Subnav -->
+      	<ul class="nav nav-border-white">
+			    <li class="nav-item">
+			      <a class="nav-link active" id="overview-tab" href="#overview">Overview</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" id="my-investments-tab" href="#my-investments">My Investments</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" id="my-campaigns-tab" href="#my-campaigns">My Campaigns</a>
+			    </li>
+			  </ul>
+			  <!-- End Subnav -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-light pt-5 pb-5">
+  <div class="container">
+  	<!-- Tab Content -->
+    <div class="tab-content">
+    	<div class="tab-pane active" id="overview-tab-content">
+    		<%= render 'pages/components/dashboard_card_deck_basics' %>
+        <%= render 'pages/components/dashboard_card_deck_financials', investments: @investments %>
+        <%= render 'pages/components/dashboard_area_chart' %>
+    	</div>
+    	<div class="tab-pane" id="my-investments-tab-content">
+        <%= render 'investments/components/table', investments: @investments_user %>
+    	</div>
+    	<div class="tab-pane" id="my-campaigns-tab-content">
+        <div class="space-1">
+    		  <% @campaigns_user.each do |campaign| %>
+            <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
+          <% end %>
+        </div>
+        <%= render 'pages/components/home_footnote_explanation' %>
+        <div class="d-flex justify-content-center align-items-center flex-wrap mb-4">
+          <%= link_to "All/Campaigns", campaigns_path, class: "btn btn-success btn-wide transition-3d-hover" %>
+        </div>            
+    	</div>
+    </div>
+    <!-- End Tab Content -->
+  </div>
+</div>
+<!-- End Breadcrumb Section -->
+<!-- ====== End Sub Navigation ====== -->
+
+<%= render 'shared/sidebar' %>
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_pack_tag 'subnav' %>
+
+<%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
+<%= javascript_include_tag 'components/hs.fancybox' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of popups
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+  });
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->

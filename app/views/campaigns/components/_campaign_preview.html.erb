@@ -1,0 +1,140 @@
+<!-- Campaign Item 1 -->
+<div class="border-bottom pb-4 mb-8">
+  <div class="row">
+    <div class="col-md-3 d-md-flex align-items-md-start flex-md-column mb-5 mb-md-0">
+      <!-- Gallery -->
+      <a class="js-fancybox u-media-viewer mb-3" href="javascript:;"
+         data-src="<%= campaign.images.first.photo %>"
+         data-fancybox="<%= "fancyboxGalleryExample-#{campaign.id}" %>"
+         data-caption="<%= "#{campaign.title} - image #01" %>"
+         data-speed="700"
+         data-is-infinite="true">
+        <img class="img-fluid w-100" src="<%= campaign.images.first.photo %>" alt="Image Description">
+
+        <div class="position-absolute bottom-0 right-0 pb-2 pr-2">
+          <span class="btn btn-icon btn-sm btn-white">
+            <span class="fas fa-images btn-icon__inner"></span>
+          </span>
+        </div>
+      </a>
+
+			<% campaign.images.drop(1).each_with_index do |image, index| %>
+	      <img class="js-fancybox d-none" alt="Image Description"
+	           data-fancybox="<%= "fancyboxGalleryExample-#{campaign.id}" %>"
+	           data-src="<%= image.photo %>"
+	           data-caption="<%= "#{campaign.title} - image #0#{index + 2}" %>"
+	           data-speed="700"
+	           data-is-infinite="true">
+      <% end %>
+      <!-- End Gallery -->
+
+      <!-- Artist Info -->
+      <div class="media align-items-center mt-auto">
+        <div class="media-body">
+          <span class="d-block"><%= campaign.artist %></span>
+          <p class="font-size-1"><%= "#{campaign.title}, #{campaign.year}" %></p>
+        </div>
+      </div>
+      <!-- End Artist Info -->
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-8">
+          <h2 class="h4 mb-1">
+            $<%= number_with_delimiter(money_without_cents campaign.price, :delimiter => ',') %>
+          </h2>
+        </div>
+        <% if campaign.new_badge? %>
+        <div class="col-4 text-right">
+          <span class="badge badge-success">New</span>
+        </div>
+        <% else %>
+        <% end %>
+      </div>
+
+      <!-- Seller -->
+      <div class="mb-3">
+        <p class="font-size-1 text-primary">
+          Offered by <%= campaign.seller.name %> Gallery
+        </p>
+      </div>
+      <!-- End Seller -->
+
+      <!-- Icon Blocks -->
+      <ul class="list-inline font-size-1">
+        <li class="list-inline-item mr-3 text-muted">
+          <span class="fas fa-info text-muted mr-1"></span>
+          <%= campaign.category %>
+        </li>
+        <li class="list-inline-item mr-3 text-muted">
+          <span class="fas fa-history text-muted mr-1"></span>
+          <%= campaign.movement %>
+        </li>
+        <li class="list-inline-item mr-3 text-muted">
+          <span class="fas fa-paint-brush text-muted mr-1"></span>
+          <%= campaign.technique %>
+        </li>
+        <li class="list-inline-item mr-3 text-muted">
+          <span class="fas fa-ruler-combined text-muted mr-1"></span>
+          <%= campaign.dimension %>
+        </li>
+      </ul>
+      <!-- End Icon Blocks -->
+
+      <p class="font-size-1"><%= campaign.description_short[0..340].gsub(/\s\w+\s*$/,'...') %></p>
+
+      <!-- Financials -->
+      <div class="d-flex align-items-center font-size-1">
+        <p class="text-body">
+          <span>
+            <span class="fas fa-chart-line mr-2"></span>
+            <div>
+              <strong><%= campaign.value_increase_rate %>%</strong> value increase rate p.a.
+              <div>(expected*)</div>
+            </div>
+          </span>
+        </p>
+        <p class="text-body ml-6">
+          <span>
+            <span class="far fa-money-bill-alt mr-2"></span>
+            <div>
+              <strong><%= campaign.payout_rate %>%</strong> payout rate p.a
+              <div>(secured 2 years**)</div>
+            </div>
+          </span>
+        </p>
+        <p class="text-body ml-6">
+          <span>
+            <span class="far fa-plus-square mr-2"></span>
+            <div>
+              <strong><%= (campaign.value_increase_rate + campaign.payout_rate).round(1) %>%</strong> total return rate p.a
+              <div>(combined)</div>
+            </div>
+          </span>
+        </p>
+      </div>
+      <!-- End Financials -->
+
+      <!-- Funding Status -->
+      <div class="d-flex justify-content-between mt-4">
+        <div>
+          <p class="font-size-1 mb-0">Status: <%= campaign.funding_status %>% financed ($<%= number_with_delimiter(money_without_cents (campaign.price * (1 - campaign.funding_status / 100.00)), :delimiter => '.') %> remaining)</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: <%=campaign.funding_status %>%" aria-valuenow="<%= campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"><%=campaign.funding_status %>%</div>
+            <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - campaign.funding_status %>%" aria-valuenow="<%= 100 - campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center font-size-1">
+          <%= link_to(campaign_path(campaign), class: "btn btn-sm btn-soft-primary transition-3d-hover ml-auto") do %>
+            Details
+            <span class="fas fa-angle-right ml-1"></span>
+          <% end %>
+        </div>
+      </div>
+      <!-- End Funding Status -->
+
+    </div>
+  </div>
+</div>
+<!-- End Campaign Item 1 -->

@@ -1,5 +1,5 @@
 class Renter < ApplicationRecord
-  belongs_to :campaign
+  has_one :campaigns
   validates :name, presence: true
   validates :address, presence: true
   validates :website, presence: true

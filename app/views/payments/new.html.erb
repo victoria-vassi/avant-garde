@@ -1,0 +1,110 @@
+<%= render 'shared/topbar' %>
+<%= render 'shared/sidebar' %>
+
+<!-- ========== Sub Navigation ====== -->
+
+<div class="bg-primary">
+<!-- Breadcrumb Section -->
+  <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+        <!-- Subnav -->
+        <ul class="nav nav-border-white">
+          <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" href="#overview">Let's Invest the Monet and Let's Gogh</a>
+          </li>
+        </ul>
+        <!-- End Subnav -->
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- End Sub navigation -->
+<div class="mt-3 mb-2">
+  <nav class="nav nav-icon nav-justified text-center">
+  <a class="nav-item">
+    <span class="nav-icon-action">
+      <span class="fas fa-paint-brush nav-icon-action-inner"></span>
+    </span>
+  </a>
+  <a class="nav-item">
+    <span class="nav-icon-action">
+      <span class="fas fa-file-invoice-dollar nav-icon-action-inner"></span>
+    </span>
+  </a>
+  <a class="nav-item active">
+    <span class="nav-icon-action">
+      <span class="fas fa-paperclip nav-icon-action-inner"></span>
+    </span>
+  </a>
+</nav>
+</div>
+<!-- ========== End Sub Navigation ====== -->
+<!-- End Breadcrumb Section -->
+
+<!-- Start of the PDF layout -->
+<div class= "container">
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top">
+      <td colspan="4">
+        <table>
+          <tr>
+            <td class="title" style="width: 680px";>
+              <%= image_tag wicked_pdf_asset_base64('png/company_logo.png'), width: '35%' %>
+            </td>
+
+            <td>
+              Certificate #: <b><%= @certificate.id %></b>
+               <br>
+              Created: <b><%= @certificate.created_at.strftime('%d/%m/%Y') %></b>
+                <br>
+                Status: <% if @certificate.investment.campaign.funded == false %>
+                  <span class="badge badge-success">Open</span>
+                <% else %>
+                  <span class="badge badge-secondary">Closed</span>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <h1 class = "align-text-center" style=" display: flex; justify-content: center; padding-bottom: 15px;"> CERTIFICATE OF INVESTMENT </h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <%= cl_image_tag @certificate.photo, class:'img-invoice' , width: '100%' %>
+          </div>
+
+          <div class="col-md-6 col-lg-8">
+            <td> Congratulation! You are now the proud owner of <b> <%= @certificate.campaign.artist %> </b> - <i> <%= @certificate.campaign.title %> </i> with a total amount invested of $ <%= @certificate.investment.amount %>.</td>
+            <div class="heading d-flex align-items-center justify-content-between" style= "background: #eee; font-weight: bold; padding-left: 10px;padding-right: 10px; margin-top: 20px;">
+              <p>Investment Certificate</p>
+              <div colspan="2"></div>
+              <p class="right">Amount</p>
+            </div>
+
+            <div class="details d-flex align-items-center justify-content-between"style= "padding-left: 10px;padding-right: 10px; padding-top: 10px;">
+              <p> <b> <%= @certificate.campaign.artist %> </b> - <i> <%= @certificate.campaign.title %> </i> </p>
+                <div colspan="2"></div>
+                <p class="right"> $ <%= @certificate.investment.amount %></p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

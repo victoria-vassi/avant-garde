@@ -1,0 +1,228 @@
+<div class = 'd-flex justify-content-center'>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style = 'max-height: 75%'>
+              <!--Carosuel Photo Page Start -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <% @images.each do |image| %>
+                  <a class="js-fancybox u-media-viewer mb-3" href="javascript:;"
+                     data-src="<%= image.photo %>"
+                     data-fancybox="fancyboxGalleryExample2"
+                     data-caption="<%= @campaign.title %>"
+                     data-speed="700"
+                     data-is-infinite="true">
+                    <img class="img-fluid w-100" src="<%= image.photo %>" alt="Image Description">
+
+                    <div class="position-absolute bottom-0 right-0 pb-2 pr-2">
+                      <span class="btn btn-icon btn-sm btn-white">
+                        <span class="fas fa-images btn-icon__inner"></span>
+                      </span>
+                    </div>
+                  </a>
+                  <% end %>
+
+
+                </div>
+            </div>
+            <!--end of Photos -->
+
+        <div id="stickyBlockStartPoint" class="col-lg-5" style="">
+          <!-- Sticky Block -->
+          <div class="js-sticky-block pl-lg-4 kill-sticky" data-parent="#stickyBlockStartPoint" data-sticky-view="lg" data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint" data-offset-top="80" data-offset-bottom="130" style="overflow-y: scroll;">
+            <div class="mb-6">
+              <h1 class="h4 text-primary font-weight-semi-bold"><%= @campaign.title %></h1>
+              <div class="mb-3">
+
+               <ul class="list-unstyled mb-0">
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <h3 class="h6">Artist </h3>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= @campaign.artist %>
+                      </small>
+                    </div>
+                  </li>
+
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <h4 class="h6">Year</h4>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= @campaign.year %>
+                      </small>
+                    </div>
+                  </li>
+
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <h4 class="h6">Funding Goal</h4>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= number_to_currency(@campaign.price) %>
+                      </small>
+                    </div>
+                  </li>
+
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <h4 class="h6">Offered By</h4>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= @campaign.seller.name%>
+                      </small>
+                    </div>
+                  </li>
+
+               </ul>
+
+              </div>
+              <p class="mb-0" id = "camp_info"><%= @campaign.description_long %></p>
+          </div>
+
+            <hr class="my-5">
+
+            <!-- List -->
+
+
+            <ul class="list-inline font-size-1">
+              <li class="list-inline-item mr-3 text-muted">
+                <span class="fas fa-info text-muted mr-1"></span>
+                   <%= @campaign.category %>
+              </li>
+              <li class="list-inline-item mr-3 text-muted">
+                <span class="fas fa-history text-muted mr-1"></span>
+                 <%= @campaign.technique %>
+              </li>
+              <li class="list-inline-item mr-3 text-muted">
+                <span class="fas fa-paint-brush text-muted mr-1"></span>
+                <%= @campaign.movement %>
+              </li>
+              <li class="list-inline-item mr-3 text-muted">
+                <span class="fas fa-ruler-combined text-muted mr-1"></span>
+                 <%= @campaign.dimension %>
+              </li>
+            </ul>
+
+            <!-- End List -->
+
+            <hr class="my-5">
+
+             <div class="d-flex align-items-center font-size-1" style = "">
+
+              <p class="text-body">
+                <span>
+                  <span class="fas fa-chart-line mr-2"></span>
+                  <div>
+                    <strong><%= @campaign.value_increase_rate %> %</strong> value increase p.a.
+                    <div>(expected*)</div>
+                  </div>
+                </span>
+              </p>
+
+              <p class="text-body ml-6">
+                <span>
+                  <span class="far fa-money-bill-alt mr-2"></span>
+                  <div>
+                    <strong><%= @campaign.payout_rate %>%</strong> payout rate p.a
+                    <div>(secured 3 years**)</div>
+                  </div>
+                </span>
+              </p>
+
+              <p class="text-body ml-6">
+                <span>
+                  <span class="far fa-plus-square  mr-2"></span>
+                  <div>
+                    <strong><%= @campaign.payout_rate + @campaign.value_increase_rate %></strong> total return p.a
+                    <div>(combined)</div>
+                  </div>
+                </span>
+              </p>
+
+            </div>
+
+        <div class="d-flex justify-content-between mt-4" style = "">
+          <div>
+            <p class="font-size-1 mb-0">Status: <%= @campaign.funding_status %>% financed ($<%= number_with_delimiter((@campaign.price * (1 - @campaign.funding_status / 100.00)).round, :delimiter => ',') %> remaining) </p>
+            <div class="progress">
+
+              <div class="progress-bar" role="progressbar" style="width: <%= @campaign.funding_status %>%" aria-valuenow="<%= @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+
+            <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - @campaign.funding_status %>%" aria-valuenow="<%= 100 - @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <%= button_to "Invest Now!", new_campaign_investment_path(@campaign), :id => "button-invest", data: {funded: @campaign.funded}, :class => "btn btn-primary btn-block", :method => :get %>
+
+        <hr class="my-5">
+              <!-- List -->
+
+                <ul class="list-unstyled mb-0">
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-30">
+                      <h3 class="h6">On Loan to: </h3>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= @campaign.renter.name %>
+                      </small>
+                    </div>
+                  </li>
+
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-30">
+                      <h4 class="h6">Address</h4>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= @campaign.renter.address %>
+                      </small>
+                    </div>
+                  </li>
+
+                   <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-30">
+                      <h4 class="h6">Website</h4>
+                    </div>
+                    <div class="media-body">
+                      <small class="">
+                        <%= @campaign.renter.website %>
+                      </small>
+                    </div>
+                  </li>
+                </ul>
+          <!-- End Sticky Block -->
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
+<%= javascript_include_tag 'components/hs.fancybox' %>
+
+<%= javascript_pack_tag 'subnav' %>
+<%= javascript_pack_tag 'invisiblebuttoninvest' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of popups
+    $.HSCore.components.HSFancyBox.init('.js-fancybox');
+  });
+</script>
+

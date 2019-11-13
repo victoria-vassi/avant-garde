@@ -1,0 +1,69 @@
+<!-- Card -->
+<div class="card mb-3 mb-lg-0">
+  <div class="card-body p-4">
+	  <!-- Title -->
+	  <div class="d-flex justify-content-between align-items-center">
+	    <h4 class="h6 mb-0">Total investment</h4>
+	  </div>
+	  <hr class="mt-3 mb-4">
+	  <!-- End Title -->
+    <!-- Area Chart -->
+		<div class="js-area-chart u-area-chart"
+			data-height="16rem"
+			data-mobile-height="16rem"
+			data-offset-x="30"
+			data-offset-y="60"
+			data-postfix="$"
+			data-is-show-area="true"
+			data-is-show-line="false"
+			data-is-show-point="true"
+			data-is-full-width="true"
+
+			data-is-stack-bars="true"
+			data-is-show-axis-x="false"
+			data-is-show-axis-y="true"
+			data-is-show-tooltips="true"
+			data-tooltip-description-position="center"
+			data-tooltip-custom-class="u-area-chart__tooltip"
+
+			data-align-text-axis-x="center"
+			data-fill-opacity="1"
+			data-fill-colors='["#F5F1F3"]'
+			data-stroke-width=".0625rem"
+			data-stroke-color="#f0f4f7"
+			data-stroke-dash-array="0"
+			data-text-size-x=".75rem"
+			data-text-color-x="#77838f"
+			data-text-offset-top-x="10"
+
+			data-text-size-y=".75rem"
+			data-text-color-y="#77838f"
+			data-points-colors='["#A56E89"]'
+			data-series='[[
+			  <% @data_series.each_with_index do |amount, index| %>
+			    <% if index + 1 == @data_series.length %>
+			      {"meta": "Investments", "value": <%= amount %>}
+			    <% else %>
+                  {"meta": "Investments", "value": <%= amount %>},
+                <% end %>
+			  <% end %>
+            ]]'
+			data-labels='<%= @data_labels %>'>
+		</div>
+	  <!-- Area Chart -->
+  </div>
+</div>
+<!-- End Card -->	
+
+<!-- ========== Page Specific Javascript ========== -->
+<%= javascript_include_tag 'components/hs.chartist-area-chart' %>
+<%= javascript_include_tag 'vendor/chartist/dist/chartist.min' %>
+<%= javascript_include_tag 'vendor/chartist-js-tooltip/chartist-plugin-tooltip' %>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of chartist area charts
+    $.HSCore.components.HSChartistAreaChart.init('.js-area-chart');
+  });
+</script>
+<!-- ========== End Page Specific Javascript ====== -->

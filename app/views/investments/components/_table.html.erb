@@ -1,0 +1,55 @@
+<div class="space-1">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">
+          <div class="d-flex justify-content-center align-items-center">
+          #
+          </div>
+        </th>
+        <th scope="col" style="width: 12%";>Date</th>
+        <th scope="col">Campaign</th>
+        <th scope="col">Funding</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Certificate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% investments.each_with_index do |investment, index| %>
+        <tr>
+          <th scope="row" class="align-middle">
+            <span class="btn btn-sm btn-icon btn-soft-secondary rounded-circle mr-2">
+              <span class="btn-icon__inner font-weight-medium"><%= investments.length - index %></span>
+            </span>
+          </th>
+          <td class="align-middle text-secondary">
+            <%= investment.date %>
+          </td>
+          <td class="align-middle text-secondary">
+            <img class="pr-4" style="width: 10%;" src="<%= investment.campaign.images.first.photo %>" alt="Image Description">
+            <%= link_to(campaign_path(investment.campaign), class: "text-secondary") do %>
+              <%= investment.campaign.title%>, <%= investment.campaign.year%> - by <%= investment.campaign.artist%>
+            <% end %>
+          </td>
+          <td class="align-middle">
+            <% if investment.campaign.funded == false %>
+              <span class="badge badge-success">Open</span>
+            <% else %>
+              <span class="badge badge-secondary">Closed</span>
+            <% end %>
+          </td>
+          <td class="align-middle text-primary">
+            $<%= number_with_delimiter(investment.amount, :delimiter => ',') %>
+          </td>
+          <td class="align-middle">
+            <div class="d-flex justify-content-center align-items-center">
+              <% if investment.certificate %>
+                <%= link_to "", certificate_path(investment.certificate), class: "fas fa-certificate m-0 p-0 text-secondary" %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

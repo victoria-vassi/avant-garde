@@ -1,2 +1,219 @@
-<h1>Investments#new</h1>
-<p>Find me in app/views/investments/new.html.erb</p>
+<%= render 'shared/topbar' %>
+<%= render 'shared/sidebar' %>
+
+<!-- ========== Sub Navigation ====== -->
+
+<div class="bg-primary">
+<!-- Breadcrumb Section -->
+  <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+        <!-- Subnav -->
+        <ul class="nav nav-border-white">
+          <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" href="#overview">Let's Invest the Monet and Let's Gogh</a>
+          </li>
+        </ul>
+        <!-- End Subnav -->
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- End Sub navigation -->
+<div class="mt-3 mb-2">
+  <nav class="nav nav-icon nav-justified text-center">
+  <a class="nav-item active">
+    <span class="nav-icon-action">
+      <span class="fas fa-paint-brush nav-icon-action-inner"></span>
+    </span>
+  </a>
+  <a class="nav-item">
+    <span class="nav-icon-action">
+      <span class="fas fa-file-invoice-dollar nav-icon-action-inner"></span>
+    </span>
+  </a>
+  <a class="nav-item">
+    <span class="nav-icon-action">
+      <span class="fas fa-paperclip nav-icon-action-inner"></span>
+    </span>
+  </a>
+</nav>
+</div>
+<!-- ========== End Sub Navigation ====== -->
+<!-- End Breadcrumb Section -->
+
+<div class="bg-light pt-3 pb-3">
+  <div class="container space-1" style="min-height: 70vH;">
+    <div class="row">
+      <div class="col-md-5 col-lg-4 mt-5">
+        <div class="card bg-light" style="border: none">
+          <%= cl_image_tag @campaign.images.first.photo, width: '100%' %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 ml-5 mt-5">
+        <div class="card bg-light" style="border: none">
+          <p class="p text-primary font-weight-normal mb-0">You are a few steps away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></p>
+             <h7><span class="font-weight-semi-bold"><%=@campaign.artist%></span>, <%=@campaign.year%></p>
+            <h7> Please, select the amount you want to invest<h7>
+                <!-- End Title -->
+                  <!-- Range Slider -->
+                  <span id="test" data-price="<%= @campaign.price %>" data-min="<%= @campaign.minimum_investment%>">
+                    <input class="js-range-slider" type="text"
+                           data-extra-classes="u-range-slider u-range-slider-indicator u-range-slider-grid"
+                           data-grid="false"
+                           data-hide-from-to="false"
+                           data-min="<%=@campaign.minimum_investment %>"
+                           data-max="<%=@campaign.price - (@campaign.price * @campaign.funding_status / 100)%>"
+                           data-step="500"
+                           data-result-min="#rangeSliderExample2MinResult">
+                  </span>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="text-muted"></span>
+                      <div class="js-focus-state">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <span class="fas fa-dollar-sign"></span>
+                            </span>
+                          </div>
+                          <input type="text" class="form-control max-width-11" id="rangeSliderExample2MinResult">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Range Slider -->
+                    <!-- Form -->
+                    <div>
+                    <!-- Form Inputs & Actions -->
+                    <%= simple_form_for [@campaign, @investment], :url => campaign_investments_path, remote:true, :method => :post do |f| %>
+                      <%= f.error_notification %>
+                      <div class="form-inputs">
+                        <%= f.input :amount,
+                                    :input_html => { :value => @campaign.minimum_investment},
+                                    as: :hidden
+                                    %>
+                      </div>
+
+                      <div class="form-actions dl-flex">
+                        <%= f.button :submit,
+                                     "Confirm amount",
+                                     id: "button-form",
+                                     class: "btn btn-primary transition-3d-hover"%>
+
+                      </div>
+                    <% end %>
+                    <!-- End Form Inputs & Actions-->
+                  </div>
+                  <!-- End Form -->
+                </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Window Trigger -->
+    <a id="button-modal" class="btn btn-sm btn-primary transition-3d-hover invisible" href="#shoppingCartWithItemsModal"
+       data-modal-target="#shoppingCartWithItemsModal">
+      Open Shopping Cart with Items Modal
+    </a>
+    <!-- End Modal Window Trigger -->
+  </div>
+</div>
+
+
+<!-- Shopping Cart Modal Window -->
+<div id="shoppingCartWithItemsModal" class="js-modal-window u-modal-window" style="width: 370px;">
+  <div class="card">
+    <!-- Header -->
+    <header class="card-header bg-light py-3 px-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="h6 mb-0">Your Avant/Garde investment</h3>
+
+        <button type="button" class="close" aria-label="Close" onclick="Custombox.modal.close();">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Body -->
+    <div class="card-body p-5">
+      <div class="media">
+        <div class="u-avatar mr-10 mb-6">
+          <%= cl_image_tag @campaign.images.first.photo, height: 100, width: 100, crop: :crop %>
+        </div>
+        <div class="media-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="d-block font-weight-semi-bold"><%=@campaign.artist%></span>
+          </div>
+          <span class="d-block font-size-1"><%=@campaign.title%></span>
+          <span class="d-block text-primary font-weight-semi-bold">Price : $<%= number_with_delimiter((@campaign.price).round, :delimiter => ',')%></span>
+          <small class="d-block text-muted"></small>
+        </div>
+      </div>
+    </div>
+    <!-- End Body -->
+
+    <!-- Footer -->
+    <div class="card-footer text-center p-3">
+      <div class="mb-3">
+        <span class="d-block font-weight-bold">Your investment</span>
+        <span id="invested_amount_conf" class="d-block "></span>
+        <span id="invested_share_conf" class="d-block"></span>
+        <span class="d-block"></span>
+      </div>
+      <div class="mb-2">
+        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post, remote: true, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
+      </div>
+      <p class="small mb-0"><a class="link-muted">Invest the Monet and Let's Gogh</a></p>
+    </div>
+    <!-- End Footer -->
+  </div>
+</div>
+<!-- End Shopping Cart Modal Window -->
+</main>
+
+
+
+<!-- ========== Page Specific Javascript ========== -->
+
+<%= javascript_include_tag 'vendor/ion-rangeslider/js/ion.rangeSlider.min' %>
+<%= javascript_include_tag 'components/hs.range-slider' %>
+<%= javascript_include_tag 'vendor/custombox/dist/custombox.min' %>
+<%= javascript_include_tag 'vendor/custombox/dist/custombox.legacy.min' %>
+<%= javascript_include_tag 'components/hs.modal-window' %>
+
+
+<%= javascript_pack_tag 'formamount' %>
+<%= javascript_pack_tag 'clickmodal' %>
+<%= javascript_pack_tag 'confinvestment' %>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>window.Stripe = Stripe</script>
+
+<script>
+  $(document).on('ready', function () {
+    // initialization of forms
+    $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+  });
+  $(window).on('load', function () {
+  // initialization of autonomous popups
+  $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
+    autonomous: true
+    });
+  });
+    console.log("hello")
+</script>
+
+<!-- ========== End Page Specific Javascript ====== -->
+
+

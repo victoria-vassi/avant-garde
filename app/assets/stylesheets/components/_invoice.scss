@@ -1,0 +1,32 @@
+.invoice-box {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .10);
+    line-height: 24px;
+    font-family: "Poppins", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;;
+    color: #555;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+}
+
+.right {
+  text-align: right;
+}

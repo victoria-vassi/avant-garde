@@ -1,0 +1,10 @@
+<html>
+  <head>
+  <title>Investment Certificate</title>
+    <%= wicked_pdf_stylesheet_link_tag "certificate" %>
+  </head>
+  <body>
+    "jklkjlkjkljkljkljklj"
+    <%= yield %>
+  </body>
+</html>
