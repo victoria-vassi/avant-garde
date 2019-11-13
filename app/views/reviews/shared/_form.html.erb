@@ -1,0 +1,8 @@
+<%= simple_form_for([ campaign, review ]) do |form| %>
+  <%= form.error :base %>
+  <%= form.input :content, as: :text, label: 'Ask Your Question' %>
+   <%= form.hint '20 Minimum Characters' %>
+   <%= form.hidden_field :image_url, value: current_user.user_image %>
+   <%= form.hidden_field :username, value: (current_user.first_name + " " + current_user.last_name) %>
+  <%= form.button :submit, "Submit", class: "btn btn-soft-secondary"%>
+<% end %>

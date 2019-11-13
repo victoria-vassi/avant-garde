@@ -31,6 +31,7 @@ end
 
   resources :campaigns, only: [:index, :show] do
     resources :investments, only: [:new, :create]
+    resources :reviews, only: [:create, :new]
 end
   resources :investments, only: [:index, :show]
 end

@@ -1,17 +1,57 @@
 <%= render 'shared/topbar' %>
 <%= render 'shared/sidebar' %>
 
-<div class="bg-primary">
+<!-- ========== Sub Navigation ====== -->
+
+<div class="bg-dark">
+<!-- Breadcrumb Section -->
   <div class="container space-top-1">
+    <div class="row">
+      <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
+        <div class="d-flex d-lg-inline-block justify-content-between justify-content-lg-end align-items-center align-items-lg-start">
           <!-- Breadcrumb -->
-      <ul class="step-progressbar">
-        <li class="step-progressbar__item">Select Investment</li>
-        <li class="step-progressbar__item">Payment</li>
-        <li class="step-progressbar__item step-progressbar__item--active">Finish!</li>
-      </ul>
+          <ol class="breadcrumb breadcrumb-white breadcrumb-no-gutter mb-0">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" href="<%= root_path %>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+          </ol>
+          <!-- End Breadcrumb -->
+        </div>
+      </div>
+
+      <div class="col-lg-7 order-lg-1">
+        <!-- Subnav -->
+        <ul class="nav nav-border-white">
+          <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" href="#overview">Let's Invest the Monet and Let's Gogh</a>
+          </li>
+        </ul>
+        <!-- End Subnav -->
+      </div>
+    </div>
   </div>
 </div>
-
+    <!-- End Sub navigation -->
+<div class="mt-3 mb-2">
+  <nav class="nav nav-icon nav-justified text-center">
+  <a class="nav-item">
+    <span class="nav-icon-action">
+      <span class="fas fa-paint-brush nav-icon-action-inner"></span>
+    </span>
+  </a>
+  <a class="nav-item">
+    <span class="nav-icon-action">
+      <span class="fas fa-file-invoice-dollar nav-icon-action-inner"></span>
+    </span>
+  </a>
+  <a class="nav-item active">
+    <span class="nav-icon-action">
+      <span class="fas fa-paperclip nav-icon-action-inner"></span>
+    </span>
+  </a>
+</nav>
+</div>
+<!-- ========== End Sub Navigation ====== -->
+<!-- End Breadcrumb Section -->
 
 <!-- Start of the PDF layout -->
 <div class= "container">

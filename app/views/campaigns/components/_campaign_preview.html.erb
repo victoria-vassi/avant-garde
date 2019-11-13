@@ -42,7 +42,7 @@
       <div class="row">
         <div class="col-8">
           <h2 class="h4 mb-1">
-            $<%= number_with_delimiter(money_without_cents campaign.price, :delimiter => '.') %>
+            $<%= number_with_delimiter(money_without_cents campaign.price, :delimiter => ',') %>
           </h2>
         </div>
         <% if campaign.new_badge? %>

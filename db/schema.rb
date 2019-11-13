@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_043842) do
+ActiveRecord::Schema.define(version: 2019_11_13_051709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.string "image_url"
+    t.bigint "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_answers_on_review_id"
+  end
 
   create_table "campaigns", force: :cascade do |t|
     t.string "artist"
@@ -110,6 +119,16 @@ ActiveRecord::Schema.define(version: 2019_11_11_043842) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.string "username"
+    t.string "image_url"
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_reviews_on_campaign_id"
+  end
+
   create_table "sellers", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -138,6 +157,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_043842) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "reviews"
   add_foreign_key "campaigns", "renters"
   add_foreign_key "campaigns", "sellers"
   add_foreign_key "certificate_items", "certificates"
@@ -148,4 +168,5 @@ ActiveRecord::Schema.define(version: 2019_11_11_043842) do
   add_foreign_key "orders", "campaigns"
   add_foreign_key "orders", "investments"
   add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "campaigns"
 end

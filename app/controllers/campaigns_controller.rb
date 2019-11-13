@@ -8,5 +8,6 @@ class CampaignsController < ApplicationController
   def show
     @campaign = Campaign.find(params[:id])
     @images = Image.where(campaign_id: params[:id])
+    @review = Review.new
   end
 end

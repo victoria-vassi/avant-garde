@@ -338,6 +338,48 @@ photo_attributes.each do |photo|
   Image.create!(photo)
 end
 
+reviews = ["When can I expect this art to be sold?", "Why is this artwork being sold?", "What inspired the artist to make this artwork?",
+"Where does the name come from?", "How much time did it take to make this artwork?", "Can I meet the artist in person?", "Where is the artwork now?",
+"When can I expect this funding to be met?", "Do you guys have another piece of artwork coming from this artist?", "Where was this artwork made?",
+"Do you think this artwork will be more valuable in the future?", "I am really interested, would love to see this funded!", "When do you think this will be sold?",
+"This seems like a nice piece of artwork"]
+
+answers = ["I don't know, its up to funders, and up to you", "because we no longer have space for it!", "The artist was inspired by nature, and world",
+  "The name comes from the artist inspiration", "The artwork took several years!", "No, the artist is not able to meet at this time", "The artwork is currently on loan, see details",
+  "Sometime soon, hopefully looks like it will be funded", "At this time no, we dont have another piece", "It was made in the artists home", "Yes, absolutely!  We have good a feeling about this",
+  "Awesome! We're looking forward to it", "Soon, very soon, again up to you!", "yes it is make an investment today!"]
+
+
+10.times do |i|
+  gender = ["Male","Female"].sample
+  url = "https://randomuser.me/api/?gender=#{gender}"
+  user_serialized = open(url).read
+  randomuser = JSON.parse(user_serialized)
+
+  review = Review.create!(
+    username: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
+    campaign_id: (i+1),
+    image_url:"#{randomuser["results"][0]["picture"]["medium"]}",
+    content:reviews[i]
+    )
+
+    answer1 = Answer.create!(
+      review_id:(i+1),
+      content: answers[i]
+      )
+
+   review2 = Review.create!(
+    username: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
+    campaign_id: (i+1),
+    image_url:"https://randomuser.me/api/portraits/med/men/18.jpg",
+    content:reviews[i + 2]
+    )
+
+  end
+
+  puts "Reviews and Answers created"
+
+
 investments = [
   {
     amount: 500,
