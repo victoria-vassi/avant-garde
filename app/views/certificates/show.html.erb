@@ -31,16 +31,20 @@
     </table>
 
       <table>
-      <tr>
-        <tr style="width: 100vw">
-          <td><%= cl_image_tag @certificate.campaign_image, class:'img-invoice' %></td>
-          <td valign="top", style="text-align: left;">
-            <ul style="list-style: none; margin-top: -200px;">
-              <li>Congratulation! You are now the proud owner of <b> <%= @certificate.campaign_name %> </b> - <i> <%= @certificate.campaign_title %> </i> with a total amount invested of $ <%= @certificate.investment_amount %>.</li>
-              <li style="padding-top: 30px;"> <b> Art Invested: </b> <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </i></li>
-              <li><b> Invested amount: </b> $ <%= @certificate.investment_amount %> </li>
-            </ul>
-          </td>
+        <tr>
+          <tr style="width: 100vw">
+            <td><%= cl_image_tag @certificate.campaign_image, class:'img-invoice'%></td>
+            <td valign="top", style="text-align: left;">
+              <ul style="list-style: none; margin-top: -200px;">
+                <li style="display: flex; justify-content: center; margin: 10px;">Congratulation!</li>
+                <li style = "font-size: 2rem; display: flex; justify-content: center; margin: 10px;"><%= @certificate.full_name %></li>
+                <li style="display: flex; justify-content: center; margin: 10px; "> You have succesfully invested in </li>
+                <li style = "font-size: 2rem; display: flex; justify-content: center;margin: 10px; "> <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </i> </li>
+              </ul>
+            <table class="" style="text-align: right">
+              <td style="padding-top: 30px"> <%= image_tag wicked_pdf_asset_base64('png/certificate.png'), width: '50%'%> </td>
+            </table>
+            </td>
           </tr>
         </tr>
       </table>
