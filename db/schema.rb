@@ -10,16 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_072936) do
+ActiveRecord::Schema.define(version: 2019_11_12_101000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.string "seller_name"
+    t.bigint "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_answers_on_review_id"
+  end
+
   create_table "campaigns", force: :cascade do |t|
     t.string "artist"
     t.string "title"
-    t.date "year"
-    t.integer "price"
+    t.string "year"
     t.date "end_date"
     t.integer "minimum_investment"
     t.string "category"
@@ -28,14 +36,16 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
     t.string "dimension"
     t.string "description_short"
     t.string "description_long"
-    t.integer "value_increase_rate"
-    t.integer "payout_rate"
+    t.float "value_increase_rate"
+    t.float "payout_rate"
     t.integer "funding_status"
+    t.integer "price"
     t.boolean "funded"
     t.bigint "seller_id"
     t.bigint "renter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
     t.index ["renter_id"], name: "index_campaigns_on_renter_id"
     t.index ["seller_id"], name: "index_campaigns_on_seller_id"
   end
@@ -45,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["campaign_id"], name: "index_images_on_campaign_id"
   end
 
@@ -54,8 +65,24 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date"
+    t.boolean "status"
     t.index ["campaign_id"], name: "index_investments_on_campaign_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state", default: "Pending"
+    t.bigint "user_id"
+    t.bigint "campaign_id"
+    t.string "checkout_session_id"
+    t.string "photo"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_orders_on_campaign_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "renters", force: :cascade do |t|
@@ -64,6 +91,15 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
     t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.index ["campaign_id"], name: "index_reviews_on_campaign_id"
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -84,13 +120,23 @@ ActiveRecord::Schema.define(version: 2019_11_05_072936) do
     t.datetime "updated_at", null: false
     t.string "last_name"
     t.string "first_name"
+    t.string "birthday"
+    t.string "languages"
+    t.string "location"
+    t.string "user_image"
+    t.string "phone_number"
+    t.string "sex"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "reviews"
   add_foreign_key "campaigns", "renters"
   add_foreign_key "campaigns", "sellers"
   add_foreign_key "images", "campaigns"
   add_foreign_key "investments", "campaigns"
   add_foreign_key "investments", "users"
+  add_foreign_key "orders", "campaigns"
+  add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "campaigns"
 end
