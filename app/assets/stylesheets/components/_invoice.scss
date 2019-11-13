@@ -4,6 +4,7 @@
     margin: auto;
     padding: 10px;
     border: 1px solid;
+    border-radius: 0.3125rem;
     box-shadow: 0 0 5px rgba(0, 0, 0, .10);
     line-height: 24px;
     font-family: "Poppins", Helvetica, Arial, sans-serif;
@@ -18,8 +19,13 @@
     text-align: left;
 }
 
+.img-invoice{
+  padding-bottom: 10px;
+}
+
 .invoice-box table td {
     padding: 5px;
+    padding-right: 10px;
     vertical-align: middle;
 }
 

@@ -4,7 +4,7 @@
       <td colspan="4">
         <table>
           <tr>
-            <td class="title" style="width: 680px";>
+            <td class="title" style="width: 600px";>
               <%= image_tag wicked_pdf_asset_base64('png/company_logo.png'), width: '35%' %>
 
             </td>
@@ -26,16 +26,13 @@
       </tr>
     </table>
 
-    <table>
-      <td style="text-align: center; padding-left: 80px; padding-bottom: 50px;"> <b> CERTIFICATE OF INVESTMENT </b> </td>
-    </table>
-
       <table>
       <tr>
         <tr style="width: 100vw">
           <td><%= cl_image_tag @certificate.campaign_image, class:'img-invoice' %></td>
           <td valign="top", style="text-align: left;">
             <ul style="list-style: none; margin-top: -200px;">
+              <td style="text-align: center; padding-left: 80px; padding-bottom: 50px;"> <b> Certificate of Investment </b> </td>
               <li>Congratulation! You are now the proud owner of <b> <%= @certificate.campaign_name %> </b> - <i> <%= @certificate.campaign_title %> </i> with a total amount invested of $ <%= @certificate.investment_amount %>.</li>
               <li style="padding-top: 30px;"> <b> Art Invested: </b> <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </i></li>
               <li><b> Invested amount: </b> $ <%= @certificate.investment_amount %> </li>
