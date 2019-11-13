@@ -127,7 +127,7 @@ campaign_attributes = [
     artist: "Jeff Koons",
     title: "Balloon Venus",
     year: "2013",
-    category: "Sculture",
+    category: "Sculpture",
     movement: "Pop",
     technique: "Stainless steel",
     dimension: "61.5 x 35.5 x 32.5 cm",
