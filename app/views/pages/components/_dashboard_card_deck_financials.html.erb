@@ -31,7 +31,7 @@
           <span class="font-size-3 font-weight-medium text-lh-sm">$<%= (@total_value_increase_rate / 100 * @total_amount).round(0) + (@total_payout_rate / 100 * @total_amount).round(0) %></span>
           <span class="text-primary font-weight-medium text-lh-sm">
             <span class="fas fa-arrow-up text-success small"></span>
-            +<%= @total_value_increase_rate.round(1) + @total_payout_rate.round(1) %>%
+            +<%= (@total_value_increase_rate + @total_payout_rate).round(1) %>%
           </span>
         </div>
 	    </div>

@@ -4,5 +4,3 @@ class Investment < ApplicationRecord
   has_one :certificate
   validates :amount, presence: true
 end
-
-

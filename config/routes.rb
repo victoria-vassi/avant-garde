@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "users/registrations"} #updated to after update path, goes to the user profile page
+    mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   get 'investments/index'
   get 'investments/show'
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: 'pages#dashboard', as: :dashboard
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
 resources :certificates, only: [:index, :show]
 

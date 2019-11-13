@@ -2,8 +2,9 @@
 <%= render 'shared/sidebar' %>
 
 <!-- ========== Sub Navigation ====== -->
-<div class="bg-primary">
 
+<div class="bg-primary">
+<!-- Breadcrumb Section -->
   <div class="container space-top-1">
     <div class="row">
       <div class="col-lg-5 order-lg-2 text-lg-right mb-4 mb-lg-0">
@@ -60,7 +61,6 @@
           <%= cl_image_tag @campaign.images.first.photo, width: '100%' %>
         </div>
       </div>
-
       <div class="col-md-6 col-lg-6 ml-5 mt-5">
         <div class="card bg-light" style="border: none">
           <p class="p text-primary font-weight-normal mb-0">You are a few steps away to invest in <span class="font-weight-semi-bold"><%=@campaign.title%></span></p>
