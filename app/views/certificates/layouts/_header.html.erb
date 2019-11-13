@@ -39,8 +39,13 @@
       <% end %>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       </ul>
+
+      <%= link_to(campaigns_path, class: "btn btn-primary") do %>
+          <span class="far fa-envelope"></span>
+        <% end %>
+
       <% if action_name.to_sym == :show %>
-        <%= link_to 'Download PDF', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary"%>
+        <%= link_to '', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary far fa-file-pdf", style: "margin-left: 10px;"%>
       <% end %>
     </div>
   </div>
