@@ -3,6 +3,7 @@ class Campaign < ApplicationRecord
   belongs_to :renter
   has_many :images
   has_many :investments
+  has_many :reviews, dependent: :destroy
   has_many :users, through: :investments
   validates :artist, presence: true
   validates :title, presence: true
