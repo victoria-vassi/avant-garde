@@ -54,6 +54,10 @@
             <%= render 'campaigns/components/campaign_preview', campaign: campaign %>
           <% end %>
         </div>
+        <%= render 'pages/components/home_footnote_explanation' %>
+        <div class="d-flex justify-content-center align-items-center flex-wrap mb-4">
+          <%= link_to "All/Campaigns", campaigns_path, class: "btn btn-success btn-wide transition-3d-hover" %>
+        </div>            
     	</div>
     </div>
     <!-- End Tab Content -->

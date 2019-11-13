@@ -12,6 +12,10 @@
  <h1 class="display-5 font-size-md-down-5 my-5 text-center">Selected Campgaigns</h1>
  <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[3] %> 
  <%= render 'campaigns/components/campaign_preview', campaign: @campaigns[0] %>
+ <%= render 'pages/components/home_footnote_explanation' %>
+ <div class="d-flex justify-content-center align-items-center flex-wrap mb-4">
+   <%= link_to "All/Campaigns", campaigns_path, class: "btn btn-success btn-wide transition-3d-hover" %>
+ </div>
 </div>
 <!-- End Campaign List -->
 <%= render 'pages/components/home_CTA_section' %>
