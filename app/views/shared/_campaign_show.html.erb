@@ -24,8 +24,6 @@
                     </div>
                   </a>
                   <% end %>
-
-
                 </div>
             </div>
             <!--end of Photos -->
@@ -157,7 +155,7 @@
 
               <div class="progress-bar" role="progressbar" style="width: <%= @campaign.funding_status %>%" aria-valuenow="<%= @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
 
-            <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - @campaign.funding_status %>%" aria-valuenow="<%= 100 - @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - @campaign.funding_status %>%" aria-valuenow="<%= 100 - @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
         </div>
@@ -207,14 +205,79 @@
         </div>
       </div>
     </div>
+  </div>
 
-</div>
+
+     <% if @campaign.reviews.blank? %> <!-- Only Displays if there is questions and answers  -->
+         <hr class="my-5">
+
+         <div class = 'd-flex align-items-center flex-column'>
+            Have a Question? for <%= @campaign.seller.name %>
+                <a class="btn btn-sm btn-primary transition-3d-hover" href="#answerModal"
+               data-modal-target="#answerModal">
+               Ask!
+              </a>
+         </div>
+
+
+    <% else %> <!-- Otherwise renders all reviews page, and ability to ask another question -->
+            <hr class="my-5">
+            <div id="reviews" class="mb-3" style = "width:75%">
+              <h3 class="h4 mb-0">Questions and Answers <span class="text-muted font-size-1">(<%= @campaign.reviews.count %>)</span></h3>
+            </div>
+            <hr class="my-5">
+            <!-- End Title -->
+
+             <div class = 'd-flex align-items-center flex-column'>
+               <p>Have a Question?</p>for <%= @campaign.seller.name %>
+                <a class="btn btn-sm btn-primary transition-3d-hover" href="#answerModal"
+               data-modal-target="#answerModal">
+               Ask a Question
+              </a>
+             </div>
+
+            <hr class="my-5">
+            <%= render 'reviews/shared/allreviews', campaign: @campaign %>
+    <% end %>
+
+<!-- question pop window -->
+    <div id="answerModal" class="js-modal-window u-modal-window" style="width: 370px;">
+      <div class="card">
+        <!-- Header -->
+        <header class="card-header bg-light py-3 px-5">
+          <div class="d-flex justify-content-between align-items-center">
+            <h3 class="h6 mb-0">Question? </h3>
+
+            <button type="button" class="close" aria-label="Close" onclick="Custombox.modal.close();">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Body -->
+        <div class="card-body p-5">
+          <%= render 'reviews/shared/form', campaign: @campaign, review: @review %>
+        </div>
+        <!-- End Body -->
+      </div>
+    </div>
+<!-- End question pop up window -->
 
 
 <!-- ========== Page Specific Javascript ========== -->
 
 <%= javascript_include_tag 'vendor/fancybox/jquery.fancybox.min' %>
 <%= javascript_include_tag 'components/hs.fancybox' %>
+
+<%= javascript_include_tag 'vendor/custombox/dist/custombox.min.js' %>
+<%= javascript_include_tag 'vendor/custombox/dist/custombox.legacy.min.js' %>
+
+<%= javascript_include_tag 'vendor/svg-injector/dist/svg-injector.min.js' %>
+<%= javascript_include_tag 'components/hs.modal-window.js' %>
+<%= javascript_include_tag 'components/hs.svg-injector.js' %>
+
+
 
 <%= javascript_pack_tag 'subnav' %>
 <%= javascript_pack_tag 'invisiblebuttoninvest' %>
@@ -224,5 +287,17 @@
     // initialization of popups
     $.HSCore.components.HSFancyBox.init('.js-fancybox');
   });
-</script>
 
+  $(window).on('load', function () {
+    // initialization of svg injector module
+    $.HSCore.components.HSSVGIngector.init('.js-svg-injector');
+  });
+
+
+  $(window).on('load', function () {
+    // initialization of autonomous popups
+    $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-modal-window', {
+      autonomous: true
+      });
+    });
+</script>
