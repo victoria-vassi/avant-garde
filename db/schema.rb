@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_051246) do
+ActiveRecord::Schema.define(version: 2019_11_11_043842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,22 +81,22 @@ ActiveRecord::Schema.define(version: 2019_11_11_051246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.index ["campaign_id"], name: "index_investments_on_campaign_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.string "state", default: "Pending"
-    t.bigint "user_id"
+    t.bigint "investment_id"
     t.bigint "campaign_id"
+    t.bigint "user_id"
     t.string "checkout_session_id"
     t.string "photo"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "USD", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "investment_id"
     t.index ["campaign_id"], name: "index_orders_on_campaign_id"
     t.index ["investment_id"], name: "index_orders_on_investment_id"
     t.index ["user_id"], name: "index_orders_on_user_id"

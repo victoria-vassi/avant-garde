@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
+  belongs_to :investment
   belongs_to :user
   belongs_to :campaign
-  belongs_to :investment
   monetize :amount_cents
   after_create :generate_certificate
 
