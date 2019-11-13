@@ -10,17 +10,19 @@
 	c636.5,407.6,600,9.3,591.9-47.4c-0.8-5.5-1.4-11.1-2-16.6l-34.2-374.1C888.4,262,729.2,129.6,549.4,146L285.2,170.1z"/>
 <g>
 	<g>
-		<defs>
-			<path id="SVGID_1_" d="M1374.7,0H687.6l-278,279.7C259.6,430.6,261.5,675,414,823.5l0,0C554.1,960,774.9,968.7,925.4,843.6
-				l449.3-373.4V0z"/>
-		</defs>
-		<clipPath id="SVGID_2_">
-			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-		</clipPath>
-		<g class="st1">
-			
-				<image style="overflow:visible;enable-background:new    ;" width="4353" height="2880" xlink:href="main-hero-edited.jpg"  transform="matrix(0.3762 0 0 0.3762 -70.9599 0)">
-			</image>
+		<g>
+			<defs>
+				<path id="SVGID_1_" d="M1374.7,0H687.6l-278,279.7C259.6,430.6,261.5,675,414,823.5l0,0C554.1,960,774.9,968.7,925.4,843.6
+					l449.3-373.4V0z"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st1">
+				
+					<image style="overflow:visible;enable-background:new    ;" width="4353" height="2880" xlink:href="main-hero-edited.jpg"  transform="matrix(0.3762 0 0 0.3762 -70.9599 0)">
+				</image>
+			</g>
 		</g>
 	</g>
 </g>
