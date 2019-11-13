@@ -11,7 +11,13 @@ class OrdersController < ApplicationController
         currency: 'usd',
         quantity: 1
       }],
-      success_url: "http://127.0.0.1:3000/orders/#{@order.id}/payments/new",
+
+    if Rails.env == "production"
+      success_url = "https://avant-garde-investments.herokuapp.com/orders/#{@order.id}/payments/new"
+    else
+      success_url = "http://127.0.0.1:3000/orders/#{@order.id}/payments/new"
+    end
+
       cancel_url: order_url(@order)
     )
 

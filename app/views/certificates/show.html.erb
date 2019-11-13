@@ -1,14 +1,10 @@
-<!-- Start of the PDF layout -->
-<div class="invoice-box">
+<div class="invoice-box bg-white">
   <table cellpadding="0" cellspacing="0">
-    <tbody>
-
     <tr class="top">
       <td colspan="4">
         <table>
           <tr>
-            <td class="title" style="width: 650px";>
-
+            <td class="title" style="width: 680px";>
               <%= image_tag wicked_pdf_asset_base64('png/company_logo.png'), width: '35%' %>
 
             </td>
@@ -34,7 +30,7 @@
       <td style="text-align: center; padding-left: 80px; padding-bottom: 50px;"> <b> CERTIFICATE OF INVESTMENT </b> </td>
     </table>
 
-    <table>
+      <table>
       <tr>
         <tr style="width: 100vw">
           <td><%= cl_image_tag @certificate.campaign_image, class:'img-invoice' %></td>
@@ -47,5 +43,6 @@
           </td>
           </tr>
         </tr>
-
+      </table>
 </div>
+
