@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_13_051111) do
+ActiveRecord::Schema.define(version: 2019_11_13_051709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
-    t.string "seller_name"
+    t.string "image_url"
     t.bigint "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,11 +121,11 @@ ActiveRecord::Schema.define(version: 2019_11_13_051111) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "content"
+    t.string "username"
+    t.string "image_url"
     t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
-    t.string "image_url"
     t.index ["campaign_id"], name: "index_reviews_on_campaign_id"
   end
 
@@ -168,4 +168,5 @@ ActiveRecord::Schema.define(version: 2019_11_13_051111) do
   add_foreign_key "orders", "campaigns"
   add_foreign_key "orders", "investments"
   add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "campaigns"
 end
