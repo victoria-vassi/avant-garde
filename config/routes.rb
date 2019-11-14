@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 resources :certificates, only: [:index, :show]
+get "send_certificate", to: 'certificates#send_email', as: :send_certificate
 
 resources :orders, only: [:show, :create] do
   resources :payments, only: :new

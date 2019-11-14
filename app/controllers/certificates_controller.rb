@@ -32,7 +32,20 @@ class CertificatesController < ApplicationController
     end
   end
 
+  def send_email
+    @certificate = current_user.certificate.build(certificate_params)
+
+    if @certificate.save
+      mail = UserMailer.with(certificate: @certificate).create_confirmation
+      mail.deliver_now
+      redirect_to certificate_path(@certificate)
+    else
+      render :new
+    end
+  end
+
 private
+
   def scope
     ::Certificate.all.includes(:certificate_items)
   end
