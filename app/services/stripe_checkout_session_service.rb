@@ -14,5 +14,6 @@ class StripeCheckoutSessionService
       campaign.funding_status = 100
     end
     campaign.save!
+    Certificate.create(status: investment.campaign.funded, full_name: "#{order.user.first_name} #{order.user.last_name}", investment_amount: investment.amount, campaign_name: investment.campaign.artist, campaign_image: investment.campaign.images.first.photo, campaign_title: investment.campaign.title, investment: order.investment)
   end
 end

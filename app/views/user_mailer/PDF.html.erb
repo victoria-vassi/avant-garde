@@ -1,5 +1,9 @@
-<p>Hi <%= @user.email %>,</p>
+<p> Dear <%= @user.first_name %> <%= @user.last_name %>, </p>
 
-<p>Today we'll talk about SMTP and Postmark!</p>
+<p>Congradulation! You have successfully invested in <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </p>
 
-<p>See ya!</p>
+<% if action_name.to_sym == :show %>
+  <%= link_to 'Download your certificate here', certificate_path(::Certificate.find(params[:id]), format: :pdf), class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Got back to Avant / Garde", root_url %>

@@ -89,15 +89,15 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-4">
-            <%= cl_image_tag @certificate.campaign_image, class:'img-invoice' , width: '100%'%>
+            <%= cl_image_tag @certificate.photo, class:'img-invoice' , width: '100%'%>
           </div>
 
           <div class="col-md-6 col-lg-8" style="padding-top: 30px;">
             <ul style="list-style-type: none;">
               <li style="display: flex; justify-content: center; margin: 10px; "> Congratulation! </li>
-              <li style = "font-size: 2rem; display: flex; justify-content: center; margin: 10px; "><%= @certificate.full_name %> </li>
+              <li style = "font-size: 2rem; display: flex; justify-content: center; margin: 10px; "><%= "#{@certificate.user.first_name} #{@certificate.user.last_name}" %> </li>
               <li style="display: flex; justify-content: center; margin: 10px; "> You have succesfully invested in </li>
-              <li style = "font-size: 2rem; display: flex; justify-content: center;margin: 10px; "> <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </i> </li>
+              <li style = "font-size: 2rem; display: flex; justify-content: center;margin: 10px; "> <%= @certificate.campaign.artist %> - <i> <%= @certificate.campaign.title %> </i> </li>
             </ul>
           <div class="" style="padding-top: 30px; text-align: right">
             <%= image_tag 'png/certificate.png', width: '50%'%>

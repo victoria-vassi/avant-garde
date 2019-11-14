@@ -2,8 +2,10 @@
 class UserMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/PDF
-  def PDF
-    UserMailer.PDF
+  def pdf
+    user = User.first
+    # This is how you pass value to params[:user] inside mailer definition!
+    UserMailer.with(user: user).PDF
   end
 
 end

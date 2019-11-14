@@ -1,7 +1,8 @@
 class UserMailer < ApplicationMailer
-  def PDF
-    @greeting = "Dear"
-    @user = current.user
+  def pdf
+    @user = params[:user]
+    @certificate = params[:certificate]
+
     mail(
       to: @user.email,
       subject: 'Find your Investment Certificate here'
