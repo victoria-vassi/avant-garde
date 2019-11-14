@@ -127,7 +127,7 @@ campaign_attributes = [
     artist: "Jeff Koons",
     title: "Balloon Venus",
     year: "2013",
-    category: "Sculture",
+    category: "Sculpture",
     movement: "Pop",
     technique: "Stainless steel",
     dimension: "61.5 x 35.5 x 32.5 cm",
@@ -449,6 +449,13 @@ users.each do |user|
 end
 
 Investment.create!(amount: rand(250...2000), campaign: campaigns.sample, user: users.sample, date: Date.today)
+
+orders = Order.all
+
+orders.each do |order|
+  order.state = "paid"
+  order.save
+end
 
 
 

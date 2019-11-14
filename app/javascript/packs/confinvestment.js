@@ -21,7 +21,7 @@ const addValues = () => {
   const investedShare = document.querySelector("#invested_share_conf")
   const investedAmount = document.querySelector("#invested_amount_conf")
 
-  investedAmount.innerText = `$${amount}, ie ${div}% of the art piece`
+  investedAmount.innerText = `$${amount} i.e. ${div}% of the art piece`
 }
 
 setTimeout(addValues, 500)
@@ -47,7 +47,7 @@ setTimeout(addValues, 500)
     const investedShare = document.querySelector("#invested_share_conf")
     const investedAmount = document.querySelector("#invested_amount_conf")
 
-    investedAmount.innerText = `$${amount}, ie ${div}% of the art piece`
+    investedAmount.innerText = `$${amount} i.e. ${div}% of the art piece`
   });
 
 

@@ -20,15 +20,15 @@
 
            <ul class="list-inline d-flex">
             <li class="list-inline-item">
-              <a class="text-secondary" href="#">
-                17
-                <span class="far fa-thumbs-up ml-1"></span>
+              <a class="text-secondary" id = "ourcounter" >
+                <p id="count"><%= rand(1...50) %></p>
+                <span class="far fa-thumbs-up ml-1" id = "thumbsup"></span>
               </a>
             </li>
             <li class="list-inline-item ml-3">
-              <a class="text-secondary" href="#">
-                0
-                <span class="far fa-thumbs-down ml-1"></span>
+              <a class="text-secondary" id = "">
+                 <p id="countdown"><%= rand(1...50) %></p>
+                <span class="far fa-thumbs-down ml-1" id = "thumbsdown"></span>
               </a>
             </li>
 
@@ -54,15 +54,15 @@
 
               <ul class="list-inline d-flex">
                 <li class="list-inline-item">
-                  <a class="text-secondary" href="#">
-                    17
-                    <span class="far fa-thumbs-up ml-1"></span>
+                  <a class="text-secondary" id = "ourcounter" >
+                    <p id="count"><%= rand(1...50) %></p>
+                    <span class="far fa-thumbs-up ml-1" id = "thumbsup"></span>
                   </a>
                 </li>
                 <li class="list-inline-item ml-3">
-                  <a class="text-secondary" href="#">
-                    0
-                    <span class="far fa-thumbs-down ml-1"></span>
+                  <a class="text-secondary">
+                   <p id="countdown"><%= rand(1...50) %></p>
+                    <span class="far fa-thumbs-down ml-1" id = "thumbsdown"></span>
                   </a>
                 </li>
               </ul>
@@ -73,5 +73,7 @@
           <!-- End Comment -->
         </div>
 <% end %>
+
+<%= javascript_pack_tag 'likeordislike' %>
 
 
