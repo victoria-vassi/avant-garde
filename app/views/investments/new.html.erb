@@ -173,7 +173,10 @@
         <span class="d-block"></span>
       </div>
       <div class="mb-2">
-        <%= link_to "Go to payment", orders_path(campaign: params['campaign_id']), method: :post, remote: true, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
+        <a class="btn btn-sm btn-soft-primary transition-3d-hover" id="sign-contract">Sign contract</a>
+      </div>
+      <div class="mb-2">
+        <%= link_to "Make payment", orders_path(campaign: params['campaign_id']), method: :post, remote: true, class: "btn btn-sm btn-soft-primary transition-3d-hover" %>
       </div>
       <p class="small mb-0"><a class="link-muted">Invest the Monet and Let's Gogh</a></p>
     </div>
@@ -197,7 +200,9 @@
 <%= javascript_pack_tag 'formamount' %>
 <%= javascript_pack_tag 'clickmodal' %>
 <%= javascript_pack_tag 'confinvestment' %>
+<%= javascript_pack_tag 'hellosign' %>
 
+<script type="text/javascript" src="https://s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script>window.Stripe = Stripe</script>
 
