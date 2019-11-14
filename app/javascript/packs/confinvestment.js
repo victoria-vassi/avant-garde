@@ -24,7 +24,7 @@ const addValues = () => {
   investedAmount.innerText = `$${amount} i.e. ${div}% of the art piece`
 }
 
-setTimeout(addValues, 500)
+setTimeout(addValues, 10)
 
   sliderInput.addEventListener("click", () => {
     const listenedAmount = document.querySelector(".irs-single")
