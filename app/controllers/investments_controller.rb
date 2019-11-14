@@ -41,28 +41,20 @@ class InvestmentsController < ApplicationController
 
   def hellosign
     client = HelloSign::Client.new api_key: ENV['HELLOSIGN_API_KEY']
-    client.create_embedded_signature_request(
+    response = client.create_embedded_signature_request(
         :test_mode => 1,
         :client_id => ENV['HELLOSIGN_CLIENT_ID'],
-        :subject => 'My First embedded signature request',
-        :message => 'Awesome, right?',
+        :subject => 'Avant Garde Contract',
+        :message => 'Please find the investment contract attached',
         :signers => [
             {
-                :email_address => 'mail@johannesweber.me',
-                :name => 'Johannes Weber'
+                :email_address => current_user.email,
+                :name => current_user.first_name + " " + current_user.last_name
             }
         ],
         :file_url => ['http://oz.stern.nyu.edu/startups/nda2.pdf']
     )
-
-    client.get_embedded_sign_url :signature_id => 'SIGNATURE_ID'
-  end
-
-  def callback
-    data = JSON.parse(params["json"], symbolize_names: true)
-    # OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new('sha256'), ENV['HELLOSIGN_API_KEY'], (event_time + event_type))
-    # data_parsed = JSON.parse(request.raw_post)
-    # params = JSON.parse(params[:event])
+   @response = client.get_embedded_sign_url :signature_id => response.data['signatures'][0].data['signature_id']
   end
 
   private

@@ -37,8 +37,5 @@ Rails.application.routes.draw do
   resources :investments, only: [:index, :show]
 
   get '/campaigns/:campaign_id/investments/hellosign', to: "investments#hellosign", as: :hellosign
-  post '/callback', to: "investments#callback"
-
-  resource :hello_sign_webhooks, only: [ :create ]
 end
 
