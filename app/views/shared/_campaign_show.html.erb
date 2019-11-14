@@ -60,51 +60,51 @@
 
             <!-- End List -->
 
-            <hr class="my-3">
-              <div class="mb-3">
+            <hr class="my-3 ">
+              <div class="my-3">
 
                <ul class="list-unstyled mb-0">
                   <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-32">
-                      <small class="font-weight-bold">Artist </small>
+                      <small class="font-weight-bold ">Artist </small>
                     </div>
-                    <div class="media-body ">
-                      <h7 class="text-primary font-weight-bold">
+                    <div class="media mb-1">
+                      <small class="text-primary font-weight-bold">
                         <%= @campaign.artist %>
-                      </h7>
+                      </small>
                     </div>
                   </li>
 
                   <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-32">
-                      <small class="font-weight-bold">Year</small>
+                      <small class="font-weight-bold ">Year</small>
                     </div>
-                    <div class="media-body">
-                      <h7 class="text-primary font-weight-bold">
+                    <div class="media mb-1">
+                      <small class="text-primary font-weight-bold">
                         <%= @campaign.year %>
-                      </h7>
+                      </small>
                     </div>
                   </li>
 
                   <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-32">
-                      <small class="font-weight-bold">Funding Goal</small>
+                      <small class="font-weight-bold ">Funding Goal</small>
                     </div>
-                    <div class="media-body">
-                      <h7 class="text-primary font-weight-bold ">
+                    <div class="media mb-1">
+                      <small class="text-primary font-weight-bold ">
                         <%= number_to_currency(@campaign.price) %>
-                      </h7>
+                      </small>
                     </div>
                   </li>
 
-                  <li class="media mb-3">
+                  <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-32">
-                      <small class="font-weight-bold">Offered By</small>
+                      <small class="font-weight-bold ">Offered By</small>
                     </div>
-                    <div class="media-body">
-                      <h7 class="text-primary font-weight-bold">
+                    <div class="media mb-1">
+                      <small class="text-primary font-weight-bold">
                         <%= @campaign.seller.name%>
-                      </h7>
+                      </small>
                     </div>
                   </li>
 
@@ -172,33 +172,33 @@
               <!-- List -->
 
                 <ul class="list-unstyled mb-0">
-                  <li class="media mb-1">
+                  <li class="media">
                     <div class="d-flex w-40 w-sm-30">
                       <small class="font-weight-bold">Displayed in</small>
                     </div>
-                    <div class="media-body">
+                    <div class="media">
                       <small class="text-primary font-weight-bold">
                         <%= @campaign.renter.name %>
                       </small>
                     </div>
                   </li>
 
-                  <li class="media mb-1">
+                  <li class="media">
                     <div class="d-flex w-40 w-sm-30">
                       <small class="font-weight-bold">Address</small>
                     </div>
-                    <div class="media-body">
+                    <div class="media">
                       <small class="text-primary font-weight-bold">
                         <%= @campaign.renter.address %>
                       </small>
                     </div>
                   </li>
 
-                   <li class="media mb-1">
+                   <li class="media">
                     <div class="d-flex w-40 w-sm-30">
                       <small class="font-weight-bold">Website</small>
                     </div>
-                    <div class="media-body">
+                    <div class="media">
                       <small class="text-primary font-weight-bold">
                         <%= @campaign.renter.website %>
                       </small>
