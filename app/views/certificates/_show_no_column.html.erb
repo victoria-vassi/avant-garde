@@ -34,7 +34,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-4">
-            <%= cl_image_tag @certificate.campaign_image, class:'img-invoice' , width: '100%'%>
+            <%= cl_image_tag wicked_pdf_asset_base64(@certificate.campaign_image), class:'img-invoice' , width: '100%'%>
           </div>
 
           <div class="col-md-6 col-lg-8" style="padding-top: 30px;">
@@ -45,7 +45,7 @@
               <li style = "font-size: 2rem; display: flex; justify-content: center;margin: 10px; "> <%= @certificate.campaign_name %> - <i> <%= @certificate.campaign_title %> </i> </li>
             </ul>
           <div class="" style="padding-top: 30px; text-align: right">
-            <%= image_tag 'png/certificate.png', width: '50%'%>
+            <%= image_tag wicked_pdf_asset_base64('png/certificate.png'), width: '50%'%>
           </div>
 
           </div>
