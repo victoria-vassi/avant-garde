@@ -347,37 +347,41 @@ reviews = ["When can I expect this art to be sold?", "Why is this artwork being 
 "This seems like a nice piece of artwork"]
 
 answers = ["I don't know, its up to funders, and up to you", "because we no longer have space for it!", "The artist was inspired by nature, and world",
-  "The name comes from the artist inspiration", "The artwork took several years!", "No, the artist is not able to meet at this time", "The artwork is currently on loan, see details",
+  "The name comes from the artist own personal inspiration", "The artwork took several years!", "No, the artist is not able to meet at this time", "The artwork is currently on loan, see details",
   "Sometime soon, hopefully looks like it will be funded", "At this time no, we dont have another piece", "It was made in the artists home", "Yes, absolutely!  We have good a feeling about this",
   "Awesome! We're looking forward to it", "Soon, very soon, again up to you!", "yes it is make an investment today!"]
 
 
 10.times do |i|
-  gender = ["Male","Female"].sample
-  url = "https://randomuser.me/api/?gender=#{gender}"
-  user_serialized = open(url).read
-  randomuser = JSON.parse(user_serialized)
 
   review = Review.create!(
     username: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     campaign_id: (i+1),
-    image_url:"#{randomuser["results"][0]["picture"]["medium"]}",
+    image_url:"https://randomuser.me/api/portraits/med/men/#{rand(1..10)}.jpg",
     content:reviews[i]
     )
 
     answer1 = Answer.create!(
-      review_id:(i+1),
+      review_id:(review.id),
       content: answers[i]
       )
+  end
 
-   review2 = Review.create!(
+  10.times do |i|
+
+  review1 = Review.create!(
     username: "#{Faker::Name.first_name} #{Faker::Name.last_name}",
     campaign_id: (i+1),
-    image_url:"https://randomuser.me/api/portraits/med/men/18.jpg",
-    content:reviews[i + 2]
+    image_url:"https://randomuser.me/api/portraits/med/men/#{rand(10..20)}.jpg",
+    content:reviews[i+2]
     )
 
+    answer1 = Answer.create!(
+      review_id:(review1.id),
+      content: answers[i +2]
+      )
   end
+
 
   puts "Reviews and Answers created"
 
