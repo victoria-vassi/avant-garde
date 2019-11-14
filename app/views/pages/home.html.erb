@@ -23,6 +23,13 @@
 </main>
 <!-- ========== END MAIN CONTENT ==== -->
 
+<!-- ========== SIDEBAR ============== -->
+<% if user_signed_in? %>
+  <%= render 'shared/sidebar' %>
+<% else %>
+<% end %>
+<!-- ========== END SIDEBAR ============== -->
+
 <!-- ========== FOOTER ============== -->
 <%= render 'pages/components/home_footer' %>
 <!-- ========== END FOOTER ========== -->

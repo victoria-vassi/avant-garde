@@ -34,12 +34,36 @@
           <li class="nav-item u-header__nav-item">
             <a class="nav-link u-header__nav-link" href="#how-to">How It Works</a>
           </li>
-          <li class="nav-item u-header__nav-last-item">
-            <%= link_to "Log/In", new_user_session_path, class: "btn btn-soft-primary btn-sm transition-3d-hover" %>
-          </li>              
-          <li class="nav-item u-header__nav-last-item">
-            <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-sm transition-3d-hover" %>
-          </li>
+          <% if user_signed_in? %>
+            <li class="list-inline-item">
+              <!-- Account Sidebar Toggle Button -->
+              <a id="sidebarNavToggler" class="btn btn-xs btn-text-secondary u-sidebar--account__toggle-bg ml-1" href="javascript:;" role="button"
+                 aria-controls="sidebarContent"
+                 aria-haspopup="true"
+                 aria-expanded="false"
+                 data-unfold-event="click"
+                 data-unfold-hide-on-scroll="false"
+                 data-unfold-target="#sidebarContent"
+                 data-unfold-type="css-animation"
+                 data-unfold-animation-in="fadeInRight"
+                 data-unfold-animation-out="fadeOutRight"
+                 data-unfold-duration="500">
+                <span class="position-relative">
+                  <span class="u-sidebar--account__toggle-text"><%= current_user.first_name %> <%= current_user.last_name %></h1></span>
+                  <img class="u-sidebar--account__toggle-img" src="<%= image_path("jpg/profile/100x100/img3.jpg") %>" alt="Image Description">
+                </span>
+                <i class="fas fa-bars px-2 u-sidebar--account__toggle-text"></i>
+              </a>
+              <!-- End Account Sidebar Toggle Button -->
+            </li>
+          <% else %>
+            <li class="nav-item u-header__nav-last-item">
+              <%= link_to "Log/In", new_user_session_path, class: "btn btn-soft-primary btn-sm transition-3d-hover" %>
+            </li>              
+            <li class="nav-item u-header__nav-last-item">
+              <%= link_to "Sign/Up", new_user_registration_path, class: "btn btn-primary btn-sm transition-3d-hover" %>
+            </li>
+          <% end %>
         </ul>
       </div>
       <!-- End Navigation -->
@@ -52,11 +76,19 @@
 <!-- ========== Page Specific Javascript ========== -->
 <%= javascript_include_tag 'components/hs.header' %>
 <%= javascript_include_tag 'components/hs.scroll-nav' %>
+<%= javascript_include_tag 'components/hs.unfold' %>
 
 <script>
   $(document).on('ready', function () {
     // initialization of header
     $.HSCore.components.HSHeader.init($('#header'));
+
+    // initialization of unfold component
+    $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+      afterOpen: function () {
+        $(this).find('input[type="search"]').focus();
+      }
+    });
   });
 
   $(window).on('load', function () {
