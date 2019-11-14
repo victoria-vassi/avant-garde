@@ -35,7 +35,5 @@ Rails.application.routes.draw do
   end
   
   resources :investments, only: [:index, :show]
-
-  get '/campaigns/:campaign_id/investments/hellosign', to: "investments#hellosign", as: :hellosign
 end
 
