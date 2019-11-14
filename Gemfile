@@ -23,6 +23,8 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'hellosign-ruby-sdk'
+gem 'openssl'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

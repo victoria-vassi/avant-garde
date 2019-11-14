@@ -23,16 +23,22 @@ Rails.application.routes.draw do
   get "/dashboard", to: 'pages#dashboard', as: :dashboard
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-resources :certificates, only: [:index, :show]
+  resources :certificates, only: [:index, :show]
 
-resources :orders, only: [:show, :create] do
-  resources :payments, only: :new
-end
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
 
   resources :campaigns, only: [:index, :show] do
     resources :investments, only: [:new, :create]
     resources :reviews, only: [:create, :new]
-end
+  end
+  
   resources :investments, only: [:index, :show]
+
+  get '/campaigns/:campaign_id/investments/hellosign', to: "investments#hellosign", as: :hellosign
+  post '/callback', to: "investments#callback"
+
+  resource :hello_sign_webhooks, only: [ :create ]
 end
 
