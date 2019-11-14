@@ -3,9 +3,9 @@ class OrdersController < ApplicationController
     campaign = Campaign.find(params[:campaign])
     @order = Order.create!(campaign: campaign, investment: campaign.investments.last, amount: campaign.investments.last.amount, user: current_user, photo: campaign.images.first.photo)
     if Rails.env == "production"
-      success_url = "https://avant-garde-investments.herokuapp.com/orders/#{@order.id}/payments/new"
+      success_url = "https://www.avant-garde.investments/orders/#{@order.id}/payments/new"
     else
-      success_url = "http://127.0.0.1:3000/orders/#{@order.id}/payments/new"
+      success_url = "http://df2afc76.ngrok.io/orders/#{@order.id}/payments/new"
     end
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
