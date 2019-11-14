@@ -1,6 +1,6 @@
 <div class = 'd-flex justify-content-center'>
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style = 'max-height: 75%'>
+            <div id="carouselExampleIndicators" class="carousel slide col-lg-6 col-md-6 col-sm-12 col-xs-12" data-ride="carousel" style = 'max-height: 75%'>
               <!--Carosuel Photo Page Start -->
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -28,65 +28,13 @@
             </div>
             <!--end of Photos -->
 
-        <div id="stickyBlockStartPoint" class="col-lg-5" style="">
+        <div id="stickyBlockStartPoint" class="col-lg-6 col-md-4 col-sm-8 col-xs-8" style="">
           <!-- Sticky Block -->
           <div class="js-sticky-block pl-lg-4 kill-sticky" data-parent="#stickyBlockStartPoint" data-sticky-view="lg" data-start-point="#stickyBlockStartPoint" data-end-point="#stickyBlockEndPoint" data-offset-top="80" data-offset-bottom="130" style="overflow-y: scroll;">
-            <div class="mb-6">
+            <div class="mb-3">
               <h1 class="h4 text-primary font-weight-semi-bold"><%= @campaign.title %></h1>
-              <div class="mb-3">
 
-               <ul class="list-unstyled mb-0">
-                  <li class="media mb-1">
-                    <div class="d-flex w-40 w-sm-32">
-                      <h3 class="h6">Artist </h3>
-                    </div>
-                    <div class="media-body">
-                      <small class="">
-                        <%= @campaign.artist %>
-                      </small>
-                    </div>
-                  </li>
-
-                  <li class="media mb-1">
-                    <div class="d-flex w-40 w-sm-32">
-                      <h4 class="h6">Year</h4>
-                    </div>
-                    <div class="media-body">
-                      <small class="">
-                        <%= @campaign.year %>
-                      </small>
-                    </div>
-                  </li>
-
-                  <li class="media mb-1">
-                    <div class="d-flex w-40 w-sm-32">
-                      <h4 class="h6">Funding Goal</h4>
-                    </div>
-                    <div class="media-body">
-                      <small class="">
-                        <%= number_to_currency(@campaign.price) %>
-                      </small>
-                    </div>
-                  </li>
-
-                  <li class="media mb-1">
-                    <div class="d-flex w-40 w-sm-32">
-                      <h4 class="h6">Offered By</h4>
-                    </div>
-                    <div class="media-body">
-                      <small class="">
-                        <%= @campaign.seller.name%>
-                      </small>
-                    </div>
-                  </li>
-
-               </ul>
-
-              </div>
-              <p class="mb-0" id = "camp_info"><%= @campaign.description_long %></p>
-          </div>
-
-            <hr class="my-5">
+               <hr class="">
 
             <!-- List -->
 
@@ -112,7 +60,63 @@
 
             <!-- End List -->
 
-            <hr class="my-5">
+            <hr class="my-3">
+              <div class="mb-3">
+
+               <ul class="list-unstyled mb-0">
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <small class="font-weight-bold">Artist </small>
+                    </div>
+                    <div class="media-body ">
+                      <h7 class="text-primary font-weight-bold">
+                        <%= @campaign.artist %>
+                      </h7>
+                    </div>
+                  </li>
+
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <small class="font-weight-bold">Year</small>
+                    </div>
+                    <div class="media-body">
+                      <h7 class="text-primary font-weight-bold">
+                        <%= @campaign.year %>
+                      </h7>
+                    </div>
+                  </li>
+
+                  <li class="media mb-1">
+                    <div class="d-flex w-40 w-sm-32">
+                      <small class="font-weight-bold">Funding Goal</small>
+                    </div>
+                    <div class="media-body">
+                      <h7 class="text-primary font-weight-bold ">
+                        <%= number_to_currency(@campaign.price) %>
+                      </h7>
+                    </div>
+                  </li>
+
+                  <li class="media mb-3">
+                    <div class="d-flex w-40 w-sm-32">
+                      <small class="font-weight-bold">Offered By</small>
+                    </div>
+                    <div class="media-body">
+                      <h7 class="text-primary font-weight-bold">
+                        <%= @campaign.seller.name%>
+                      </h7>
+                    </div>
+                  </li>
+
+               </ul>
+
+
+              </div>
+              <p class="mb-0 mt-5" id = "camp_info"><%= @campaign.description_long %></p>
+          </div>
+
+
+              <hr class="my-5">
 
              <div class="d-flex align-items-center font-size-1" style = "">
 
@@ -148,21 +152,21 @@
 
             </div>
 
-        <div class="d-flex justify-content-between mt-4" style = "">
-          <div>
-            <p class="font-size-1 mb-0">Status: <%= @campaign.funding_status %>% financed ($<%= number_with_delimiter((@campaign.price * (1 - @campaign.funding_status / 100.00)).round, :delimiter => ',') %> remaining) </p>
-            <div class="progress">
-
-              <div class="progress-bar" role="progressbar" style="width: <%= @campaign.funding_status %>%" aria-valuenow="<%= @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
-
-              <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - @campaign.funding_status %>%" aria-valuenow="<%= 100 - @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-        </div>
-
         <hr class="my-5">
 
         <%= button_to "Invest Now!", new_campaign_investment_path(@campaign), :id => "button-invest", data: {funded: @campaign.funded}, :class => "btn btn-primary btn-block", :method => :get %>
+
+                      <div class="d-flex justify-content-center mt-4" style = "">
+                <div>
+                  <p class="font-size-1 mb-0">Current status: <%= @campaign.funding_status %>% financed ($<%= number_with_delimiter((@campaign.price * (1 - @campaign.funding_status / 100.00)).round, :delimiter => ',') %> remaining) </p>
+                  <div class="progress">
+
+                    <div class="progress-bar" role="progressbar" style="width: <%= @campaign.funding_status %>%" aria-valuenow="<%= @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+
+                    <div class="progress-bar bg-soft-primary" role="progressbar" style="width: <%= 100 - @campaign.funding_status %>%" aria-valuenow="<%= 100 - @campaign.funding_status %>" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
 
         <hr class="my-5">
               <!-- List -->
@@ -170,10 +174,10 @@
                 <ul class="list-unstyled mb-0">
                   <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-30">
-                      <h3 class="h6">On Loan to: </h3>
+                      <small class="font-weight-bold">Displayed in</small>
                     </div>
                     <div class="media-body">
-                      <small class="">
+                      <small class="text-primary font-weight-bold">
                         <%= @campaign.renter.name %>
                       </small>
                     </div>
@@ -181,10 +185,10 @@
 
                   <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-30">
-                      <h4 class="h6">Address</h4>
+                      <small class="font-weight-bold">Address</small>
                     </div>
                     <div class="media-body">
-                      <small class="">
+                      <small class="text-primary font-weight-bold">
                         <%= @campaign.renter.address %>
                       </small>
                     </div>
@@ -192,10 +196,10 @@
 
                    <li class="media mb-1">
                     <div class="d-flex w-40 w-sm-30">
-                      <h4 class="h6">Website</h4>
+                      <small class="font-weight-bold">Website</small>
                     </div>
                     <div class="media-body">
-                      <small class="">
+                      <small class="text-primary font-weight-bold">
                         <%= @campaign.renter.website %>
                       </small>
                     </div>

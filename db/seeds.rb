@@ -49,10 +49,12 @@ dev = User.create(
     website: Faker::Internet.url,
   )
 
+  museum = (Faker::Ancient.god)
+
   renter = Renter.create!(
-    name:    Faker::Name.name,
+    name:   "#{museum} Museum",
     address:  Faker::Address.full_address,
-    website: Faker::Internet.url,
+    website: "www.#{museum.downcase}museum.com",
   )
 end
 
