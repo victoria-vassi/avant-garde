@@ -2,7 +2,7 @@
 
 <h2> Grab the Monet and let's Gogh </h2> 
 
-<p> AVANT-GARDE is a peer-to-peer platform to co-invest in modern art. It offers investors and art lovers easy access to unique pieces of art </p> 
+<p> Avant-Garde is a peer-to-peer platform to co-invest in modern art. It offers investors and art lovers easy access to unique pieces of art </p> 
 
 <h2> Specification </h2>
 
