@@ -4,7 +4,7 @@
 
 <p> Avant-Garde is a peer-to-peer platform to co-invest in modern art. It offers investors and art lovers easy access to unique pieces of art. </p> 
 
-<img src="https://github.com/victoria-vassi/avant-garde/raw/master/README/home-page.png" alt="alt text" title="Homepage" style="max-width:100%;">
+<!-- <img src="https://github.com/victoria-vassi/avant-garde/raw/master/README/home-page.png" alt="alt text" title="Homepage" style="max-width:100%;"> --> 
 
 <h2> Specification </h2>
 
