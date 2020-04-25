@@ -11,6 +11,11 @@
 Built on Ruby on Rails v5.2.0, Ruby v2.6.0, HTML5, CSS3 and JavaScript ES6. Deployed on a Heroku Hobby instance.
 
 <h2> Key Features </h2>
+<ul>
+  <li> Authentication solution with Devise </li>
+  <li> Payment process with Stripe API </li>
+  <li> Investment tracking with simple dashboard </li>
+</ul> 
 
 <h2> Contribution </h2>
 
