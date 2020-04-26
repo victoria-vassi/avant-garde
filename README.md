@@ -15,6 +15,7 @@ Built on Ruby on Rails v5.2.0, Ruby v2.6.0, HTML5, CSS3 and JavaScript ES6. Depl
   <li> Authentication solution with Devise </li>
   <li> Payment process with Stripe API </li>
   <li> Investment tracking with simple dashboard </li>
+  <img src="https://github.com/victoria-vassi/avant-garde/raw/master/README/dashboard.png" alt="homepage" title="Homepage" style="max-width:50%;">
 </ul> 
 
 <h2> Contribution </h2>
