@@ -27,4 +27,4 @@ The main contributors to this project are:
 </ul> 
 
 <h2> Artworks </h2>
-<p> The project used high-resolution images licensed under Creative Commons, the non-profit organization that facilities the public use of 1.1 billion digital works. <a href ="https://www.rawpixel.com/category/53/public-domain"> Raw Pixel’s Public Domain Images</a> <a href ="https://unsplash.com/s/photos/art"> Unsplash</a></p> 
+<p> The project used high-resolution images licensed under Creative Commons, the non-profit organization that facilities the public use of 1.1 billion digital works. <a href ="https://www.rawpixel.com/category/53/public-domain"> Raw Pixel’s Public Domain Images</a> | <a href ="https://unsplash.com/s/photos/art"> Unsplash</a></p> 
