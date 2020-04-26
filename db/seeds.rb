@@ -357,6 +357,14 @@ photo_attributes = [
     photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1587897458/Avant%20Garde/Karl_Blossfeldt_ljoqgu.jpg",
     campaign_id: 4
   },
+   {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1587897458/Avant%20Garde/Karl_Blossfeldt_ljoqgu.jpg",
+    campaign_id: 4
+  },
+  {
+    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1587851247/Avant%20Garde/grammy3_j7ndsm.jpg",
+    campaign_id: 4
+  },
   {
     photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1587897415/Avant%20Garde/Georges_Seurat_k6ag88.jpg",
     campaign_id: 5
@@ -371,10 +379,6 @@ photo_attributes = [
   },
   {
     photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1587831391/Avant%20Garde/orlova-maria-bU8TeXhsPcY-unsplash_x2jpg9.jpg",
-    campaign_id: 8
-  },
-   {
-    photo: "https://res.cloudinary.com/ddjh71lig/image/upload/v1587851247/Avant%20Garde/grammy3_j7ndsm.jpg",
     campaign_id: 8
   },
   {
