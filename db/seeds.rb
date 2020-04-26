@@ -69,17 +69,14 @@ campaign_attributes = [
     movement: "Symbolism",
     technique: "Oil on canvas",
     dimension: "149.9 x 110.5 cm",
-    description_short: "Meet Mäda! Mäda Primavesi lived with her parents, Otto and Eugenia, in Vienna, Austria.
-    The artist Gustav Klimt made this portrait of her over a hundred years ago, when she was about nine years old.
-    He sketched Mäda many times 'from life', meaning that she visited his studio and sat and stood in various positions
-    while he drew and drew and drew. In the end, Klimt chose to show Mäda in this active standing pose, with one elbow thrust
-      out—perhaps because it suited her personality best.",
-    description_long: "Mäda Primavesi’s expression and posture convey a remarkable degree of confidence for a nine-year-old girl,
-    even one who was, by her own account, willful and a tomboy. Klimt made numerous preliminary sketches for this portrait,
-    experimenting with different poses, outfits, and backgrounds before deciding to show Mäda standing tall in a specially-made dress
-    amid a profusion of springlike patterns. The picture testifies to the sophisticated taste of her parents, banker and industrialist
-    Otto Primavesi and his wife Eugenia, who were ardent supporters of progressive Viennese art and design. In fact, Klimt soon painted
-    Eugenia’s portrait (Toyota Municipal Museum of Art, Japan).",
+    description_short: "Meet Mäda! The daughter of Otto Primavesi, who succeeded Fritz Waerndorfer as financier to the Vienna Workshop in 1914.
+    Gustav Klimt made this portrait of her, when she was about nine years old. Klimt drew Mäda many times 'from life', from sitting
+    down to standing up, this technique help Klimt understand his model. In the end, Klimt chose to showcast Mäda in this
+    active standing pose, with one elbow thrust out—perhaps because it suited her personality best.",
+    description_long: "Mäda Primavesi’s expression and posture convey a remarkable degree of confidence for a nine-year-old girl.
+    She stands upright, meeting the viewer’s gaze without shyness. Firmly anchored. Although her gaze is
+    unswerving, the girl’s hands ― which play a prominent role in other Klimt portraits ― are hidden behind her body. The picture testifies
+    to the sophisticated taste of her parents, who were ardent supporters of progressive Viennese art and design.",
     value_increase_rate: 5.5,
     payout_rate: 0.3,
     funding_status: 45,
@@ -100,14 +97,15 @@ campaign_attributes = [
     movement: "Post-Impressionism",
     technique: "Oil on canvas",
     dimension: "94 x 72.4 cm",
-    description_short: "Eugène Henri Paul Gauguin was a French post-Impressionist artist. Unappreciated until after his death,
+    description_short: "Paul Gauguin was a French post-Impressionist artist. Unappreciated until after his death,
     Gauguin is now recognized for his experimental use of color and Synthetist style that were distinct from Impressionism.",
-    description_long: "As Gauguin brought his work in Tahiti to a close, he focused increasingly on the beauty and serene virtues of
-    the native women. In this painting, he depended on sculpturally modeled forms, gesture, and facial expression to vivify
+    description_long: "Two Tahitian Women is an 1899 painting by Paul Gauguin. It depicts two topless women, one holding mango blossoms,
+    on the Pacific Island of Tahiti. As Gauguin's work in Tahiti, focused increasingly on the beauty and
+    serene virtues of the native women. In this painting, he depended on sculpturally modeled forms, gesture, and facial expression to vivify
     the sentiments he had used to describe the 'Tahitian Eve" "very subtle, very knowing in her naïveté' and at the same time
-    'still capable of walking around naked without shame.' These two figures first appear in the artist's monumental frieze Faa Iheihe
-    (Tahitian Pastoral) of 1898 (Tate, London) and again in the even larger Rupe Rupe (The Fruit Harvest) of 1899
-    (Pushkin Museum of Fine Arts, Moscow), which he composed for the upcoming Exposition Universelle of 1900.",
+    'still capable of walking around naked without shame.' Although Tahiti is depicted as an innocent paradise, the two women in the
+    painting confront the viewer in a way similar to that in Manet's Le déjeuner sur l'herbe (1863) or Olympia (1863),
+    and follow an artistic tradition of comparing woman's breasts to flowers or fruit.",
     value_increase_rate: 1.8,
     payout_rate: 0.2,
     funding_status: 88,
@@ -127,16 +125,15 @@ campaign_attributes = [
     movement: "Impressionist",
     technique: "Oil on canvas",
     dimension: "100 cm × 81 cm",
-    description_short: "Woman with a Parasol - Madame Monet and Her Son, sometimes known as The Stroll (French: La Promenade) is an
-    oil-on-canvas painting by Claude Monet from 1875. The Impressionist work depicts his wife Camille Monet and their son
+    description_short: "Woman with a Parasol - Madame Monet and Her Son,is an oil-on-canvas painting by Claude Monet from 1875.
+    The Impressionist work depicts his wife Camille Monet and their son
     Jean Monet in the period from 1871 to 1877 while they were living in Argenteuil, capturing a moment on a stroll on a windy summer's day",
     description_long: "Monet's light, spontaneous brushwork creates splashes of colour. Mrs Monet's veil is blown by the wind, as is her
     billowing white dress; the waving grass of the meadow is echoed by the green underside of her parasol. She is seen as if from below, with a
-    strong upward perspective, against fluffy white clouds in an azure sky. A boy, the Monets' seven-year-old son, is placed further away,
+    strong upward perspective, against fluffy white clouds in an azure sky. Monets' seven-year-old son, is placed further away,
     concealed behind a rise in the ground and visible only from the waist up, creating a sense of depth.
-  The work is a genre painting of an everyday family scene, not a formal portrait. The work was painted outdoors, en plein air, and quickly,
-   probably in a single period of a few hours[1] It measures 100 × 81 centimetres (39 × 32 in), Monet's largest work in the 1870s, and is
-   signed 'Monet 75' in the lower right corner.",
+    The artist intended the work to convey the feeling of a casual family outing rather than a formal portrait.
+    This is Monet's largest work in the 1870s, and is signed 'Monet 75' in the lower right corner.",
     value_increase_rate: 3.5,
     payout_rate: 0.4,
     funding_status: 100,
@@ -157,14 +154,13 @@ campaign_attributes = [
     technique: "Gelatin silver print",
     dimension: "25.9 × 19.8 cm",
     description_short: "Karl Blossfeldt was a German photographer, sculptor, teacher, and artist who worked in Berlin,
-    Germany. He is best known for his close-up photographs of plants and living things, published in 1929 as Urformen der Kunst.
-    He was inspired, as was his father, by nature and the ways in which plants grow.",
-    description_long: "What made Blossfeldt's work unique was his extreme technical mastery of photography. He specialised in
-    macrophotography to enlarge his plant specimens and even designed a camera for this purpose. As a result, everyday garden
-    flowers are presented in such a way that their rhythmic forms are emphasised to the extreme and the plants take on new and
-    exotic characteristics. Blossfeldt wanted his work to act as a teaching aid and inspiration for architects, sculptors and artists.
-    It was his firm belief that only through the close study of the intrinsic beauty present in natural forms, that contemporary art would
-    find its true direction.",
+    Germany. He is best known for his close-up photographs of plants and living things.
+    He was inspired, by nature and the ways in which plants grow.",
+    description_long: "What made Blossfeldt's work unique was his extreme technical mastery of photography. Blossfeldt had no formal
+    training as a photographer and used homemade cameras that he outfitted with lenses capable of magnifying his subjects up to 30
+    times their natural size. He specialised in macrophotography to enlarge his plant specimens. As a result, everyday garden
+    flowers are presented in such a way that their rhythmic forms are emphasised to the extreme take on new
+    exotic characteristics.",
     value_increase_rate: 3.5,
     payout_rate: 0.7,
     funding_status: 13,
@@ -184,14 +180,13 @@ campaign_attributes = [
     movement: "Pointillism",
     technique: "Pointillist technique",
     dimension: "207.6 cm × 308 cm",
-    description_short: "A Sunday Afternoon on the Island of La Grande Jatte (French: Un dimanche après-midi à l'Île de la Grande Jatte)
-    painted in 1884, is Georges Seurat's most famous work.[1] It is a leading example of pointillist technique, executed on a large canvas.
+    description_short: "A Sunday Afternoon on the Island of La Grande Jatte
+    painted in 1884, is Georges Seurat's most famous work. It is a leading example of pointillist technique, executed on a large canvas.
     Seurat's composition includes a number of Parisians at a park on the banks of the River Seine.",
-    description_long: "Georges-Pierre Seurat (1859–1891) was a French artist and painter. Seurat's paintings were known for vibrancy of
-    color and the use of tiny brushstrokes of contrasting colors. His intense interest in line, color, color theory, and optical effects
-    formed the basis of Divisionism, whereas the use of layering small brushstrokes and dots formed the basis of Pointillism. His iconic
-    late 19th-century painting, A Sunday Afternoon on the Island of La Grande Jatte (1884), paved the way for the initiation of
-    Neo-impressionism. ",
+    description_long: "A Sunday Afternoon on the Island of La Grande Jatte (1884), paved the way for the initiation of
+    Neo-impressionism. This iconic late 19th-century painting portrays vibrancy of color and the use of tiny brushstrokes of contrasting
+    colors. Seurat intense interest in line, color, color theory, and optical effects
+    formed the basis of Divisionism, whereas the use of layering small brushstrokes and dots formed the basis of Pointillism. ",
     value_increase_rate: 2.4,
     payout_rate: 0.5,
     funding_status: 25,
@@ -211,12 +206,13 @@ campaign_attributes = [
     movement: "Expressionist",
     technique: "Lithographic print",
     dimension: "90 cm × 68 cm",
-    description_short: "Originally called Loving Woman, this picture can be taken to symbolize what Munch considered the
-    essential acts of the female life cycle: sexual intercourse, causing fertilization, procreation and death.
-    Evidence for the first is in the picture itself, an intensified, spiritualized variation in the nude of the 'mating'
+    description_short: "'Madonna'—an erotic nude floating inside a blood-red border is one of the most provocative images in
+    Munch’s intensely psychological oeuvre. Originally called Loving Woman, this picture can be taken to symbolize what Munch considered the
+    essential acts of the female life cycle. The picture itself, is an intensified, spiritualized variation in the nude of the 'mating'
     pose, the woman depicted as though recumbent beneath her lover.",
-    description_long: "A recognized forerunner of Expressionism, Norwegian painter and printmaker Edvard Munch is renowned for
-    his representations of emotion. Associated with the international development of Symbolism, Munch experimented with many different
+    description_long: "Edvard Munch is a recognized Norwegian Expressionism, renowned for his representations of emotion.
+    Munch’s life experiences—including difficult relationships with women and a childhood scarred by the deaths of his mother and sister.
+    Associated with the international development of Symbolism, Munch experimented with many different
     themes, palettes, and styles of drawing. Though stylistically influenced by Paul Gauguin and the Nabis, Munch’s subjects are drawn
     from his Scandinavian roots and his own tortured psyche. ",
     value_increase_rate: 4.2,
@@ -238,15 +234,14 @@ campaign_attributes = [
     movement: "Realism",
     technique: "Etching in red-brown (sanguine) on cream Japanese paper",
     dimension: "140 × 199 mm",
-    description_short: "Pierre-Auguste Renoir (1841–1919). The young Renoir struggled with his family’s financial circumstances so he
-    left music school and started out as an apprentice at a porcelain factory. While he studied art in Paris, he befriended the young
-    impressionist painters: Frédéric Bazille, Claude Monet, and Alfred Sisley. In the 1870s, Renoir became one of the leading painters
-    in the Impressionism movement. His lively paintings mostly celebrated the beauty of feminine sensuality.",
-    description_long: "An interest in strongly delineated forms began to manifest itself in Renoir's style in the latter half of the 1880s;
+    description_short: "Woman Reclining, to the Left (1906) is a lithographs celebrating the beauty of feminine sensuality.
+    Pierre-Auguste Renoir is a leading painters in the Impressionism movement. His romantic and light-hearted style, his nudes and flowers,
+    will please any collector.",
+    description_long: " Renoir's nude series shows a landscape of topics that Renoir most enjoyed grappling with during this period. This
+    reclining nude suggests an image from a mythological painting, such as the goddess Venus or a woodland nymph. An interest in strongly
+    delineated forms began to manifest itself in Renoir's style in the latter half of the 1880s;
     thereafter his style underwent a period of transformation as he sought to imbue his forms with a sense of presence through brush
-    strokes and color. The nude in a landscape was one of the topics that Renoir most enjoyed grappling with during this period. This
-    reclining nude suggests an image from a mythological painting, such as the goddess Venus or a woodland nymph. (Source: The Digital
-    Gallery. 1999-2006)",
+    strokes and color. ",
     value_increase_rate: 3.8,
     payout_rate: 0.5,
     funding_status: 30,
@@ -268,12 +263,10 @@ campaign_attributes = [
     dimension: "50.0 x 40.0 cm",
     description_short: "Maria moves between different styles, combining abstraction with figuration. Her concerning
     themes is focused on the color palette. She is bounded with one exception: to avoid dramatism in depicted
-    situations. Only the scale between extensive backgrounds and minor human figures or vehicles is constant.
-    She has been inspired by Dutch painting, especially by Peter Breughel.",
+    situations. Only the scale between extensive backgrounds and minor human figures or vehicles is constant.",
     description_long: "Maria moves between different styles, combining abstraction with figuration. Her concerning
     themes is focused on the color palette. She is bounded with one exception: to avoid dramatism in depicted
-    situations. Only the scale between extensive backgrounds and minor human figures or vehicles is constant.
-    She has been inspired by Dutch painting, especially by Peter Breughel.",
+    situations. Only the scale between extensive backgrounds and minor human figures or vehicles is constant.",
     value_increase_rate: 4.9,
     payout_rate: 0.0,
     funding_status: 100,
