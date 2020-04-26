@@ -25,3 +25,6 @@ The main contributors to this project are:
   <li> <a href ="https://github.com/peterfoo22">Peter Suh</a></li>
   <li> <a href ="https://github.com/johweber">Johannes Weber</a></li>
 </ul> 
+
+<h2> Artworks </h2>
+<p> The project used high-resolution images licensed under <a ref ="https://ccsearch.creativecommons.org/"> Creative Commons </a>, the non-profit organization that facilities the public use of some 1.1 billion digital works. </p> 
