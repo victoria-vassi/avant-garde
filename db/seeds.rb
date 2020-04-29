@@ -12,7 +12,7 @@ gender = ["Male","Female"].sample
   randomuser = JSON.parse(user_serialized)
 
 dev = User.create(
-  email: "harry.bennett.h@gmail.com",
+  email: "harry.bennett@gmail.com",
   password: "password",
   first_name:  "Harry",
   last_name: "Bennett",
