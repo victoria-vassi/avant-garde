@@ -119,7 +119,7 @@ campaign_attributes = [
   },
   {
     artist: "Claude Monet",
-    title: "Woman with a Parasol, Madame Monet and Her Son",
+    title: "Woman with a Parasol",
     year: "1875",
     category: "Painting",
     movement: "Impressionist",
